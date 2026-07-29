@@ -275,6 +275,8 @@ def _validate_generation(
         business_date = date.fromisoformat(manifest["business_date"])
     except (AttributeError, TypeError, ValueError):
         _validation_failure()
+    if manifest["business_date"] != business_date.isoformat():
+        _validation_failure()
     if directory.name != business_date.isoformat():
         _validation_failure()
     lower, upper = china_day_bounds(business_date)

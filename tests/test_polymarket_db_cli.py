@@ -255,6 +255,7 @@ def add_artifact(manifest):
         add_manifest_field,
         lambda value: value.__setitem__("generation_id", "not-a-uuid"),
         lambda value: value.__setitem__("business_date", "2026-07-28"),
+        lambda value: value.__setitem__("business_date", "20260729"),
         lambda value: value.__setitem__("utc_lower_bound", "2026-07-28T15:00:00+00:00"),
         lambda value: value.__setitem__("captured_at", "2026-07-29T16:30:00+08:00"),
         lambda value: value.__setitem__("record_count", True),

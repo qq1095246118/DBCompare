@@ -262,3 +262,11 @@ def test_validate_serialized_record_rejects_non_shanghai_timestamps() -> None:
 
     with pytest.raises(ValueError, match="Asia/Shanghai"):
         validate_serialized_record(record)
+
+
+def test_validate_serialized_record_requires_decoded_content_object() -> None:
+    record = normalize_row(source_row())
+    record["content"] = json.dumps(record["content"])
+
+    with pytest.raises(ValueError, match="content must be a JSON object"):
+        validate_serialized_record(record)

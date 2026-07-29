@@ -216,6 +216,8 @@ def validate_serialized_record(record: object) -> str:
         type(tags) is not list or any(not isinstance(tag, str) for tag in tags)
     ):
         raise ValueError("tags must be an array of strings or null")
+    if type(record["content"]) is not dict:
+        raise ValueError("content must be a JSON object")
     content = _normalize_content(record["content"])
     for field in TIMESTAMP_FIELDS:
         _serialized_timestamp(record[field], field)
