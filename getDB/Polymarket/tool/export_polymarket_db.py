@@ -246,7 +246,17 @@ def _validate_error(error: object) -> None:
     for field in ("stage", "type", "message"):
         if not isinstance(error.get(field), str) or not error[field]:
             _validation_failure()
-    if error["stage"] == "row_validation":
+    if error["stage"] == "source":
+        if set(error) != {"stage", "type", "message"}:
+            _validation_failure()
+        if error["type"] not in _SAFE_SOURCE_ERROR_TYPES:
+            _validation_failure()
+        if error["message"] != _SOURCE_ERROR_MESSAGE:
+            _validation_failure()
+    elif error["stage"] == "source_selection":
+        if error != _no_records_error():
+            _validation_failure()
+    elif error["stage"] == "row_validation":
         if set(error) != {"id", "content_hash", "stage", "type", "message"}:
             _validation_failure()
         if error["id"] is not None and type(error["id"]) is not int:

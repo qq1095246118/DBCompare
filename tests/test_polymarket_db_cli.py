@@ -306,6 +306,64 @@ def test_validated_reader_rejects_non_array_errors(tmp_path):
         cli.read_validated_generation(directory)
 
 
+@pytest.mark.parametrize(
+    "mutate",
+    [
+        lambda error: error.__setitem__("message", "database-secret"),
+        lambda error: error.__setitem__("type", "PrivateConnectorFailure"),
+        lambda error: error.__setitem__("unexpected", True),
+    ],
+)
+def test_validated_reader_rejects_unsanitized_source_errors(tmp_path, mutate):
+    directory = tmp_path / DAY.isoformat()
+    primary = {"records": []}
+    errors = [cli._source_error(RuntimeError("private"))]
+    manifest = cli._manifest(
+        business_date=DAY,
+        lower=LOWER,
+        upper=UPPER,
+        generation_id=GENERATION_ID,
+        captured_at=CAPTURED,
+        status="failed",
+        source_row_count=None,
+        record_count=0,
+        error_count=1,
+        category_counts={},
+    )
+    assert cli._write_artifacts(directory, primary, manifest, errors) is True
+    rewrite_hashed_json(directory, "errors.json", lambda value: mutate(value[0]))
+
+    with pytest.raises(cli.GenerationValidationError):
+        cli.read_validated_generation(directory)
+
+
+def test_validated_reader_rejects_mutated_no_records_error(tmp_path):
+    directory = tmp_path / DAY.isoformat()
+    primary = {"records": []}
+    errors = [cli._no_records_error()]
+    manifest = cli._manifest(
+        business_date=DAY,
+        lower=LOWER,
+        upper=UPPER,
+        generation_id=GENERATION_ID,
+        captured_at=CAPTURED,
+        status="failed",
+        source_row_count=0,
+        record_count=0,
+        error_count=1,
+        category_counts={},
+    )
+    assert cli._write_artifacts(directory, primary, manifest, errors) is True
+    rewrite_hashed_json(
+        directory,
+        "errors.json",
+        lambda value: value[0].__setitem__("message", "different message"),
+    )
+
+    with pytest.raises(cli.GenerationValidationError):
+        cli.read_validated_generation(directory)
+
+
 def test_main_commits_successful_generation(tmp_path, monkeypatch):
     install_source(monkeypatch, [db_row(row_id=2), db_row(row_id=1)])
     exit_code = cli.main(["--date", DAY.isoformat(), "--output-root", str(tmp_path)])
