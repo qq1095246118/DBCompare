@@ -1,14 +1,17 @@
 # Polymarket 市场采集
 
-该采集器从 Polymarket 公共 Gamma API 获取活跃且未关闭的市场，按配置标签
-形成全局候选池，并依次选择最多 30 个不同市场：
+该采集器从 Polymarket 公共 Gamma API 获取活跃且未关闭的市场。分类完全依据
+Polymarket Tag 归属，不根据题目、标题或描述重新判断。每个大类独立选择最多
+20 条记录，三级指标是补足同一个 Top 20 的顺序回退：
 
-1. `liquidity` 前 10；
-2. 排除已选市场后，`dominant_probability` 前 10；
-3. 再排除已选市场后，`volume24hr` 前 10。
+1. 先按 `liquidity` 降序填充；
+2. 不足 20 条时，从尚未入选的市场中按 `dominant_probability` 降序补足；
+3. 仍不足 20 条时，再按 `volume24hr` 降序补足。
 
-`dominant_probability` 是 `outcomePrices` 中的最大值。同一事件的不同市场
-可以同时入选，但同一 `market_id` 不会重复入选。
+`dominant_probability` 是 `outcomePrices` 中的最大有效值。指标相同时按
+`market_id` 升序。同一市场在一个大类中最多出现一次；若 Polymarket 将它放入
+多个配置大类，它会在每个符合的大类中各保留一条。因此 `final.json` 最多包含
+120 条分类记录，但全局不同的 `market_id` 数量可能少于 120。
 
 ## 分类
 
@@ -20,6 +23,8 @@
 | finance | 120 |
 | technology | 105582、1401、22 |
 | crypto | 21 |
+
+technology 的三个 Tag 合并为一个候选池，并在该大类内按 `market_id` 去重。
 
 crypto 市场还必须在 `description` 中命中配置关键词。匹配不区分大小写，
 不会检查 `question` 或事件标题。市场同时命中其他分类时，crypto 未通过只会
@@ -48,8 +53,9 @@ crypto 市场还必须在 `description` 中命中配置关键词。匹配不区�
 每次运行创建独立目录 `market/YYYY-MM-DD_HHMMSS_<随机后缀>/`：
 
 - `raw/tag-*/page-*.json`：收到一页就立即写入的原始 API 响应；
-- `clean.json`：分类过滤和指标规范化后的全部候选市场；
-- `final.json`：按三级优先级选出的市场；
+- `clean.json`：按 `market_id` 全局唯一的候选市场，保留全部分类归属和规范化指标；
+- `final.json`：按固定大类顺序展开的结果，增加 `selected_category`、
+  `selected_by`、`priority` 和 `rank_in_category`；
 - `error.json`：本次运行失败时的脱敏错误信息。
 
 任一 Tag 未完整采集时不会写出 `final.json`。每次运行使用不同目录，因此失败
