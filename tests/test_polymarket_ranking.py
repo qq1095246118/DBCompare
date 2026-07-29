@@ -1,3 +1,5 @@
+from unittest.mock import ANY
+
 import pytest
 
 from getMarket.Polymarket.tool.market_filter import CATEGORY_ORDER
@@ -163,7 +165,7 @@ def test_invalid_per_category_limit_is_rejected(limit):
         select_ranked_markets([candidate(1, liquidity=1)], per_category=limit)
 
 
-@pytest.mark.parametrize("categories", [[], ["sports"], "politics"])
+@pytest.mark.parametrize("categories", [[], ["sports"], "politics", [ANY]])
 def test_invalid_category_membership_is_rejected(categories):
     with pytest.raises(ValueError, match="ranked market categories"):
         select_ranked_markets([candidate(1, liquidity=1, categories=categories)])

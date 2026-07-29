@@ -115,7 +115,10 @@ def select_ranked_markets(
         if (
             type(categories) is not list
             or not categories
-            or any(category not in CATEGORY_ORDER for category in categories)
+            or any(
+                type(category) is not str or category not in CATEGORY_ORDER
+                for category in categories
+            )
         ):
             raise ValueError("ranked market categories must be a non-empty configured list")
         seen.add(market_id)
