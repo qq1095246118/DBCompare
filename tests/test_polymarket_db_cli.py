@@ -59,6 +59,21 @@ def generation_payload():
     return primary, errors, manifest
 
 
+def install_source(monkeypatch, rows=None, error=None):
+    settings = cli.PgSettings(
+        "host-secret", 15432, "database-secret", "user-secret", "password-secret"
+    )
+    monkeypatch.setattr(cli, "load_pg_settings", lambda: settings)
+    if error is None:
+        monkeypatch.setattr(cli, "fetch_day_rows", lambda *_args: list(rows or []))
+    else:
+        monkeypatch.setattr(
+            cli, "fetch_day_rows", lambda *_args: (_ for _ in ()).throw(error)
+        )
+    monkeypatch.setattr(cli, "_new_generation_id", lambda: GENERATION_ID)
+    monkeypatch.setattr(cli, "_utc_now", lambda: CAPTURED)
+
+
 def test_parse_args_uses_shanghai_today_and_default_output(monkeypatch):
     monkeypatch.setattr(cli, "_china_today", lambda: DAY)
     arguments = cli.parse_args([])
@@ -288,3 +303,101 @@ def test_validated_reader_rejects_non_array_errors(tmp_path):
     )
     with pytest.raises(cli.GenerationValidationError):
         cli.read_validated_generation(directory)
+
+
+def test_main_commits_successful_generation(tmp_path, monkeypatch):
+    install_source(monkeypatch, [db_row(row_id=2), db_row(row_id=1)])
+    exit_code = cli.main(["--date", DAY.isoformat(), "--output-root", str(tmp_path)])
+    assert exit_code == 0
+    primary, errors, manifest = cli.read_validated_generation(tmp_path / DAY.isoformat())
+    assert [row["id"] for row in primary["records"]] == [1, 2]
+    assert errors == []
+    assert manifest["status"] == "success"
+    assert manifest["source_row_count"] == 2
+    assert manifest["record_count"] == 2
+
+
+def test_main_queries_the_exact_shanghai_day_bounds(tmp_path, monkeypatch):
+    settings = cli.PgSettings("host", 15432, "db", "user", "password")
+    captured_bounds = []
+    monkeypatch.setattr(cli, "load_pg_settings", lambda: settings)
+    monkeypatch.setattr(
+        cli, "fetch_day_rows",
+        lambda _settings, lower, upper: captured_bounds.append((lower, upper)) or [],
+    )
+    monkeypatch.setattr(cli, "_new_generation_id", lambda: GENERATION_ID)
+    monkeypatch.setattr(cli, "_utc_now", lambda: CAPTURED)
+    cli.main(["--date", DAY.isoformat(), "--output-root", str(tmp_path)])
+    assert captured_bounds == [(LOWER, UPPER)]
+
+
+def test_main_commits_partial_generation_and_returns_one(tmp_path, monkeypatch):
+    install_source(monkeypatch, [db_row(row_id=1), db_row(row_id=2, rank=0)])
+    exit_code = cli.main(["--date", DAY.isoformat(), "--output-root", str(tmp_path)])
+    assert exit_code == 1
+    primary, errors, manifest = cli.read_validated_generation(tmp_path / DAY.isoformat())
+    assert [row["id"] for row in primary["records"]] == [1]
+    assert [error["id"] for error in errors] == [2]
+    assert manifest["status"] == "partial"
+    assert manifest["source_row_count"] == 2
+    assert manifest["record_count"] == 1
+    assert manifest["error_count"] == 1
+
+
+def test_main_treats_zero_source_rows_as_a_failed_generation(tmp_path, monkeypatch):
+    install_source(monkeypatch, [])
+    exit_code = cli.main(["--date", DAY.isoformat(), "--output-root", str(tmp_path)])
+    assert exit_code == 1
+    primary, errors, manifest = cli.read_validated_generation(tmp_path / DAY.isoformat())
+    assert primary == {"records": []}
+    assert errors == [cli._no_records_error()]
+    assert manifest["status"] == "failed"
+    assert manifest["source_row_count"] == 0
+    assert manifest["category_counts"] == {}
+
+
+def test_main_treats_all_invalid_rows_as_a_failed_generation(tmp_path, monkeypatch):
+    install_source(monkeypatch, [db_row(row_id=1, rank=0), db_row(row_id=2, rank=True)])
+    exit_code = cli.main(["--date", DAY.isoformat(), "--output-root", str(tmp_path)])
+    assert exit_code == 1
+    primary, errors, manifest = cli.read_validated_generation(tmp_path / DAY.isoformat())
+    assert primary == {"records": []}
+    assert len(errors) == 2
+    assert manifest["status"] == "failed"
+    assert manifest["source_row_count"] == 2
+    assert manifest["record_count"] == 0
+
+
+def test_main_sanitizes_source_failure_and_uses_unknown_source_count(tmp_path, monkeypatch):
+    install_source(monkeypatch, error=RuntimeError(
+        "host-secret user-secret database-secret password-secret query-secret"))
+    exit_code = cli.main(["--date", DAY.isoformat(), "--output-root", str(tmp_path)])
+    assert exit_code == 1
+    directory = tmp_path / DAY.isoformat()
+    primary, errors, manifest = cli.read_validated_generation(directory)
+    assert primary == {"records": []}
+    assert errors == [{"stage": "source", "type": "RuntimeError",
+                       "message": "Database source operation failed"}]
+    assert manifest["source_row_count"] is None
+    persisted = "".join((directory / name).read_text(encoding="utf-8")
+                        for name in ("polymarket_db.json", "errors.json", "manifest.json"))
+    assert all(secret not in persisted for secret in (
+        "host-secret", "user-secret", "database-secret", "password-secret", "query-secret"))
+
+
+def test_failed_rerun_supersedes_an_older_success_for_the_same_date(tmp_path, monkeypatch):
+    install_source(monkeypatch, [db_row()])
+    arguments = ["--date", DAY.isoformat(), "--output-root", str(tmp_path)]
+    assert cli.main(arguments) == 0
+    install_source(monkeypatch, [])
+    assert cli.main(arguments) == 1
+    primary, errors, manifest = cli.read_validated_generation(tmp_path / DAY.isoformat())
+    assert primary == {"records": []}
+    assert errors == [cli._no_records_error()]
+    assert manifest["status"] == "failed"
+
+
+def test_main_returns_one_when_artifacts_cannot_be_committed(tmp_path, monkeypatch):
+    install_source(monkeypatch, [db_row()])
+    monkeypatch.setattr(cli, "_write_artifacts", lambda *_args: False)
+    assert cli.main(["--date", DAY.isoformat(), "--output-root", str(tmp_path)]) == 1

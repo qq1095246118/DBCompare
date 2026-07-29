@@ -19,9 +19,10 @@ _PROJECT_ROOT = Path(__file__).resolve().parents[3]
 if __package__ in (None, ""):
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-from common.artifacts import write_json_atomic
+from common.artifacts import output_directory, write_json_atomic
 from common.time_window import china_day_bounds
-from getDB.Polymarket.tool.contract import validate_serialized_record
+from getDB.Polymarket.tool.contract import build_db_output, validate_serialized_record
+from getDB.Polymarket.tool.db_source import PgSettings, fetch_day_rows, load_pg_settings
 
 
 _SHANGHAI = ZoneInfo("Asia/Shanghai")
@@ -386,3 +387,50 @@ def validate_manifest_artifacts(directory: Path) -> bool:
     except (GenerationLockError, GenerationValidationError):
         return False
     return True
+
+
+def main(argv: list[str] | None = None) -> int:
+    arguments = parse_args(argv)
+    lower, upper = china_day_bounds(arguments.date)
+
+    try:
+        settings = load_pg_settings()
+        rows = fetch_day_rows(settings, lower, upper)
+    except Exception as error:
+        source_row_count = None
+        primary = {"records": []}
+        errors = [_source_error(error)]
+        category_counts = {}
+    else:
+        source_row_count = len(rows)
+        if rows:
+            primary, errors, category_counts = build_db_output(rows)
+        else:
+            primary = {"records": []}
+            errors = [_no_records_error()]
+            category_counts = {}
+
+    record_count = len(primary["records"])
+    status = _generation_status(record_count, len(errors))
+    manifest = _manifest(
+        business_date=arguments.date,
+        lower=lower,
+        upper=upper,
+        generation_id=_new_generation_id(),
+        captured_at=_utc_now(),
+        status=status,
+        source_row_count=source_row_count,
+        record_count=record_count,
+        error_count=len(errors),
+        category_counts=category_counts,
+    )
+    directory = output_directory(arguments.output_root, arguments.date)
+    try:
+        written = _write_artifacts(directory, primary, manifest, errors)
+    except Exception:
+        written = False
+    return 0 if written and status == "success" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
