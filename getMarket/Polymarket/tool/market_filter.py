@@ -18,6 +18,8 @@ TAG_CATEGORIES = {
     "21": "crypto",
 }
 
+CATEGORY_ORDER = tuple(dict.fromkeys(TAG_CATEGORIES.values()))
+
 CRYPTO_KEYWORDS = (
     "regulation", "regulatory", "regulator", "sec", "cftc", "etf",
     "exchange", "binance", "coinbase", "kraken", "stablecoin", "usdt",
