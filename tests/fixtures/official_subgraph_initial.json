@@ -1,0 +1,17 @@
+[
+  {
+    "from_address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "to_address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "rel_type": "GROUPED_TRANSFER",
+    "data": {
+      "total_transfers": 1,
+      "total_value": "15.5",
+      "first_date": 1000,
+      "last_date": 2000,
+      "token_ref": {
+        "chain": "bsc",
+        "address": "0x1111111111111111111111111111111111111111"
+      }
+    }
+  }
+]

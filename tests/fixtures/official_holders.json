@@ -1,0 +1,27 @@
+[
+  {
+    "address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "address_details": {"is_supernode": false, "label": "A"},
+    "holder_data": {"rank": 1, "amount": "40", "share": "0.40"}
+  },
+  {
+    "address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "address_details": {"is_supernode": false, "label": "B"},
+    "holder_data": {"rank": 2, "amount": "30", "share": "0.30"}
+  },
+  {
+    "address": "0xcccccccccccccccccccccccccccccccccccccccc",
+    "address_details": {"is_supernode": false, "label": "C"},
+    "holder_data": {"rank": 3, "amount": "20", "share": "0.20"}
+  },
+  {
+    "address": "0xdddddddddddddddddddddddddddddddddddddddd",
+    "address_details": {"is_supernode": true, "label": null},
+    "holder_data": {"rank": 4, "amount": "10", "share": "0.10"}
+  },
+  {
+    "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "address_details": {"is_supernode": false, "label": null},
+    "holder_data": {"rank": null, "amount": "5", "share": "0.05"}
+  }
+]

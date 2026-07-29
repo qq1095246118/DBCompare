@@ -1,0 +1,104 @@
+[
+  {
+    "from_address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "to_address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "rel_type": "GROUPED_TRANSFER",
+    "data": {
+      "total_transfers": 1,
+      "total_value": "15.5",
+      "first_date": 1000,
+      "last_date": 2000,
+      "token_ref": {
+        "chain": "bsc",
+        "address": "0x1111111111111111111111111111111111111111"
+      }
+    }
+  },
+  {
+    "from_address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "to_address": "0xcccccccccccccccccccccccccccccccccccccccc",
+    "rel_type": "GROUPED_TRANSFER",
+    "data": {
+      "total_transfers": 2,
+      "total_value": "8.25",
+      "first_date": 1100,
+      "last_date": 2100,
+      "token_ref": {
+        "chain": "bsc",
+        "address": "0x1111111111111111111111111111111111111111"
+      }
+    }
+  },
+  {
+    "from_address": "0xcccccccccccccccccccccccccccccccccccccccc",
+    "to_address": "0xdddddddddddddddddddddddddddddddddddddddd",
+    "rel_type": "GROUPED_TRANSFER",
+    "data": {
+      "total_transfers": 3,
+      "total_value": "4.125",
+      "first_date": 1200,
+      "last_date": 2200,
+      "token_ref": {
+        "chain": "bsc",
+        "address": "0x1111111111111111111111111111111111111111"
+      }
+    }
+  },
+  {
+    "from_address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "to_address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "rel_type": "GROUPED_TRANSFER",
+    "data": {
+      "total_transfers": 1,
+      "total_value": "1",
+      "first_date": 1300,
+      "last_date": 2300,
+      "token_ref": {
+        "chain": "bsc",
+        "address": "0x1111111111111111111111111111111111111111"
+      }
+    }
+  },
+  {
+    "from_address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "to_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "rel_type": "GROUPED_TRANSFER",
+    "data": {
+      "total_transfers": 5,
+      "total_value": "2",
+      "first_date": 1400,
+      "last_date": 2400,
+      "token_ref": {
+        "chain": "bsc",
+        "address": "0x1111111111111111111111111111111111111111"
+      }
+    }
+  },
+  {
+    "from_address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "to_address": "0xcccccccccccccccccccccccccccccccccccccccc",
+    "rel_type": "GROUPED_TRANSFER",
+    "data": {
+      "total_transfers": 6,
+      "total_value": "3",
+      "first_date": 1500,
+      "last_date": 2500,
+      "token_ref": {
+        "chain": "bsc",
+        "address": "0x2222222222222222222222222222222222222222"
+      }
+    }
+  },
+  {
+    "from_address": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "to_address": "0xdddddddddddddddddddddddddddddddddddddddd",
+    "rel_type": "GROUPED_TRANSFER",
+    "data": {
+      "total_transfers": 7,
+      "total_value": "4",
+      "first_date": 1600,
+      "last_date": 2600,
+      "token_ref": {"id": "bsc:native"}
+    }
+  }
+]

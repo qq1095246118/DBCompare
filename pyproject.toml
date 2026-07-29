@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bubblemaps-db-compare"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "psycopg[binary]>=3.2,<4",
+  "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.2,<9", "pytest-asyncio>=0.23,<1"]
+
+[tool.setuptools.packages.find]
+include = ["common*", "getDB*", "getMarket*"]
+namespaces = false
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+  "live_bubblemaps: read-only smoke tests against the current Bubblemaps API",
+  "live_polymarket: read-only smoke tests against the current public Polymarket Gamma API",
+]

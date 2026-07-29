@@ -1,0 +1,4 @@
+{
+  "ok": false,
+  "error": "Traceback (most recent call last):\n  File \"/private/tmp/audit_binance_metadata.py\", line 34, in <module>\n    cursor.execute(\n  File \"/Users/wrh/Downloads/DBCompare/.venv/lib/python3.12/site-packages/psycopg/cursor.py\", line 117, in execute\n    raise ex.with_traceback(None)\npsycopg.OperationalError: consuming input failed: could not receive data from server: Operation timed out\n"
+}
