@@ -4,7 +4,7 @@ import json
 from collections import Counter
 from collections.abc import Iterable, Mapping
 from copy import deepcopy
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 
@@ -182,3 +182,45 @@ def build_db_output(
         for category in sorted(counts, key=_category_sort_key)
     }
     return {"records": records}, errors, category_counts
+
+
+def _serialized_timestamp(value: object, field: str) -> None:
+    if value is None:
+        if field == "created_at":
+            raise ValueError("created_at is required")
+        return
+    if not isinstance(value, str):
+        raise ValueError(f"{field} must be an ISO-8601 string")
+    try:
+        parsed = datetime.fromisoformat(value)
+    except ValueError:
+        raise ValueError(f"{field} must be an ISO-8601 string") from None
+    if parsed.tzinfo is None or parsed.utcoffset() != timedelta(hours=8):
+        raise ValueError(f"{field} must use the Asia/Shanghai offset")
+
+
+def validate_serialized_record(record: object) -> str:
+    if type(record) is not dict or set(record) != set(ROW_FIELDS):
+        raise ValueError("record fields do not match the database contract")
+    if type(record["id"]) is not int:
+        raise ValueError("id must be an integer")
+    if record["data_type"] != "PREDICTION_MARKET_SELECTION":
+        raise ValueError("data_type does not match the Polymarket contract")
+    if record["from_source"] != "polymarket":
+        raise ValueError("from_source does not match the Polymarket contract")
+    for field in ("title", "summary", "source_url", "content_hash"):
+        if record[field] is not None and not isinstance(record[field], str):
+            raise ValueError(f"{field} must be a string or null")
+    tags = record["tags"]
+    if tags is not None and (
+        type(tags) is not list or any(not isinstance(tag, str) for tag in tags)
+    ):
+        raise ValueError("tags must be an array of strings or null")
+    content = _normalize_content(record["content"])
+    for field in TIMESTAMP_FIELDS:
+        _serialized_timestamp(record[field], field)
+    try:
+        json.dumps(record, allow_nan=False)
+    except (TypeError, ValueError):
+        raise ValueError("record must contain JSON-compatible values") from None
+    return content["category"]

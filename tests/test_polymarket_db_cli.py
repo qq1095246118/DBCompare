@@ -1,7 +1,11 @@
+import hashlib
+import json
 from datetime import date, datetime, timezone
 
 import pytest
 
+from common.artifacts import write_json_atomic
+from getDB.Polymarket.tool.contract import build_db_output
 from getDB.Polymarket.tool import export_polymarket_db as cli
 
 
@@ -10,6 +14,49 @@ LOWER = datetime(2026, 7, 28, 16, tzinfo=timezone.utc)
 UPPER = datetime(2026, 7, 29, 16, tzinfo=timezone.utc)
 CAPTURED = datetime(2026, 7, 29, 8, 30, tzinfo=timezone.utc)
 GENERATION_ID = "00000000-0000-4000-8000-000000000001"
+
+
+def db_row(*, row_id=1, category="politics", rank=1, content=None):
+    business = (
+        {"category": category, "market_id": f"market-{row_id}", "rank": rank}
+        if content is None
+        else content
+    )
+    return {
+        "id": row_id,
+        "data_type": "PREDICTION_MARKET_SELECTION",
+        "title": f"Title {row_id}",
+        "summary": None,
+        "content": json.dumps(business) if isinstance(business, dict) else business,
+        "from_source": "polymarket",
+        "source_url": None,
+        "content_hash": f"hash-{row_id}",
+        "extra_data": {"market_id": f"market-{row_id}"},
+        "published_at": CAPTURED,
+        "created_at": CAPTURED,
+        "updated_at": CAPTURED,
+        "tags": ["prediction-market"],
+        "source_updated_at": None,
+    }
+
+
+def generation_payload():
+    primary, errors, counts = build_db_output(
+        [db_row(row_id=1), db_row(row_id=2, category="finance")]
+    )
+    manifest = cli._manifest(
+        business_date=DAY,
+        lower=LOWER,
+        upper=UPPER,
+        generation_id=GENERATION_ID,
+        captured_at=CAPTURED,
+        status="success",
+        source_row_count=2,
+        record_count=2,
+        error_count=0,
+        category_counts=counts,
+    )
+    return primary, errors, manifest
 
 
 def test_parse_args_uses_shanghai_today_and_default_output(monkeypatch):
@@ -63,3 +110,181 @@ def test_no_records_error_has_a_stable_non_secret_shape():
     assert cli._no_records_error() == {"stage": "source_selection",
         "type": "NoRecordsError",
         "message": "No Polymarket rows found for requested date"}
+
+
+def test_write_and_read_validated_generation(tmp_path):
+    directory = tmp_path / DAY.isoformat()
+    primary, errors, manifest = generation_payload()
+    assert cli._write_artifacts(directory, primary, manifest, errors) is True
+    actual_primary, actual_errors, actual_manifest = cli.read_validated_generation(directory)
+    assert actual_primary == primary
+    assert actual_errors == []
+    assert actual_manifest["status"] == "success"
+    assert set(actual_manifest["artifacts"]) == {"polymarket_db.json", "errors.json"}
+    for filename, metadata in actual_manifest["artifacts"].items():
+        assert metadata["sha256"] == hashlib.sha256(
+            (directory / filename).read_bytes()
+        ).hexdigest()
+
+
+def test_validated_reader_rejects_tampered_primary(tmp_path):
+    directory = tmp_path / DAY.isoformat()
+    primary, errors, manifest = generation_payload()
+    assert cli._write_artifacts(directory, primary, manifest, errors) is True
+    write_json_atomic(directory / "polymarket_db.json", {"records": []})
+    with pytest.raises(cli.GenerationValidationError):
+        cli.read_validated_generation(directory)
+
+
+def test_validated_reader_rejects_manifest_count_mismatch(tmp_path):
+    directory = tmp_path / DAY.isoformat()
+    primary, errors, manifest = generation_payload()
+    assert cli._write_artifacts(directory, primary, manifest, errors) is True
+    committed = json.loads((directory / "manifest.json").read_text())
+    committed["record_count"] = 99
+    write_json_atomic(directory / "manifest.json", committed)
+    with pytest.raises(cli.GenerationValidationError):
+        cli.read_validated_generation(directory)
+
+
+def test_validated_reader_uses_a_shared_lock(tmp_path, monkeypatch):
+    directory = tmp_path / DAY.isoformat()
+    primary, errors, manifest = generation_payload()
+    assert cli._write_artifacts(directory, primary, manifest, errors) is True
+    operations = []
+    monkeypatch.setattr(cli.fcntl, "flock", lambda _fd, operation: operations.append(operation))
+    cli.read_validated_generation(directory)
+    assert operations == [cli.fcntl.LOCK_SH, cli.fcntl.LOCK_UN]
+
+
+def test_artifact_failure_never_leaves_a_valid_final_manifest(tmp_path, monkeypatch):
+    directory = tmp_path / DAY.isoformat()
+    primary, errors, manifest = generation_payload()
+    real_write = cli.write_json_atomic
+
+    def fail_primary(path, payload):
+        if path.name == "polymarket_db.json":
+            raise OSError("write-sentinel")
+        real_write(path, payload)
+
+    monkeypatch.setattr(cli, "write_json_atomic", fail_primary)
+    assert cli._write_artifacts(directory, primary, manifest, errors) is False
+    assert cli.validate_manifest_artifacts(directory) is False
+    if (directory / "manifest.json").exists():
+        assert json.loads((directory / "manifest.json").read_text())["status"] == "in_progress"
+
+
+def test_final_manifest_failure_restores_an_uncommitted_marker(tmp_path, monkeypatch):
+    directory = tmp_path / DAY.isoformat()
+    primary, errors, manifest = generation_payload()
+    real_write = cli.write_json_atomic
+
+    def fail_final_manifest(path, payload):
+        if path.name == "manifest.json" and payload.get("status") == "success":
+            raise OSError("manifest-sentinel")
+        real_write(path, payload)
+
+    monkeypatch.setattr(cli, "write_json_atomic", fail_final_manifest)
+    assert cli._write_artifacts(directory, primary, manifest, errors) is False
+    assert cli.validate_manifest_artifacts(directory) is False
+    assert json.loads((directory / "manifest.json").read_text())["status"] == "in_progress"
+
+
+def committed_directory(tmp_path):
+    directory = tmp_path / DAY.isoformat()
+    primary, errors, manifest = generation_payload()
+    assert cli._write_artifacts(directory, primary, manifest, errors) is True
+    return directory
+
+
+def rewrite_manifest(directory, mutate):
+    path = directory / "manifest.json"
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    mutate(manifest)
+    write_json_atomic(path, manifest)
+
+
+def rewrite_hashed_json(directory, filename, mutate):
+    path = directory / filename
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    mutate(payload)
+    write_json_atomic(path, payload)
+    manifest_path = directory / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["artifacts"][filename]["sha256"] = hashlib.sha256(
+        path.read_bytes()
+    ).hexdigest()
+    write_json_atomic(manifest_path, manifest)
+
+
+def remove_dataset(manifest):
+    manifest.pop("dataset")
+
+
+def add_manifest_field(manifest):
+    manifest["unexpected"] = True
+
+
+def remove_artifact(manifest):
+    manifest["artifacts"].pop("errors.json")
+
+
+def add_artifact(manifest):
+    manifest["artifacts"]["extra.json"] = {"sha256": "0" * 64}
+
+
+@pytest.mark.parametrize(
+    "mutate",
+    [
+        remove_dataset,
+        add_manifest_field,
+        lambda value: value.__setitem__("generation_id", "not-a-uuid"),
+        lambda value: value.__setitem__("business_date", "2026-07-28"),
+        lambda value: value.__setitem__("utc_lower_bound", "2026-07-28T15:00:00+00:00"),
+        lambda value: value.__setitem__("captured_at", "2026-07-29T16:30:00+08:00"),
+        lambda value: value.__setitem__("record_count", True),
+        lambda value: value.__setitem__("category_counts", {"politics": 99}),
+        lambda value: value.__setitem__("status", "partial"),
+        lambda value: value.__setitem__("source_row_count", 3),
+        remove_artifact,
+        add_artifact,
+        lambda value: value["artifacts"]["errors.json"].__setitem__("sha256", "ABC"),
+    ],
+)
+def test_validated_reader_rejects_each_manifest_invariant(tmp_path, mutate):
+    directory = committed_directory(tmp_path)
+    rewrite_manifest(directory, mutate)
+    with pytest.raises(cli.GenerationValidationError):
+        cli.read_validated_generation(directory)
+
+
+@pytest.mark.parametrize(
+    ("filename", "mutate"),
+    [
+        ("polymarket_db.json", lambda value: value.__setitem__("extra", True)),
+        ("polymarket_db.json", lambda value: value["records"][0].__setitem__("extra", True)),
+        ("polymarket_db.json", lambda value: value["records"][0].__setitem__(
+            "created_at", "2026-07-29T08:30:00+00:00")),
+        ("polymarket_db.json", lambda value: value["records"][0].__setitem__(
+            "tags", "not-an-array")),
+        ("errors.json", lambda value: value.append({"stage": "row_validation"})),
+    ],
+)
+def test_validated_reader_rejects_each_payload_invariant(tmp_path, filename, mutate):
+    directory = committed_directory(tmp_path)
+    rewrite_hashed_json(directory, filename, mutate)
+    with pytest.raises(cli.GenerationValidationError):
+        cli.read_validated_generation(directory)
+
+
+def test_validated_reader_rejects_non_array_errors(tmp_path):
+    directory = committed_directory(tmp_path)
+    write_json_atomic(directory / "errors.json", {"error": "wrong shape"})
+    rewrite_manifest(
+        directory,
+        lambda value: value["artifacts"]["errors.json"].__setitem__(
+            "sha256", hashlib.sha256((directory / "errors.json").read_bytes()).hexdigest()
+        ),
+    )
+    with pytest.raises(cli.GenerationValidationError):
+        cli.read_validated_generation(directory)

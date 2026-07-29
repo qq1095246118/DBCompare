@@ -9,6 +9,7 @@ from getDB.Polymarket.tool.contract import (
     ROW_FIELDS,
     build_db_output,
     normalize_row,
+    validate_serialized_record,
 )
 
 
@@ -237,3 +238,27 @@ def test_build_db_output_keeps_duplicate_market_rows_across_categories() -> None
     assert [record["id"] for record in payload["records"]] == [303, 301, 302]
     assert errors == []
     assert category_counts == {"finance": 1, "technology": 2}
+
+
+def test_validate_serialized_record_accepts_only_the_committed_shape() -> None:
+    row = source_row()
+    row["content"] = {
+        "category": "geopolitics",
+        "market_id": "market-1",
+        "rank": 1,
+    }
+    record = normalize_row(row)
+
+    assert validate_serialized_record(record) == "geopolitics"
+
+    record["unexpected"] = True
+    with pytest.raises(ValueError, match="record fields"):
+        validate_serialized_record(record)
+
+
+def test_validate_serialized_record_rejects_non_shanghai_timestamps() -> None:
+    record = normalize_row(source_row())
+    record["created_at"] = "2026-07-29T01:02:03+00:00"
+
+    with pytest.raises(ValueError, match="Asia/Shanghai"):
+        validate_serialized_record(record)
