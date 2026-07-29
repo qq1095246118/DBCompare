@@ -1,7 +1,8 @@
 """Validation and deterministic transformation for Polymarket database rows."""
 
 import json
-from collections.abc import Mapping
+from collections import Counter
+from collections.abc import Iterable, Mapping
 from copy import deepcopy
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -39,6 +40,9 @@ TIMESTAMP_FIELDS = (
 )
 
 _SHANGHAI = ZoneInfo("Asia/Shanghai")
+_CATEGORY_INDEX = {
+    category: index for index, category in enumerate(CATEGORY_ORDER)
+}
 
 
 def _reject_json_constant(_value: str) -> None:
@@ -116,3 +120,65 @@ def normalize_row(row: Mapping) -> dict:
             "database row must contain JSON-compatible values"
         ) from exc
     return result
+
+
+def _category_sort_key(category: str) -> tuple:
+    if category in _CATEGORY_INDEX:
+        return (0, _CATEGORY_INDEX[category], "", "")
+    return (1, len(CATEGORY_ORDER), category.casefold(), category)
+
+
+def _record_sort_key(record: Mapping[str, object]) -> tuple:
+    content = record["content"]
+    assert isinstance(content, Mapping)
+    category = content["category"]
+    rank = content["rank"]
+    created_at = record["created_at"]
+    record_id = record["id"]
+    assert isinstance(category, str)
+    assert isinstance(rank, int)
+    assert isinstance(created_at, str)
+    assert isinstance(record_id, int)
+    return (
+        _category_sort_key(category),
+        rank,
+        datetime.fromisoformat(created_at),
+        record_id,
+    )
+
+
+def _row_error(row: object, error: Exception) -> dict:
+    row_id = None
+    content_hash = None
+    if isinstance(row, Mapping):
+        if type(row.get("id")) is int:
+            row_id = row["id"]
+        if isinstance(row.get("content_hash"), str):
+            content_hash = row["content_hash"]
+    return {
+        "id": row_id,
+        "content_hash": content_hash,
+        "stage": "row_validation",
+        "type": type(error).__name__,
+        "message": str(error),
+    }
+
+
+def build_db_output(
+    rows: Iterable[Mapping[str, object]],
+) -> tuple[dict, list[dict], dict[str, int]]:
+    records = []
+    errors = []
+    for row in rows:
+        try:
+            records.append(normalize_row(row))
+        except Exception as error:
+            errors.append(_row_error(row, error))
+
+    records.sort(key=_record_sort_key)
+    counts = Counter(record["content"]["category"] for record in records)
+    category_counts = {
+        category: counts[category]
+        for category in sorted(counts, key=_category_sort_key)
+    }
+    return {"records": records}, errors, category_counts
