@@ -1,10 +1,11 @@
+from collections import Counter
 from datetime import date
 import json
 
 import pytest
 
 from getMarket.Polymarket.tool import export_polymarket_market as cli
-from getMarket.Polymarket.tool.market_filter import TAG_CATEGORIES
+from getMarket.Polymarket.tool.market_filter import CATEGORY_ORDER, TAG_CATEGORIES
 from getMarket.Polymarket.tool.polymarket_api import MarketPage, PolymarketApiError
 
 
@@ -39,16 +40,32 @@ def page(tag_id, markets):
     )
 
 
-def complete_pages():
-    rows = [{
-        "id": f"{index:03}", "active": True, "closed": False,
-        "liquidity": str(index),
-        "outcomePrices": [str(index / 100), str(1 - index / 100)],
-        "volume24hr": str(1000 - index),
-    } for index in range(1, 36)]
+def source_market(market_id, liquidity):
     return {
-        tag_id: [page(tag_id, rows if tag_id == "2" else [])]
-        for tag_id in TAG_CATEGORIES
+        "id": market_id,
+        "active": True,
+        "closed": False,
+        "description": "ETF regulation update.",
+        "liquidity": str(liquidity),
+        "outcomePrices": ["0.6", "0.4"],
+        "volume24hr": str(1000 - liquidity),
+    }
+
+
+def complete_pages():
+    rows_by_category = {
+        category: [
+            source_market(f"{category}-{index:02d}", index)
+            for index in range(1, 22)
+        ]
+        for category in CATEGORY_ORDER
+    }
+    shared = source_market("shared", 100)
+    rows_by_category["politics"][0] = shared
+    rows_by_category["finance"][0] = shared
+    return {
+        tag_id: [page(tag_id, rows_by_category[category])]
+        for tag_id, category in TAG_CATEGORIES.items()
     }
 
 
@@ -84,11 +101,29 @@ async def test_run_collects_all_tags_and_publishes_ranked_generation(tmp_path, m
     assert client.requested_tags == list(TAG_CATEGORIES)
     run_dir = tmp_path / "2026-07-28_080000_run1"
     final = json.loads((run_dir / "final.json").read_text())
-    assert len(final) == 30
-    assert len({row["market_id"] for row in final}) == 30
-    assert [row["selected_by"] for row in final[:10]] == ["liquidity"] * 10
+    assert len(final) == 120
+    assert Counter(row["selected_category"] for row in final) == Counter({
+        category: 20 for category in CATEGORY_ORDER
+    })
+    assert [row["selected_category"] for row in final] == [
+        category for category in CATEGORY_ORDER for _ in range(20)
+    ]
+    assert [row["rank_in_category"] for row in final] == (
+        list(range(1, 21)) * len(CATEGORY_ORDER)
+    )
+    assert [row["selected_by"] for row in final] == ["liquidity"] * 120
+    assert [row["priority"] for row in final] == [1] * 120
+    assert [
+        row["selected_category"] for row in final if row["market_id"] == "shared"
+    ] == ["politics", "finance"]
+
     clean = json.loads((run_dir / "clean.json").read_text())
-    assert len(clean) == 35
+    assert len(clean) == 125
+    assert len({row["market_id"] for row in clean}) == 125
+    shared_clean = next(row for row in clean if row["market_id"] == "shared")
+    assert shared_clean["categories"] == ["finance", "politics"]
+    assert "selected_category" not in shared_clean
+
     raw_files = sorted((run_dir / "raw").glob("tag-*/page-*.json"))
     assert len(raw_files) == len(TAG_CATEGORIES)
     assert not (run_dir / "manifest.json").exists()
@@ -115,3 +150,6 @@ async def test_run_preserves_safe_failure_without_replacing_success(tmp_path, mo
     error = tmp_path / "2026-07-28_080001_run2/error.json"
     assert json.loads(error.read_text())["message"] == "request failed"
     assert "secret" not in error.read_text()
+    failed_run = tmp_path / "2026-07-28_080001_run2"
+    assert not (failed_run / "clean.json").exists()
+    assert not (failed_run / "final.json").exists()
