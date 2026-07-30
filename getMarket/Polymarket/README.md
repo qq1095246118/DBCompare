@@ -65,6 +65,8 @@ generation。API 无法可靠提供的字段使用 `null`，包括数据库 `id`
 `selected_category` 和 `rank_in_category` 分别映射为 `content.category` 和
 `content.rank`；`selected_by` 与 `priority` 不再写入最终产物。需要 API 候选细节时
 读取结构保持不变的 `clean.json`。
+这是破坏性格式变更；原先直接遍历顶层数组的调用方必须改为读取
+`payload["records"]`。
 
 任一 Tag 未完整采集时不会写出 `final.json`。每次运行使用不同目录，因此失败
 运行不会覆盖先前结果，也不需要发布锁、备份或回滚流程。逐页写 raw 避免把
