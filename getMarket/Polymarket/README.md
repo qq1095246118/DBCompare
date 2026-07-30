@@ -53,10 +53,18 @@ crypto 市场还必须在 `description` 中命中配置关键词。匹配不区�
 每次运行创建独立目录 `market/YYYY-MM-DD_HHMMSS_<随机后缀>/`：
 
 - `raw/tag-*/page-*.json`：收到一页就立即写入的原始 API 响应；
-- `clean.json`：按 `market_id` 全局唯一的候选市场，保留全部分类归属和规范化指标；
-- `final.json`：按固定大类顺序展开的结果，增加 `selected_category`、
-  `selected_by`、`priority` 和 `rank_in_category`；
+- `clean.json`：按 `market_id` 全局唯一的候选市场，保留全部分类归属、匹配
+  Tag、规范化指标和压缩后的 API `source`；
+- `final.json`：顶层为 `{"records": [...]}`，每条记录使用与 DB 处理结果
+  相同的 14 个外层字段、17 个 `content` 字段和 8 个 `extra_data` 字段；
 - `error.json`：本次运行失败时的脱敏错误信息。
+
+`final.json` 只保证结构与 DB 处理结果对齐，不保证字段值相同，也不是有效的 DB
+generation。API 无法可靠提供的字段使用 `null`，包括数据库 `id`、
+`content_hash` 和窗口字段，因此不能交给 DB 侧严格记录校验器。
+`selected_category` 和 `rank_in_category` 分别映射为 `content.category` 和
+`content.rank`；`selected_by` 与 `priority` 不再写入最终产物。需要 API 候选细节时
+读取结构保持不变的 `clean.json`。
 
 任一 Tag 未完整采集时不会写出 `final.json`。每次运行使用不同目录，因此失败
 运行不会覆盖先前结果，也不需要发布锁、备份或回滚流程。逐页写 raw 避免把
