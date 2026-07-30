@@ -31,7 +31,7 @@ EXTRA_DATA_FIELDS = (
 
 
 def _json_number(value: object, *, maximum: Decimal | None = None) -> float | None:
-    if isinstance(value, bool) or value is None:
+    if isinstance(value, bool) or not isinstance(value, (str, int, float, Decimal)):
         return None
     try:
         number = Decimal(str(value))
@@ -64,7 +64,7 @@ def _dominant_outcome(source: Mapping[object, object]) -> str | None:
     selected_outcome: str | None = None
     selected_price: float | None = None
     for outcome, price in zip(outcomes, prices):
-        if not isinstance(outcome, str) or not outcome.strip():
+        if not isinstance(outcome, str):
             return None
         probability = _json_number(price, maximum=Decimal("1"))
         if probability is None:

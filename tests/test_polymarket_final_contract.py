@@ -1,6 +1,7 @@
 from copy import deepcopy
 from datetime import date, datetime, timedelta, timezone
 import json
+from pathlib import Path
 
 import pytest
 
@@ -131,6 +132,37 @@ def test_selects_first_dominant_outcome_for_tied_json_arrays():
 
     assert output["records"][0]["content"]["dominant_outcome"] == "First"
     assert output["records"][0]["content"]["outcome"] == "First"
+
+
+def test_selects_an_empty_string_outcome_label_when_it_has_the_highest_price():
+    row = selected(source={
+        "question": "Empty label?", "outcomes": ["", "No"],
+        "outcomePrices": ["0.9", "0.1"],
+    })
+
+    content = build([row])["records"][0]["content"]
+
+    assert content["dominant_outcome"] == ""
+    assert content["outcome"] == ""
+
+
+def test_rejects_stringifiable_objects_as_metrics_and_outcome_prices():
+    row = selected(
+        source={
+            "question": "Path values?", "outcomes": ["Yes", "No"],
+            "outcomePrices": [Path("0.9"), "0.1"],
+        },
+        normalized_metrics={
+            "liquidity": Path("12.5"), "volume24hr": "42",
+            "dominant_probability": "0.9",
+        },
+    )
+
+    content = build([row])["records"][0]["content"]
+
+    assert content["liquidity"] is None
+    assert content["dominant_outcome"] is None
+    assert content["outcome"] is None
 
 
 def test_invalid_optional_metrics_outcomes_and_question_become_none():
