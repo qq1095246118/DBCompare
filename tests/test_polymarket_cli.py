@@ -5,6 +5,11 @@ import json
 import pytest
 
 from getMarket.Polymarket.tool import export_polymarket_market as cli
+from getMarket.Polymarket.tool.final_contract import (
+    CONTENT_FIELDS,
+    EXTRA_DATA_FIELDS,
+    OUTER_FIELDS,
+)
 from getMarket.Polymarket.tool.market_filter import CATEGORY_ORDER, TAG_CATEGORIES
 from getMarket.Polymarket.tool.polymarket_api import MarketPage, PolymarketApiError
 
@@ -43,10 +48,12 @@ def page(tag_id, markets):
 def source_market(market_id, liquidity):
     return {
         "id": market_id,
+        "question": f"Question {market_id}?",
         "active": True,
         "closed": False,
         "description": "ETF regulation update.",
         "liquidity": str(liquidity),
+        "outcomes": ["Yes", "No"],
         "outcomePrices": ["0.6", "0.4"],
         "volume24hr": str(1000 - liquidity),
     }
@@ -100,29 +107,56 @@ async def test_run_collects_all_tags_and_publishes_ranked_generation(tmp_path, m
     assert exit_code == 0
     assert client.requested_tags == list(TAG_CATEGORIES)
     run_dir = tmp_path / "2026-07-28_080000_run1"
-    final = json.loads((run_dir / "final.json").read_text())
-    assert len(final) == 120
-    assert Counter(row["selected_category"] for row in final) == Counter({
+    final_payload = json.loads((run_dir / "final.json").read_text())
+    assert set(final_payload) == {"records"}
+    records = final_payload["records"]
+    assert len(records) == 120
+    assert Counter(row["content"]["category"] for row in records) == Counter({
         category: 20 for category in CATEGORY_ORDER
     })
-    assert [row["selected_category"] for row in final] == [
+    assert [row["content"]["category"] for row in records] == [
         category for category in CATEGORY_ORDER for _ in range(20)
     ]
-    assert [row["rank_in_category"] for row in final] == (
+    assert [row["content"]["rank"] for row in records] == (
         list(range(1, 21)) * len(CATEGORY_ORDER)
     )
-    assert [row["selected_by"] for row in final] == ["liquidity"] * 120
-    assert [row["priority"] for row in final] == [1] * 120
     assert [
-        row["selected_category"] for row in final if row["market_id"] == "shared"
+        row["content"]["category"]
+        for row in records
+        if row["content"]["market_id"] == "shared"
     ] == ["politics", "finance"]
+    representative = next(
+        row for row in records
+        if row["content"]["market_id"] == "shared"
+        and row["content"]["category"] == "politics"
+    )
+    assert set(representative) == set(OUTER_FIELDS)
+    assert set(representative["content"]) == set(CONTENT_FIELDS)
+    assert set(representative["extra_data"]) == set(EXTRA_DATA_FIELDS)
+    assert representative["id"] is None
+    assert representative["data_type"] == "PREDICTION_MARKET_SELECTION"
+    assert representative["from_source"] == "polymarket"
+    assert representative["title"] == "Question shared?"
+    assert representative["created_at"] == "2026-07-28T08:00:00+08:00"
+    assert representative["updated_at"] == "2026-07-28T08:00:00+08:00"
+    assert representative["content"]["dominant_outcome"] == "Yes"
+    assert representative["content"]["dominant_probability"] == 0.6
+    assert representative["content"]["fetched_at"] == CAPTURED_AT
+    assert representative["content"]["snapshot_date"] == DAY.isoformat()
+    assert representative["extra_data"]["fetched_at"] == "2026-07-28T00:00:00+00:00"
+    assert representative["extra_data"]["snapshot_date"] == DAY.isoformat()
+    assert not {
+        "selected_category", "rank_in_category", "selected_by", "priority",
+    } & representative.keys()
 
     clean = json.loads((run_dir / "clean.json").read_text())
     assert len(clean) == 125
     assert len({row["market_id"] for row in clean}) == 125
     shared_clean = next(row for row in clean if row["market_id"] == "shared")
     assert shared_clean["categories"] == ["finance", "politics"]
-    assert "selected_category" not in shared_clean
+    assert shared_clean["normalized_metrics"]["liquidity"] == "100"
+    assert shared_clean["source"]["question"] == "Question shared?"
+    assert not {"selected_category", "selected_by", "priority"} & shared_clean.keys()
 
     raw_files = sorted((run_dir / "raw").glob("tag-*/page-*.json"))
     assert len(raw_files) == len(TAG_CATEGORIES)
@@ -153,3 +187,34 @@ async def test_run_preserves_safe_failure_without_replacing_success(tmp_path, mo
     failed_run = tmp_path / "2026-07-28_080001_run2"
     assert not (failed_run / "clean.json").exists()
     assert not (failed_run / "final.json").exists()
+
+
+@pytest.mark.asyncio
+async def test_run_treats_final_conversion_failure_as_processing_error(
+    tmp_path, monkeypatch,
+):
+    monkeypatch.setattr(cli, "_business_today", lambda: DAY)
+    monkeypatch.setattr(cli, "_utc_now", lambda: CAPTURED_AT)
+    monkeypatch.setattr(cli, "_run_name", lambda _day: "failed-conversion")
+
+    def fail_conversion(*args, **kwargs):
+        raise ValueError("private conversion detail")
+
+    monkeypatch.setattr(cli, "build_db_aligned_final", fail_conversion)
+
+    exit_code = await cli.run_async(
+        cli.parse_args(["--output-root", str(tmp_path)]),
+        client=FakeClient(complete_pages()),
+    )
+
+    assert exit_code == 1
+    run_dir = tmp_path / "failed-conversion"
+    error_path = run_dir / "error.json"
+    error_payload = json.loads(error_path.read_text())
+    assert error_payload["stage"] == "processing"
+    assert error_payload["type"] == "ValueError"
+    assert error_payload["message"] == "processing failed"
+    assert "private conversion detail" not in error_path.read_text()
+    assert not (run_dir / "clean.json").exists()
+    assert not (run_dir / "final.json").exists()
+    assert len(list((run_dir / "raw").glob("tag-*/page-*.json"))) == len(TAG_CATEGORIES)

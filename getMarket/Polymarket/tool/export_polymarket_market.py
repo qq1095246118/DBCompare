@@ -17,6 +17,7 @@ if __package__ in (None, ""):
     sys.path.insert(0, str(_PROJECT_ROOT))
 
 from common.artifacts import write_json_atomic
+from getMarket.Polymarket.tool.final_contract import build_db_aligned_final
 from getMarket.Polymarket.tool.market_filter import (
     TAG_CATEGORIES,
     TaggedMarket,
@@ -164,8 +165,13 @@ async def run_async(
                 )
         merged = merge_markets(tagged)
         ranked = select_ranked_markets(merged.markets)
+        final_payload = build_db_aligned_final(
+            ranked.selected,
+            business_date=business_date,
+            captured_at=datetime.fromisoformat(captured_at.replace("Z", "+00:00")),
+        )
         write_json_atomic(run_directory / "clean.json", ranked.candidates)
-        write_json_atomic(run_directory / "final.json", ranked.selected)
+        write_json_atomic(run_directory / "final.json", final_payload)
         return 0
     except Exception as error:
         write_json_atomic(
