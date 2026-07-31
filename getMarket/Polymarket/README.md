@@ -1,17 +1,19 @@
 # Polymarket 市场采集
 
 该采集器从 Polymarket 公共 Gamma API 获取活跃且未关闭的市场。分类完全依据
-Polymarket Tag 归属，不根据题目、标题或描述重新判断。每个大类独立选择最多
-20 条记录，三级指标是补足同一个 Top 20 的顺序回退：
+Polymarket Tag 归属，不根据题目、标题或描述重新判断。默认每个大类独立选择
+最多 20 条记录，可通过 `--per-category` 调整。三级指标按顺序补足同一个大类
+限额：
 
 1. 先按 `liquidity` 降序填充；
-2. 不足 20 条时，从尚未入选的市场中按 `dominant_probability` 降序补足；
-3. 仍不足 20 条时，再按 `volume24hr` 降序补足。
+2. 未达到限额时，从尚未入选的市场中按 `dominant_probability` 降序补足；
+3. 仍未达到限额时，再按 `volume24hr` 降序补足。
 
 `dominant_probability` 是 `outcomePrices` 中的最大有效值。指标相同时按
 `market_id` 升序。同一市场在一个大类中最多出现一次；若 Polymarket 将它放入
-多个配置大类，它会在每个符合的大类中各保留一条。因此 `final.json` 最多包含
-120 条分类记录，但全局不同的 `market_id` 数量可能少于 120。
+多个配置大类，它会在每个符合的大类中各保留一条。默认配置下，`final.json`
+最多包含 120 条分类记录；使用 `--per-category N` 时最多为 `6 * N` 条，但全局
+不同的 `market_id` 数量可能少于分类记录数。
 
 ## 分类
 
@@ -36,17 +38,22 @@ crypto 市场还必须在 `description` 中命中配置关键词。匹配不区�
 .venv/bin/python -m getMarket.Polymarket.tool.export_polymarket_market
 ```
 
-指定日期和分页大小：
+指定日期、每类数量和分页大小：
 
 ```bash
 .venv/bin/python -m getMarket.Polymarket.tool.export_polymarket_market \
   --business-date 2026-07-28 \
+  --per-category 10 \
   --page-limit 20
 ```
 
 可用参数：`--output-root`、`--business-date`、`--timeout`、
-`--max-attempts`、`--retry-delay`、`--page-limit`。业务日期默认使用
-`Asia/Shanghai`。项目不创建 cron 或其他系统定时任务。
+`--max-attempts`、`--retry-delay`、`--per-category`、`--page-limit`。业务日期
+默认使用 `Asia/Shanghai`。项目不创建 cron 或其他系统定时任务。
+
+`--per-category` 控制每个大类写入 `final.json` 的最大条数，默认 20，接受任意
+正整数。它不会减少 Gamma API 翻页，也不会截断 `clean.json`。`--page-limit`
+只控制每页请求数量，允许范围仍为 1–20。
 
 ## 产物
 
