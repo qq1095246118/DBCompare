@@ -80,6 +80,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--max-attempts", type=_positive_int, default=3)
     parser.add_argument("--retry-delay", type=_nonnegative_float, default=0.25)
     parser.add_argument("--page-limit", type=_positive_int, default=20)
+    parser.add_argument("--per-category", type=_positive_int, default=20)
     arguments = parser.parse_args(argv)
     if arguments.page_limit > 20:
         parser.error("--page-limit must not exceed 20")
@@ -164,7 +165,10 @@ async def run_async(
                     for row in page.payload["markets"]
                 )
         merged = merge_markets(tagged)
-        ranked = select_ranked_markets(merged.markets)
+        ranked = select_ranked_markets(
+            merged.markets,
+            per_category=args.per_category,
+        )
         final_payload = build_db_aligned_final(
             ranked.selected,
             business_date=business_date,

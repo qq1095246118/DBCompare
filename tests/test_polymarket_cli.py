@@ -23,15 +23,18 @@ class FakeClient:
         self.pages_by_tag = pages_by_tag
         self.failure = failure
         self.requested_tags = []
+        self.requested_page_limits = []
 
     async def collect_tag(self, tag_id, *, page_limit):
         self.requested_tags.append(tag_id)
+        self.requested_page_limits.append(page_limit)
         if self.failure and tag_id == self.failure.tag_id:
             raise self.failure
         return self.pages_by_tag[tag_id]
 
     async def iter_tag(self, tag_id, *, page_limit):
         self.requested_tags.append(tag_id)
+        self.requested_page_limits.append(page_limit)
         if self.failure and tag_id == self.failure.tag_id:
             raise self.failure
         for item in self.pages_by_tag[tag_id]:
@@ -81,11 +84,21 @@ def test_parse_args_uses_project_output_root():
 
     assert args.output_root == cli._PROJECT_ROOT / "getMarket" / "Polymarket" / "market"
     assert args.page_limit == 20
+    assert args.per_category == 20
+
+
+def test_parse_args_accepts_configurable_per_category_limit():
+    assert cli.parse_args(["--per-category", "10"]).per_category == 10
+    assert cli.parse_args(["--per-category", "100"]).per_category == 100
 
 
 @pytest.mark.parametrize("argv", [
     ["--timeout", "0"], ["--max-attempts", "0"], ["--page-limit", "0"],
     ["--page-limit", "21"],
+    ["--per-category", "0"],
+    ["--per-category", "-1"],
+    ["--per-category", "1.5"],
+    ["--per-category", "ten"],
     ["--business-date", "2026/07/28"],
 ])
 def test_parse_args_rejects_invalid_values(argv):
@@ -161,6 +174,49 @@ async def test_run_collects_all_tags_and_publishes_ranked_generation(tmp_path, m
     raw_files = sorted((run_dir / "raw").glob("tag-*/page-*.json"))
     assert len(raw_files) == len(TAG_CATEGORIES)
     assert not (run_dir / "manifest.json").exists()
+
+
+@pytest.mark.asyncio
+async def test_run_limits_final_per_category_without_truncating_clean(
+    tmp_path, monkeypatch,
+):
+    client = FakeClient(complete_pages())
+    monkeypatch.setattr(cli, "_business_today", lambda: DAY)
+    monkeypatch.setattr(cli, "_utc_now", lambda: CAPTURED_AT)
+    monkeypatch.setattr(cli, "_run_name", lambda _day: "2026-07-28_080000_limit10")
+
+    exit_code = await cli.run_async(
+        cli.parse_args([
+            "--output-root", str(tmp_path),
+            "--per-category", "10",
+        ]),
+        client=client,
+    )
+
+    assert exit_code == 0
+    assert client.requested_tags == list(TAG_CATEGORIES)
+    assert client.requested_page_limits == [20] * len(TAG_CATEGORIES)
+    run_dir = tmp_path / "2026-07-28_080000_limit10"
+    records = json.loads((run_dir / "final.json").read_text())["records"]
+    assert len(records) == 60
+    assert Counter(row["content"]["category"] for row in records) == Counter({
+        category: 10 for category in CATEGORY_ORDER
+    })
+    assert [row["content"]["category"] for row in records] == [
+        category for category in CATEGORY_ORDER for _ in range(10)
+    ]
+    assert [row["content"]["rank"] for row in records] == (
+        list(range(1, 11)) * len(CATEGORY_ORDER)
+    )
+    assert [
+        row["content"]["category"]
+        for row in records
+        if row["content"]["market_id"] == "shared"
+    ] == ["politics", "finance"]
+
+    clean = json.loads((run_dir / "clean.json").read_text())
+    assert len(clean) == 125
+    assert len({row["market_id"] for row in clean}) == 125
 
 
 @pytest.mark.asyncio
