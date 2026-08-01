@@ -62,6 +62,17 @@ class PolymarketApiError(RuntimeError):
         super().__init__(message)
 
 
+class PolymarketTagsError(PolymarketApiError):
+    def __init__(self, message: str, *, page: MarketPage) -> None:
+        super().__init__(
+            message,
+            status=page.status,
+            attempts=page.attempts,
+            tag_id=page.tag_id,
+            cursor=page.cursor,
+        )
+
+
 class ApiTransport(Protocol):
     async def send(
         self, request: ApiRequest, *, timeout: float
@@ -139,6 +150,23 @@ def _validated_payload(body: bytes) -> dict[str, object]:
     return payload
 
 
+def validate_market_tags(page: MarketPage) -> None:
+    markets = page.payload["markets"]
+    assert type(markets) is list
+    malformed = any(
+        type(market.get("tags")) is not list
+        or any(
+            type(tag) is not dict
+            or not isinstance(tag.get("slug"), str)
+            or not tag["slug"].strip()
+            for tag in market["tags"]
+        )
+        for market in markets
+    )
+    if malformed:
+        raise PolymarketTagsError("official response was invalid", page=page)
+
+
 class PolymarketApiClient:
     def __init__(
         self,
@@ -168,6 +196,7 @@ class PolymarketApiClient:
             "tag_id": tag_id,
             "active": "true",
             "closed": "false",
+            "include_tag": "true",
             "limit": str(page_limit),
         }
         if cursor is not None:
@@ -258,8 +287,10 @@ class PolymarketApiClient:
         page_limit: int,
         max_pages: int | None = None,
     ) -> list[MarketPage]:
-        return [
-            page async for page in self.iter_tag(
-                tag_id, page_limit=page_limit, max_pages=max_pages
-            )
-        ]
+        pages = []
+        async for page in self.iter_tag(
+            tag_id, page_limit=page_limit, max_pages=max_pages
+        ):
+            validate_market_tags(page)
+            pages.append(page)
+        return pages
