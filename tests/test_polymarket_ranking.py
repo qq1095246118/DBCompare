@@ -235,6 +235,7 @@ def test_selected_rows_have_current_ranking_metadata_only():
         "priority": 99,
         "rank_in_category": 99,
         "rank_in_priority": 99,
+        "unexpected_metadata": "discard",
     })
 
     result = select_ranked_markets([row])
@@ -250,6 +251,19 @@ def test_selected_rows_have_current_ranking_metadata_only():
     assert not {
         "selected_by", "priority", "rank_in_category", "rank_in_priority",
     }.intersection(selected)
+    assert set(selected) == {
+        "market_id",
+        "categories",
+        "matched_tag_ids",
+        "crypto_topics",
+        "matched_crypto_tag_slugs",
+        "source",
+        "normalized_metrics",
+        "selected_category",
+        "ranking_metric",
+        "ranking_priority",
+        "rank",
+    }
 
 
 def test_duplicate_category_and_market_id_pair_is_rejected():

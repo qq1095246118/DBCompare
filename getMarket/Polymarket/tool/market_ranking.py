@@ -13,6 +13,15 @@ from getMarket.Polymarket.tool.market_filter import CATEGORY_ORDER
 
 METRIC_PRIORITIES = ("liquidity", "dominant_probability", "volume24hr")
 RANKING_LIMIT = 10
+_SELECTED_CANDIDATE_FIELDS = (
+    "market_id",
+    "categories",
+    "matched_tag_ids",
+    "crypto_topics",
+    "matched_crypto_tag_slugs",
+    "source",
+    "normalized_metrics",
+)
 
 
 @dataclass(frozen=True)
@@ -153,11 +162,11 @@ def select_ranked_markets(
                 "excluded_by_priorities": excluded,
             }
             for rank, row in enumerate(winners, start=1):
-                final = deepcopy(row)
-                for legacy_key in (
-                    "selected_by", "priority", "rank_in_category", "rank_in_priority",
-                ):
-                    final.pop(legacy_key, None)
+                final = {
+                    key: deepcopy(row[key])
+                    for key in _SELECTED_CANDIDATE_FIELDS
+                    if key in row
+                }
                 final.update({
                     "selected_category": category,
                     "ranking_metric": metric,
