@@ -88,7 +88,13 @@ title, description, event text, or market meaning.
 Category pools are logically independent. A market returned by multiple
 configured category streams is eligible in each corresponding category. It may
 therefore appear once in each such category in `final.json`. Within one category,
-the candidate is unique by non-empty string market ID.
+the candidate is unique by non-whitespace string market ID.
+
+Candidate identity is the `(category, market ID)` pair. `clean.json` therefore
+keeps separate category-candidate rows, including the category-specific compact
+source returned by each stream, when the same market ID occurs in more than one
+configured category. A source from one category must never be reused to rank
+another category.
 
 ## Market Tag Validation
 
@@ -218,14 +224,25 @@ The current database rows verified during design contain only the observed
 values rather than values inferred from existing database examples.
 
 `clean.json` also retains the matched topic values and the exact matching Tag
-slugs, sorted lexicographically, as filter evidence.
+slugs, sorted lexicographically, as filter evidence. Evidence includes only
+slugs that contributed to a satisfied topic rule. In particular, a lone
+`exchange` or `exchanges` slug is not evidence when exchange risk lacks its
+required risk-group match, even if another topic such as ETF makes the market
+eligible.
 
 ## Candidate Processing
 
+An HTTP response becomes a raw JSON page only after transport status, JSON
+decoding, the top-level `markets` list, market object members, and pagination
+cursor shape have been validated. A body that cannot satisfy that envelope is
+not representable as the documented raw JSON page and fails before a page file
+is written. Once that envelope is valid, persist the page before validating the
+required market Tags relation or compacting/filtering its markets.
+
 Pages are processed as they arrive:
 
-1. Persist the raw page under its category Tag directory.
-2. Validate the response and market Tags relation.
+1. Persist the envelope-valid raw page under its category Tag directory.
+2. Validate the market Tags relation.
 3. Retain only the compact market and event fields needed by filtering, metric
    normalization, final conversion, and inspection.
 4. Apply the crypto topic rules when processing the crypto stream.
@@ -479,6 +496,7 @@ Offline tests must verify:
 - every configured crypto slug maps to the correct canonical topic;
 - exchange risk requires one exchange slug and one risk slug;
 - shared risk slugs may independently match protocol/security;
+- filter evidence contains only slugs contributing to satisfied topic rules;
 - multiple matched crypto topics produce one crypto candidate with all topics;
 - only Tag 1401 populates the configured technology stream;
 - each category has three independent ranking capacities of ten;
@@ -488,6 +506,7 @@ Offline tests must verify:
 - invalid metrics affect only their own ranking;
 - metric ties use market ID ascending;
 - market IDs are unique within a category and may repeat across categories;
+- repeated IDs across categories retain each stream's independent compact source;
 - short rankings succeed with their actual record count;
 - the fixed maximum is thirty records per category and 180 total;
 - ranking metric, priority, and rank match between `content` and `extra_data`;
@@ -495,14 +514,17 @@ Offline tests must verify:
   database contract;
 - unavailable values are serialized as `null` without changing field shape;
 - `--per-category` is rejected after removal and `--page-limit` remains
-  independent; and
+  independent;
 - collection or processing failure writes sanitized `error.json` without final
-  artifacts.
+  artifacts; and
+- an envelope-valid page with malformed Tags is written raw before the Tags
+  processing-contract failure stops the run.
 
 Run the focused Polymarket tests, the complete offline regression suite, syntax
 checks, and the read-only live Polymarket smoke test. The live test must confirm
 that `include_tag=true` yields a valid `tags[].slug` relation without asserting a
-fixed live market count.
+fixed live market count, and it must observe at least one returned market across
+the six streams so the relation check is not vacuous.
 
 ## Non-Goals
 
