@@ -127,12 +127,14 @@ getMarket/bubblemaps/market/YYYY-MM-DD/
 
 ## 3. getMarket/Polymarket：预测市场采集
 
-业务用途：从 Polymarket Gamma API 获取活跃、未关闭市场，按政治、地缘政治、
-经济、金融、科技和加密分类筛选，然后全局选择最多 30 个不同市场：
+Polymarket API 采集固定读取六个官方分类 Tag 流，完整翻页，并只对 crypto 使用
+官方 `market.tags[].slug` 白名单规则。每个大类分别输出 `liquidity`、
+`dominant_probability`、`volume24hr` 三个最多 10 条的排行；按优先级在类内去重并
+向后补位，不跨大类去重，因此最终最多 180 条分类记录。
 
-1. `liquidity` 前 10；
-2. 排除已选后，`dominant_probability` 前 10；
-3. 再排除已选后，`volume24hr` 前 10。
+六个大类依次为 politics、geopolitics、economy、finance、technology、crypto，
+对应 Tag ID 为 2、100265、100328、120、1401、21。分类归属只由返回市场的官方
+Tag 流决定，不从题目、标题或描述推断。
 
 ### 3.1 正式运行
 
@@ -140,16 +142,19 @@ getMarket/bubblemaps/market/YYYY-MM-DD/
 .venv/bin/python -m getMarket.Polymarket.tool.export_polymarket_market
 ```
 
-指定业务日期和安全分页大小：
+完整运行命令：
 
 ```bash
 .venv/bin/python -m getMarket.Polymarket.tool.export_polymarket_market \
-  --business-date 2026-07-28 \
-  --page-limit 20
+  --business-date 2026-07-31 \
+  --page-limit 20 \
+  --timeout 20 \
+  --max-attempts 3 \
+  --retry-delay 0.25
 ```
 
-`--page-limit` 允许范围是 `1–20`。不要传 `100`；Gamma 返回的嵌套市场对象较大，
-大分页会造成不必要的资源压力。
+`--page-limit` 允许范围是 `1–20`，只控制 API 请求页大小，不限制完整翻页或固定
+排行数量。
 
 其它参数：
 
@@ -170,6 +175,12 @@ getMarket/Polymarket/market/YYYY-MM-DD_HHMMSS_<random>/
 ```
 
 `raw` 页面会边采集边写入；`final.json` 不存在表示本次没有完整成功。
+`clean.json` 保留完整分类候选和官方 Tag 证据；相同 market ID 属于多个大类时
+保留多行及各自 source。`final.json` 顶层为 `{"records": [...]}`，每条记录有
+14 个外层字段，非 crypto `content` 有 19 个字段，crypto 有 20 个字段，
+`extra_data` 有 28 个字段。API 无法可靠提供的 DB 值为 JSON `null`；这只保证
+结构对齐，不读取 PostgreSQL，也不是 DB generation。失败运行只写脱敏
+`error.json`，不会同时写出 clean/final。
 
 ### 3.2 Polymarket 只读在线检查
 
