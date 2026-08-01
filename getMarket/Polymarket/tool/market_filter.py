@@ -208,7 +208,7 @@ class MarketAccumulator:
                 "matched_crypto_tag_slugs": sorted(
                     entry["matched_crypto_tag_slugs"]
                 ),
-                "source": entry["source"],
+                "source": deepcopy(entry["source"]),
             })
         return MergeResult(
             output,

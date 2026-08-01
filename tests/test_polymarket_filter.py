@@ -293,6 +293,32 @@ def test_market_accumulator_merges_pages_without_retaining_page_batches():
     assert result.source_conflict_count == 0
 
 
+def test_market_accumulator_results_do_not_expose_retained_source():
+    accumulator = MarketAccumulator()
+    source = market(
+        question="original question",
+        events=[{"title": "original event"}],
+    )
+
+    accumulator.add([TaggedMarket("2", source)])
+    result = accumulator.result()
+    returned_source = result.markets[0]["source"]
+    returned_source["question"] = "changed question"
+    returned_source["tags"][0]["slug"] = "changed-tag"
+    returned_source["events"][0]["title"] = "changed event"
+
+    assert source["question"] == "original question"
+    assert source["tags"][0]["slug"] == "election"
+    assert source["events"][0]["title"] == "original event"
+    assert accumulator.result().markets[0]["source"]["question"] == "original question"
+    assert accumulator.result().markets[0]["source"]["tags"][0]["slug"] == "election"
+    assert accumulator.result().markets[0]["source"]["events"][0]["title"] == "original event"
+
+    accumulator.add([TaggedMarket("2", source)])
+
+    assert accumulator.result().source_conflict_count == 0
+
+
 def test_first_source_wins_only_for_a_repeat_in_the_same_category():
     first = market(question="first")
     second = market(question="second")
