@@ -6,7 +6,7 @@ from getMarket.Polymarket.tool.polymarket_api import PolymarketApiClient
 
 @pytest.mark.live_polymarket
 @pytest.mark.asyncio
-async def test_live_polymarket():
+async def test_configured_tags_return_valid_keyset_pages():
     client = PolymarketApiClient(max_attempts=2, timeout=20)
     observed_market_count = 0
 
