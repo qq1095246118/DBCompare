@@ -20,14 +20,16 @@ from common.artifacts import write_json_atomic
 from getMarket.Polymarket.tool.final_contract import build_db_aligned_final
 from getMarket.Polymarket.tool.market_filter import (
     TAG_CATEGORIES,
+    MarketAccumulator,
     TaggedMarket,
     compact_market,
-    merge_markets,
 )
 from getMarket.Polymarket.tool.market_ranking import select_ranked_markets
 from getMarket.Polymarket.tool.polymarket_api import (
     PolymarketApiClient,
     PolymarketApiError,
+    PolymarketTagsError,
+    validate_market_tags,
 )
 
 
@@ -80,7 +82,6 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--max-attempts", type=_positive_int, default=3)
     parser.add_argument("--retry-delay", type=_nonnegative_float, default=0.25)
     parser.add_argument("--page-limit", type=_positive_int, default=20)
-    parser.add_argument("--per-category", type=_positive_int, default=20)
     arguments = parser.parse_args(argv)
     if arguments.page_limit > 20:
         parser.error("--page-limit must not exceed 20")
@@ -101,6 +102,17 @@ def _run_name(business_date: date) -> str:
 
 
 def _safe_error(error: BaseException, *, captured_at: str) -> dict[str, object]:
+    if isinstance(error, PolymarketTagsError):
+        return {
+            "stage": "processing",
+            "tag_id": error.tag_id,
+            "cursor": error.cursor,
+            "attempt_count": error.attempts,
+            "http_status": error.status,
+            "type": type(error).__name__,
+            "message": "processing failed",
+            "captured_at": captured_at,
+        }
     if isinstance(error, PolymarketApiError):
         return {
             "stage": "request",
@@ -151,7 +163,7 @@ async def run_async(
         retry_delay=args.retry_delay,
     )
     try:
-        tagged: list[TaggedMarket] = []
+        accumulator = MarketAccumulator()
         for tag_id in TAG_CATEGORIES:
             page_index = 0
             async for page in api.iter_tag(tag_id, page_limit=args.page_limit):
@@ -160,15 +172,13 @@ async def run_async(
                     run_directory / "raw" / f"tag-{tag_id}" / f"page-{page_index:04d}.json",
                     _raw_page(page),
                 )
-                tagged.extend(
+                validate_market_tags(page)
+                accumulator.add(
                     TaggedMarket(tag_id, compact_market(row))
                     for row in page.payload["markets"]
                 )
-        merged = merge_markets(tagged)
-        ranked = select_ranked_markets(
-            merged.markets,
-            per_category=args.per_category,
-        )
+        merged = accumulator.result()
+        ranked = select_ranked_markets(merged.markets)
         final_payload = build_db_aligned_final(
             ranked.selected,
             business_date=business_date,

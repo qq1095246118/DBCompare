@@ -1,16 +1,23 @@
+import ast
 from collections import Counter
 from datetime import date
 import json
+from pathlib import Path
 
 import pytest
 
 from getMarket.Polymarket.tool import export_polymarket_market as cli
 from getMarket.Polymarket.tool.final_contract import (
     CONTENT_FIELDS,
+    CRYPTO_CONTENT_FIELDS,
     EXTRA_DATA_FIELDS,
     OUTER_FIELDS,
 )
-from getMarket.Polymarket.tool.market_filter import CATEGORY_ORDER, TAG_CATEGORIES
+from getMarket.Polymarket.tool.market_filter import (
+    CATEGORY_ORDER,
+    TAG_CATEGORIES,
+    MarketAccumulator,
+)
 from getMarket.Polymarket.tool.polymarket_api import MarketPage, PolymarketApiError
 
 
@@ -41,6 +48,17 @@ class FakeClient:
             yield item
 
 
+class RecordingAccumulator(MarketAccumulator):
+    def __init__(self):
+        super().__init__()
+        self.batch_sizes = []
+
+    def add(self, rows):
+        batch = list(rows)
+        self.batch_sizes.append(len(batch))
+        super().add(batch)
+
+
 def page(tag_id, markets):
     return MarketPage(
         tag_id, None, CAPTURED_AT, f"https://example.test?tag_id={tag_id}",
@@ -48,57 +66,106 @@ def page(tag_id, markets):
     )
 
 
-def source_market(market_id, liquidity):
-    return {
+def source_market(
+    market_id,
+    *,
+    category,
+    liquidity=None,
+    probability=None,
+    volume=None,
+):
+    tag_slugs = ("stablecoins",) if category == "crypto" else (
+        f"fixture-{category}",
+    )
+    row = {
         "id": market_id,
         "question": f"Question {market_id}?",
+        "description": f"Description {market_id}",
         "active": True,
         "closed": False,
-        "description": "ETF regulation update.",
-        "liquidity": str(liquidity),
+        "acceptingOrders": True,
+        "tags": [{"slug": slug} for slug in tag_slugs],
         "outcomes": ["Yes", "No"],
-        "outcomePrices": ["0.6", "0.4"],
-        "volume24hr": str(1000 - liquidity),
+        "events": [{
+            "id": f"event-{market_id}",
+            "title": f"Event {market_id}",
+            "slug": f"event-{market_id}",
+            "active": True,
+            "closed": False,
+        }],
     }
+    if liquidity is not None:
+        row["liquidity"] = str(liquidity)
+    if probability is not None:
+        row["outcomePrices"] = [str(probability), str(1 - probability)]
+    if volume is not None:
+        row["volume24hr"] = str(volume)
+    return row
 
 
 def complete_pages():
-    rows_by_category = {
-        category: [
-            source_market(f"{category}-{index:02d}", index)
-            for index in range(1, 22)
+    rows_by_category = {}
+    for category in CATEGORY_ORDER:
+        rows_by_category[category] = [
+            *[
+                source_market(
+                    f"{category}-liquidity-{index:02}",
+                    category=category,
+                    liquidity=100 - index,
+                )
+                for index in range(10)
+            ],
+            *[
+                source_market(
+                    f"{category}-probability-{index:02}",
+                    category=category,
+                    probability=0.99 - index / 100,
+                )
+                for index in range(10)
+            ],
+            *[
+                source_market(
+                    f"{category}-volume-{index:02}",
+                    category=category,
+                    volume=100 - index,
+                )
+                for index in range(10)
+            ],
         ]
-        for category in CATEGORY_ORDER
-    }
-    shared = source_market("shared", 100)
-    rows_by_category["politics"][0] = shared
-    rows_by_category["finance"][0] = shared
+    politics_shared = source_market(
+        "shared", category="politics", liquidity=1000,
+    )
+    finance_shared = source_market(
+        "shared", category="finance", liquidity=900,
+    )
+    finance_shared["question"] = "Finance-specific shared question?"
+    rows_by_category["politics"][0] = politics_shared
+    rows_by_category["finance"][0] = finance_shared
     return {
-        tag_id: [page(tag_id, rows_by_category[category])]
+        tag_id: [
+            page(tag_id, rows_by_category[category][offset:offset + 7])
+            for offset in range(0, len(rows_by_category[category]), 7)
+        ]
         for tag_id, category in TAG_CATEGORIES.items()
     }
 
 
-def test_parse_args_uses_project_output_root():
+def test_parse_args_uses_project_output_root_and_fixed_ranking_size():
     args = cli.parse_args([])
 
     assert args.output_root == cli._PROJECT_ROOT / "getMarket" / "Polymarket" / "market"
     assert args.page_limit == 20
-    assert args.per_category == 20
+    assert not hasattr(args, "per_category")
 
 
-def test_parse_args_accepts_configurable_per_category_limit():
-    assert cli.parse_args(["--per-category", "10"]).per_category == 10
-    assert cli.parse_args(["--per-category", "100"]).per_category == 100
+def test_parse_args_rejects_removed_per_category_option():
+    with pytest.raises(SystemExit):
+        cli.parse_args(["--per-category", "10"])
 
 
 @pytest.mark.parametrize("argv", [
     ["--timeout", "0"], ["--max-attempts", "0"], ["--page-limit", "0"],
     ["--page-limit", "21"],
-    ["--per-category", "0"],
-    ["--per-category", "-1"],
-    ["--per-category", "1.5"],
-    ["--per-category", "ten"],
     ["--business-date", "2026/07/28"],
 ])
 def test_parse_args_rejects_invalid_values(argv):
@@ -107,106 +174,62 @@ def test_parse_args_rejects_invalid_values(argv):
 
 
 @pytest.mark.asyncio
-async def test_run_collects_all_tags_and_publishes_ranked_generation(tmp_path, monkeypatch):
-    client = FakeClient(complete_pages())
-    monkeypatch.setattr(cli, "_business_today", lambda: DAY)
-    monkeypatch.setattr(cli, "_utc_now", lambda: CAPTURED_AT)
-    monkeypatch.setattr(cli, "_run_name", lambda _day: "2026-07-28_080000_run1")
-
-    exit_code = await cli.run_async(
-        cli.parse_args(["--output-root", str(tmp_path)]), client=client,
-    )
-
-    assert exit_code == 0
-    assert client.requested_tags == list(TAG_CATEGORIES)
-    run_dir = tmp_path / "2026-07-28_080000_run1"
-    final_payload = json.loads((run_dir / "final.json").read_text())
-    assert set(final_payload) == {"records"}
-    records = final_payload["records"]
-    assert len(records) == 120
-    assert Counter(row["content"]["category"] for row in records) == Counter({
-        category: 20 for category in CATEGORY_ORDER
-    })
-    assert [row["content"]["category"] for row in records] == [
-        category for category in CATEGORY_ORDER for _ in range(20)
-    ]
-    assert [row["content"]["rank"] for row in records] == (
-        list(range(1, 21)) * len(CATEGORY_ORDER)
-    )
-    assert [
-        row["content"]["category"]
-        for row in records
-        if row["content"]["market_id"] == "shared"
-    ] == ["politics", "finance"]
-    representative = next(
-        row for row in records
-        if row["content"]["market_id"] == "shared"
-        and row["content"]["category"] == "politics"
-    )
-    assert set(representative) == set(OUTER_FIELDS)
-    assert set(representative["content"]) == set(CONTENT_FIELDS)
-    assert set(representative["extra_data"]) == set(EXTRA_DATA_FIELDS)
-    assert representative["id"] is None
-    assert representative["data_type"] == "PREDICTION_MARKET_SELECTION"
-    assert representative["from_source"] == "polymarket"
-    assert representative["title"] == "Question shared?"
-    assert representative["created_at"] == "2026-07-28T08:00:00+08:00"
-    assert representative["updated_at"] == "2026-07-28T08:00:00+08:00"
-    assert representative["content"]["dominant_outcome"] == "Yes"
-    assert representative["content"]["dominant_probability"] == 0.6
-    assert representative["content"]["fetched_at"] == CAPTURED_AT
-    assert representative["content"]["snapshot_date"] == DAY.isoformat()
-    assert representative["extra_data"]["fetched_at"] == "2026-07-28T00:00:00+00:00"
-    assert representative["extra_data"]["snapshot_date"] == DAY.isoformat()
-    assert not {
-        "selected_category", "rank_in_category", "selected_by", "priority",
-    } & representative.keys()
-
-    clean = json.loads((run_dir / "clean.json").read_text())
-    assert len(clean) == 125
-    assert len({row["market_id"] for row in clean}) == 125
-    shared_clean = next(row for row in clean if row["market_id"] == "shared")
-    assert shared_clean["categories"] == ["finance", "politics"]
-    assert shared_clean["normalized_metrics"]["liquidity"] == "100"
-    assert shared_clean["source"]["question"] == "Question shared?"
-    assert not {"selected_category", "selected_by", "priority"} & shared_clean.keys()
-
-    raw_files = sorted((run_dir / "raw").glob("tag-*/page-*.json"))
-    assert len(raw_files) == len(TAG_CATEGORIES)
-    assert not (run_dir / "manifest.json").exists()
-
-
-@pytest.mark.asyncio
-async def test_run_limits_final_per_category_without_truncating_clean(
+async def test_run_collects_six_streams_and_publishes_three_rankings(
     tmp_path, monkeypatch,
 ):
     client = FakeClient(complete_pages())
+    accumulator = RecordingAccumulator()
     monkeypatch.setattr(cli, "_business_today", lambda: DAY)
     monkeypatch.setattr(cli, "_utc_now", lambda: CAPTURED_AT)
-    monkeypatch.setattr(cli, "_run_name", lambda _day: "2026-07-28_080000_limit10")
+    monkeypatch.setattr(cli, "_run_name", lambda _day: "2026-07-28_080000_run1")
+    monkeypatch.setattr(
+        cli, "MarketAccumulator", lambda: accumulator, raising=False,
+    )
 
     exit_code = await cli.run_async(
         cli.parse_args([
-            "--output-root", str(tmp_path),
-            "--per-category", "10",
+            "--output-root", str(tmp_path), "--page-limit", "7",
         ]),
         client=client,
     )
 
     assert exit_code == 0
     assert client.requested_tags == list(TAG_CATEGORIES)
-    assert client.requested_page_limits == [20] * len(TAG_CATEGORIES)
-    run_dir = tmp_path / "2026-07-28_080000_limit10"
-    records = json.loads((run_dir / "final.json").read_text())["records"]
-    assert len(records) == 60
+    assert client.requested_page_limits == [7] * len(TAG_CATEGORIES)
+    assert accumulator.batch_sizes == [7, 7, 7, 7, 2] * len(TAG_CATEGORIES)
+    run_dir = tmp_path / "2026-07-28_080000_run1"
+    final_payload = json.loads((run_dir / "final.json").read_text())
+    assert set(final_payload) == {"records"}
+    records = final_payload["records"]
+    assert len(records) == 180
     assert Counter(row["content"]["category"] for row in records) == Counter({
-        category: 10 for category in CATEGORY_ORDER
+        category: 30 for category in CATEGORY_ORDER
     })
     assert [row["content"]["category"] for row in records] == [
-        category for category in CATEGORY_ORDER for _ in range(10)
+        category for category in CATEGORY_ORDER for _ in range(30)
     ]
+    assert [row["content"]["ranking_metric"] for row in records] == (
+        ["liquidity"] * 10
+        + ["dominant_probability"] * 10
+        + ["volume24hr"] * 10
+    ) * len(CATEGORY_ORDER)
+    assert [row["content"]["ranking_priority"] for row in records] == (
+        [1] * 10 + [2] * 10 + [3] * 10
+    ) * len(CATEGORY_ORDER)
     assert [row["content"]["rank"] for row in records] == (
-        list(range(1, 11)) * len(CATEGORY_ORDER)
+        list(range(1, 11)) * 3 * len(CATEGORY_ORDER)
+    )
+    assert all(
+        (
+            row["content"]["ranking_metric"],
+            row["content"]["ranking_priority"],
+            row["content"]["rank"],
+        ) == (
+            row["extra_data"]["ranking_metric"],
+            row["extra_data"]["ranking_priority"],
+            row["extra_data"]["rank"],
+        )
+        for row in records
     )
     assert [
         row["content"]["category"]
@@ -214,13 +237,80 @@ async def test_run_limits_final_per_category_without_truncating_clean(
         if row["content"]["market_id"] == "shared"
     ] == ["politics", "finance"]
 
+    representative = next(
+        row for row in records
+        if row["content"]["market_id"] == "politics-probability-00"
+    )
+    assert set(representative) == set(OUTER_FIELDS)
+    assert set(representative["content"]) == set(CONTENT_FIELDS)
+    assert set(representative["extra_data"]) == set(EXTRA_DATA_FIELDS)
+    assert representative["id"] is None
+    assert representative["content_hash"] is None
+    assert representative["created_at"] == "2026-07-28T08:00:00+08:00"
+
+    crypto_record = next(
+        row for row in records
+        if row["content"]["category"] == "crypto"
+    )
+    assert set(crypto_record["content"]) == set(CRYPTO_CONTENT_FIELDS)
+    assert crypto_record["content"]["crypto_topics"] == ["stablecoin"]
+
     clean = json.loads((run_dir / "clean.json").read_text())
-    assert len(clean) == 125
-    assert len({row["market_id"] for row in clean}) == 125
+    assert len(clean) == 180
+    assert len({row["market_id"] for row in clean}) == 179
+    shared_clean = [row for row in clean if row["market_id"] == "shared"]
+    assert [row["categories"] for row in shared_clean] == [
+        ["politics"], ["finance"],
+    ]
+    assert [row["normalized_metrics"]["liquidity"] for row in shared_clean] == [
+        "1000", "900",
+    ]
+    assert [row["source"]["tags"] for row in shared_clean] == [
+        [{"slug": "fixture-politics"}],
+        [{"slug": "fixture-finance"}],
+    ]
+    crypto_clean = next(row for row in clean if row["categories"] == ["crypto"])
+    assert crypto_clean["crypto_topics"] == ["stablecoin"]
+    assert crypto_clean["matched_crypto_tag_slugs"] == ["stablecoins"]
+    assert crypto_clean["source"]["tags"] == [{"slug": "stablecoins"}]
+
+    raw_files = sorted((run_dir / "raw").glob("tag-*/page-*.json"))
+    assert len(raw_files) == 5 * len(TAG_CATEGORIES)
+    assert not (run_dir / "manifest.json").exists()
 
 
 @pytest.mark.asyncio
-async def test_run_preserves_safe_failure_without_replacing_success(tmp_path, monkeypatch):
+async def test_run_writes_raw_page_before_malformed_tags_fail_processing(
+    tmp_path, monkeypatch,
+):
+    pages = complete_pages()
+    first_tag = next(iter(TAG_CATEGORIES))
+    pages[first_tag][0].payload["markets"][0]["tags"] = None
+    monkeypatch.setattr(cli, "_business_today", lambda: DAY)
+    monkeypatch.setattr(cli, "_utc_now", lambda: CAPTURED_AT)
+    monkeypatch.setattr(cli, "_run_name", lambda _day: "malformed-tags")
+
+    exit_code = await cli.run_async(
+        cli.parse_args(["--output-root", str(tmp_path)]),
+        client=FakeClient(pages),
+    )
+
+    assert exit_code == 1
+    run_dir = tmp_path / "malformed-tags"
+    assert (run_dir / f"raw/tag-{first_tag}/page-0001.json").exists()
+    assert len(list((run_dir / "raw").glob("tag-*/page-*.json"))) == 1
+    error = json.loads((run_dir / "error.json").read_text())
+    assert error["stage"] == "processing"
+    assert error["tag_id"] == first_tag
+    assert error["message"] == "processing failed"
+    assert not (run_dir / "clean.json").exists()
+    assert not (run_dir / "final.json").exists()
+
+
+@pytest.mark.asyncio
+async def test_run_preserves_safe_failure_without_replacing_success(
+    tmp_path, monkeypatch,
+):
     monkeypatch.setattr(cli, "_business_today", lambda: DAY)
     monkeypatch.setattr(cli, "_utc_now", lambda: CAPTURED_AT)
     names = iter(["2026-07-28_080000_run1", "2026-07-28_080001_run2"])
@@ -273,4 +363,21 @@ async def test_run_treats_final_conversion_failure_as_processing_error(
     assert "private conversion detail" not in error_path.read_text()
     assert not (run_dir / "clean.json").exists()
     assert not (run_dir / "final.json").exists()
-    assert len(list((run_dir / "raw").glob("tag-*/page-*.json"))) == len(TAG_CATEGORIES)
+    assert len(list((run_dir / "raw").glob("tag-*/page-*.json"))) == (
+        5 * len(TAG_CATEGORIES)
+    )
+
+
+def test_polymarket_api_collector_does_not_import_database_modules():
+    imported_roots = set()
+    for path in Path(cli.__file__).parent.glob("*.py"):
+        tree = ast.parse(path.read_text())
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                imported_roots.update(
+                    alias.name.split(".", 1)[0] for alias in node.names
+                )
+            elif isinstance(node, ast.ImportFrom) and node.module:
+                imported_roots.add(node.module.split(".", 1)[0])
+
+    assert not imported_roots & {"getDB", "psycopg", "psycopg2", "asyncpg"}
