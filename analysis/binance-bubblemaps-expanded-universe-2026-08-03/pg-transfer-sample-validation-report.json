@@ -1,0 +1,39 @@
+{
+  "validated_at": "2026-08-05T04:19:04.021249Z",
+  "scope": "read-only PostgreSQL query with writes restricted to /private/tmp",
+  "status": "pass",
+  "identity_key": "chain+token_address",
+  "case_sensitive_chain_values_preserved": true,
+  "samples": [
+    {
+      "symbol": "ZEREBRO",
+      "chain": "solana",
+      "token_address": "8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn",
+      "current_member_count": 157,
+      "pg_member_count": 157,
+      "pg_event_count": 1881,
+      "first_run_events_added": 1881,
+      "second_run_events_added": 0,
+      "member_coverage_ratio": 1.0,
+      "source_lineage_preserved": "postgresql"
+    },
+    {
+      "symbol": "FHE",
+      "chain": "bsc",
+      "token_address": "0xd55c9fb62e176a8eb6968f32958fefdd0962727e",
+      "current_member_count": 186,
+      "pg_member_count": 186,
+      "pg_event_count": 6038,
+      "first_run_events_added": 6038,
+      "second_run_events_added": 0,
+      "member_coverage_ratio": 1.0,
+      "source_lineage_preserved": "postgresql"
+    }
+  ],
+  "checks": [
+    "all current ordinary members matched PG rows",
+    "rerun added zero duplicate events",
+    "Solana address, signature and token identity case was preserved",
+    "transfer files retained source=postgresql"
+  ]
+}

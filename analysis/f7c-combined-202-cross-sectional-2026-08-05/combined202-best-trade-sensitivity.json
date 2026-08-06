@@ -1,0 +1,36 @@
+[
+  {
+    "scenario": "frozen169_ridge_dynamic_without_best",
+    "candidate_signals": 479,
+    "executed_trades": 92,
+    "win_rate": 0.32608695652173914,
+    "average_margin_fraction": 0.14816920412366363,
+    "final_equity": 0.9295436582884002,
+    "total_return": -0.07045634171159976,
+    "max_drawdown_5m": -0.42911069645541067,
+    "max_gross_leverage": 2.034201700843409,
+    "average_open_positions": 2.9691639191172268,
+    "average_invested_gross_leverage": 0.9638941030579894,
+    "skipped_same_symbol": 12,
+    "skipped_position_limit": 367,
+    "skipped_risk_budget": 8,
+    "removed_best_case": "247-BAS-2026-04-19"
+  },
+  {
+    "scenario": "combined202_ridge_dynamic_without_best",
+    "candidate_signals": 479,
+    "executed_trades": 93,
+    "win_rate": 0.3010752688172043,
+    "average_margin_fraction": 0.15121370173131196,
+    "final_equity": 0.7867324781442188,
+    "total_return": -0.21326752185578124,
+    "max_drawdown_5m": -0.49579451985269585,
+    "max_gross_leverage": 2.0342017008434086,
+    "average_open_positions": 2.9074754785258548,
+    "average_invested_gross_leverage": 0.9541103546541775,
+    "skipped_same_symbol": 13,
+    "skipped_position_limit": 363,
+    "skipped_risk_budget": 10,
+    "removed_best_case": "247-BAS-2026-04-19"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "validated_at": "2026-08-05T06:40:58Z",
+  "status": "pass",
+  "research_window": {
+    "start_date": "2025-01-01",
+    "end_date": "2026-08-03"
+  },
+  "observed_event_range": {
+    "first_event_at": "2025-01-01T02:56:04+00:00",
+    "last_event_at": "2026-08-03T11:33:37+00:00"
+  },
+  "samples": [
+    {
+      "symbol": "ZEREBRO",
+      "chain": "solana",
+      "current_ordinary_members": 157,
+      "members_with_events_in_window": 146,
+      "events_in_window": 1564,
+      "second_run_events_added": 0
+    },
+    {
+      "symbol": "FHE",
+      "chain": "bsc",
+      "current_ordinary_members": 186,
+      "members_with_events_in_window": 186,
+      "events_in_window": 6038,
+      "second_run_events_added": 0
+    }
+  ],
+  "checks": [
+    "no stored event fell before 2025-01-01 UTC",
+    "no stored event fell after 2026-08-03 UTC",
+    "rerun added zero duplicate events",
+    "Solana case-sensitive identifiers were preserved"
+  ]
+}

@@ -1,0 +1,1350 @@
+{
+  "generated_at": "2026-07-29T11:52:50.015819+00:00",
+  "methodology": {
+    "timezone": "UTC",
+    "signal_to_event": "signal-date close to event-date close",
+    "event_day": "event-date open to event-date close",
+    "post_event": "event-date close to D+1/D+3/D+7 close",
+    "post_7d_extremes": "D+1 through D+7 high/low relative to event-date close"
+  },
+  "excluded_linkages": {
+    "H": "文档已确认同名 Token/事件映射无效，不把该合约价格与链上信号建立联系。",
+    "SIREN": "文档未提供精确事件日期。",
+    "RAVE": "文档未提供精确事件日期。"
+  },
+  "tokens": [
+    {
+      "symbol": "SIREN",
+      "source": null,
+      "bars": 0,
+      "events": [],
+      "note": "导出的正文没有给出精确事件日期，不能复算事件窗口。"
+    },
+    {
+      "symbol": "RAVE",
+      "source": null,
+      "bars": 0,
+      "events": [],
+      "note": "导出的正文没有给出精确事件日期，不能复算事件窗口。"
+    },
+    {
+      "symbol": "TAC",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "bsc",
+        "platform": "bsc",
+        "contract": "0x1219c409fabe2c27bd0d1a565daeed9bd9f271de",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 33,
+      "range": {
+        "start": "2026-06-15",
+        "end": "2026-07-17"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "TAC",
+          "event_date": "2026-06-17",
+          "event_end_date": null,
+          "document_rating": "低",
+          "signal": null,
+          "available": true,
+          "event_prices": {
+            "date": "2026-06-17",
+            "open": 0.015837848905986083,
+            "high": 0.02393919646315782,
+            "low": 0.015837848905986083,
+            "close": 0.023939135471941535,
+            "volume": 2875320.5309394244,
+            "trade_count": 749
+          },
+          "event_day_open_close_return_pct": 51.15143233178265,
+          "event_day_return_pct": 51.15143233178265,
+          "price_quality": "正常",
+          "post_event_close_returns_pct": {
+            "d_plus_1": -4.854171729916768,
+            "d_plus_3": -12.597389066915898,
+            "d_plus_7": -15.323160837101856
+          },
+          "post_7d_max_up_pct": 1.4623035462009826,
+          "post_7d_max_down_pct": -22.82478052756469,
+          "post_7d_max_high": {
+            "date": "2026-06-18",
+            "price": 0.024289198298877594,
+            "return_from_event_close_pct": 1.4623035462009826
+          },
+          "post_7d_min_low": {
+            "date": "2026-06-24",
+            "price": 0.01847508034027449,
+            "return_from_event_close_pct": -22.82478052756469
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-06-24",
+            "close_to_close_pct": 3.3478771947254238
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-06-19",
+            "close_to_close_pct": -5.6399069389154395
+          }
+        },
+        {
+          "symbol": "TAC",
+          "event_date": "2026-06-29",
+          "event_end_date": null,
+          "document_rating": "高",
+          "signal": {
+            "date": "2026-06-22",
+            "basis": "窗口起点",
+            "signal": "W-1 毛转账量升至基线周均 122.99x，TON 枢纽净流入约 4.258 亿 TAC"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-06-29",
+            "open": 0.02204357919851211,
+            "high": 0.06299872232607265,
+            "low": 0.02168472381178717,
+            "close": 0.05989234145865838,
+            "volume": 22425061.921189737,
+            "trade_count": 1556
+          },
+          "event_day_open_close_return_pct": 171.69971318768856,
+          "event_day_return_pct": 171.69971318768856,
+          "price_quality": "正常",
+          "signal_price": 0.019774478780803833,
+          "signal_to_event_close_pct": 202.8769664300793,
+          "signal_lead_days": 7,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 3.9319174305774585,
+            "d_plus_3": -42.40087869633441,
+            "d_plus_7": -46.1515795583998
+          },
+          "post_7d_max_up_pct": 12.847531222756082,
+          "post_7d_max_down_pct": -53.29831653794308,
+          "post_7d_max_high": {
+            "date": "2026-06-30",
+            "price": 0.0675870287275992,
+            "return_from_event_close_pct": 12.847531222756082
+          },
+          "post_7d_min_low": {
+            "date": "2026-07-02",
+            "price": 0.027970731726036924,
+            "return_from_event_close_pct": -53.29831653794308
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-07-06",
+            "close_to_close_pct": 4.828706000230731
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-07-01",
+            "close_to_close_pct": -36.86218748159617
+          }
+        },
+        {
+          "symbol": "TAC",
+          "event_date": "2026-07-09",
+          "event_end_date": null,
+          "document_rating": "高",
+          "signal": {
+            "date": "2026-07-02",
+            "basis": "窗口起点",
+            "signal": "W-1 毛转账量升至基线周均 4.86x，TON 枢纽在事件前转为大额净流出"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-07-09",
+            "open": 0.0027235630678441474,
+            "high": 0.004948931808497363,
+            "low": 0.0023353644615199745,
+            "close": 0.004720903041384949,
+            "volume": 2595384.0983698443,
+            "trade_count": 1585
+          },
+          "event_day_open_close_return_pct": 73.3355506660548,
+          "event_day_return_pct": 73.3355506660548,
+          "price_quality": "正常",
+          "signal_price": 0.034497462408378234,
+          "signal_to_event_close_pct": -86.31521650636424,
+          "signal_lead_days": 7,
+          "post_event_close_returns_pct": {
+            "d_plus_1": -17.007823780007435,
+            "d_plus_3": -37.32508532711992,
+            "d_plus_7": -23.163238055028714
+          },
+          "post_7d_max_up_pct": 10.364914232494126,
+          "post_7d_max_down_pct": -45.80844940284954,
+          "post_7d_max_high": {
+            "date": "2026-07-10",
+            "price": 0.005210220592623705,
+            "return_from_event_close_pct": 10.364914232494126
+          },
+          "post_7d_min_low": {
+            "date": "2026-07-13",
+            "price": 0.0025583305603145397,
+            "return_from_event_close_pct": -45.80844940284954
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-07-16",
+            "close_to_close_pct": 23.166684825963046
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-07-12",
+            "close_to_close_pct": -18.28502048239673
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "BANK",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "bsc",
+        "platform": "bsc",
+        "contract": "0x3aee7602b612de36088f3ffed8c8f10e86ebf2bf",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 14,
+      "range": {
+        "start": "2026-07-13",
+        "end": "2026-07-26"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "BANK",
+          "event_date": "2026-07-18",
+          "event_end_date": null,
+          "document_rating": "高",
+          "signal": {
+            "date": "2026-07-15",
+            "basis": "明确交易日",
+            "signal": "单笔 5,228,523.53 BANK，前窗总量约为基线周均 35.28x"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-07-18",
+            "open": 0.07030721291426675,
+            "high": 0.12122850383771878,
+            "low": 0.06458864931186631,
+            "close": 0.11090921298253592,
+            "volume": 3712776.647550185,
+            "trade_count": 1645
+          },
+          "event_day_open_close_return_pct": 57.749409179083244,
+          "event_day_return_pct": 57.749409179083244,
+          "price_quality": "正常",
+          "signal_price": 0.050969729418434855,
+          "signal_to_event_close_pct": 117.59819847586246,
+          "signal_lead_days": 3,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 103.17069693788969,
+            "d_plus_3": 64.13912633570835,
+            "d_plus_7": 212.14453763390532
+          },
+          "post_7d_max_up_pct": 249.77649431570924,
+          "post_7d_max_down_pct": -12.08783366854952,
+          "post_7d_max_high": {
+            "date": "2026-07-25",
+            "price": 0.38793435704345763,
+            "return_from_event_close_pct": 249.77649431570924
+          },
+          "post_7d_min_low": {
+            "date": "2026-07-19",
+            "price": 0.09750269179410966,
+            "return_from_event_close_pct": -12.08783366854952
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-07-19",
+            "close_to_close_pct": 103.17069693788969
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-07-21",
+            "close_to_close_pct": -31.72839220447633
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "BIRB",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "solana",
+        "platform": "solana",
+        "contract": "G7vQWurMkMMm2dU3iZpXYFTHT9Biio4F4gZCrwFpKNwG",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 14,
+      "range": {
+        "start": "2026-06-27",
+        "end": "2026-07-10"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "BIRB",
+          "event_date": "2026-07-02",
+          "event_end_date": null,
+          "document_rating": "高",
+          "signal": {
+            "date": "2026-06-29",
+            "basis": "明确交易日",
+            "signal": "1,134 条自动化扇出/归集转账，92,635,362 BIRB，664 个首次可见地址"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-07-02",
+            "open": 0.054682708070038215,
+            "high": 0.10855131891120275,
+            "low": 0.05447046976765967,
+            "close": 0.09114983647473231,
+            "volume": 11230144.807331638,
+            "trade_count": 1525
+          },
+          "event_day_open_close_return_pct": 66.68859259491427,
+          "event_day_return_pct": 66.68859259491427,
+          "price_quality": "正常",
+          "signal_price": 0.058527041427833736,
+          "signal_to_event_close_pct": 55.73969613195609,
+          "signal_lead_days": 3,
+          "post_event_close_returns_pct": {
+            "d_plus_1": -13.984425344724393,
+            "d_plus_3": -13.816616337859411,
+            "d_plus_7": -29.982607218242187
+          },
+          "post_7d_max_up_pct": 4.400389478041111,
+          "post_7d_max_down_pct": -36.625460224534,
+          "post_7d_max_high": {
+            "date": "2026-07-03",
+            "price": 0.09516078428821811,
+            "return_from_event_close_pct": 4.400389478041111
+          },
+          "post_7d_min_low": {
+            "date": "2026-07-09",
+            "price": 0.05776578937195144,
+            "return_from_event_close_pct": -36.625460224534
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-07-05",
+            "close_to_close_pct": 8.637877816692786
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-07-03",
+            "close_to_close_pct": -13.984425344724393
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "PLAY",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "base",
+        "platform": "base",
+        "contract": "0x853a7c99227499dba9db8c3a02aa691afdebf841",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 58,
+      "range": {
+        "start": "2026-04-12",
+        "end": "2026-06-08"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "PLAY",
+          "event_date": "2026-04-15",
+          "event_end_date": null,
+          "document_rating": "中",
+          "signal": {
+            "date": "2026-04-14",
+            "basis": "明确交易日",
+            "signal": "双链 59 条、7,511,354 PLAY，短时活动和金额同步集中"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-04-15",
+            "open": 0.10031254060873555,
+            "high": 0.24101192177488284,
+            "low": 0.0957061398071132,
+            "close": 0.16667985039203423,
+            "volume": 4476169.305246381,
+            "trade_count": 1371
+          },
+          "event_day_open_close_return_pct": 66.16053125616797,
+          "event_day_return_pct": 66.16053125616797,
+          "price_quality": "正常",
+          "signal_price": 0.10031254060873555,
+          "signal_to_event_close_pct": 66.16053125616797,
+          "signal_lead_days": 1,
+          "post_event_close_returns_pct": {
+            "d_plus_1": -30.25050744947706,
+            "d_plus_3": -38.68550240761434,
+            "d_plus_7": -29.541001955974156
+          },
+          "post_7d_max_up_pct": 14.925972920309928,
+          "post_7d_max_down_pct": -48.49711553969813,
+          "post_7d_max_high": {
+            "date": "2026-04-16",
+            "price": 0.19155843972516234,
+            "return_from_event_close_pct": 14.925972920309928
+          },
+          "post_7d_min_low": {
+            "date": "2026-04-17",
+            "price": 0.0858449307660134,
+            "return_from_event_close_pct": -48.49711553969813
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-04-18",
+            "close_to_close_pct": 15.00820467713071
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-04-16",
+            "close_to_close_pct": -30.25050744947706
+          }
+        },
+        {
+          "symbol": "PLAY",
+          "event_date": "2026-05-25",
+          "event_end_date": null,
+          "document_rating": "中",
+          "signal": {
+            "date": "2026-05-21",
+            "basis": "明确交易日",
+            "signal": "两笔 Gnosis Safe 调度合计 71,483,274 PLAY，占 Base 前窗金额 81.21%"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-05-25",
+            "open": 0.06304397180382346,
+            "high": 0.11542241833128902,
+            "low": 0.06246815574357376,
+            "close": 0.10200876676262761,
+            "volume": 11305809.81102766,
+            "trade_count": 2460
+          },
+          "event_day_open_close_return_pct": 61.80574263317757,
+          "event_day_return_pct": 61.80574263317757,
+          "price_quality": "正常",
+          "signal_price": 0.08748061921248358,
+          "signal_to_event_close_pct": 16.607275623937113,
+          "signal_lead_days": 4,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 6.047372760743652,
+            "d_plus_3": -5.969422905833044,
+            "d_plus_7": 26.24572952674282
+          },
+          "post_7d_max_up_pct": 50.575983577294025,
+          "post_7d_max_down_pct": -31.569536721668957,
+          "post_7d_max_high": {
+            "date": "2026-06-01",
+            "price": 0.15360070388789432,
+            "return_from_event_close_pct": 50.575983577294025
+          },
+          "post_7d_min_low": {
+            "date": "2026-05-31",
+            "price": 0.06980507168017826,
+            "return_from_event_close_pct": -31.569536721668957
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-05-31",
+            "close_to_close_pct": 65.52095713705862
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-05-27",
+            "close_to_close_pct": -15.48077027335404
+          }
+        },
+        {
+          "symbol": "PLAY",
+          "event_date": "2026-05-31",
+          "event_end_date": null,
+          "document_rating": "中",
+          "signal": null,
+          "available": true,
+          "event_prices": {
+            "date": "2026-05-31",
+            "open": 0.0788923331624239,
+            "high": 0.14005262499971585,
+            "low": 0.06980507168017826,
+            "close": 0.13058334495820115,
+            "volume": 9066680.129436096,
+            "trade_count": 2079
+          },
+          "event_day_open_close_return_pct": 65.52095713705862,
+          "event_day_return_pct": 65.52095713705862,
+          "price_quality": "正常",
+          "post_event_close_returns_pct": {
+            "d_plus_1": -1.379680676785422,
+            "d_plus_3": -28.528967607027088,
+            "d_plus_7": -33.13569857456402
+          },
+          "post_7d_max_up_pct": 17.626565575465136,
+          "post_7d_max_down_pct": -45.083057453938466,
+          "post_7d_max_high": {
+            "date": "2026-06-01",
+            "price": 0.15360070388789432,
+            "return_from_event_close_pct": 17.626565575465136
+          },
+          "post_7d_min_low": {
+            "date": "2026-06-06",
+            "price": 0.07171238052542066,
+            "return_from_event_close_pct": -45.083057453938466
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-06-07",
+            "close_to_close_pct": 8.373254313081757
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-06-02",
+            "close_to_close_pct": -24.06785588766034
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "SYN",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "eth",
+        "platform": "ethereum",
+        "contract": "0x0f2d719407fdbeff09d87557abb7232601fd9f29",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 23,
+      "range": {
+        "start": "2026-06-08",
+        "end": "2026-06-30"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "SYN",
+          "event_date": "2026-06-17",
+          "event_end_date": "2026-06-18",
+          "document_rating": "中高",
+          "signal": {
+            "date": "2026-06-10",
+            "basis": "窗口起点",
+            "signal": "事件前窗毛转账量约为基线周均 7.95x"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-06-17",
+            "open": 0.05165557220695559,
+            "high": 0.09789405642332401,
+            "low": 0.04951916050292077,
+            "close": 0.08337496764300162,
+            "volume": 158662.00022026015,
+            "trade_count": 237
+          },
+          "event_day_open_close_return_pct": 61.405563970840916,
+          "event_day_return_pct": 61.405563970840916,
+          "price_quality": "正常",
+          "signal_price": 0.028108067553869995,
+          "signal_to_event_close_pct": 196.62290900365483,
+          "signal_lead_days": 7,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 65.16267672863114,
+            "d_plus_3": 60.303744965241826,
+            "d_plus_7": 285.2539242606435
+          },
+          "post_7d_max_up_pct": 335.77557342308023,
+          "post_7d_max_down_pct": -8.008683167902575,
+          "post_7d_max_high": {
+            "date": "2026-06-24",
+            "price": 0.36332774333759793,
+            "return_from_event_close_pct": 335.77557342308023
+          },
+          "post_7d_min_low": {
+            "date": "2026-06-18",
+            "price": 0.07669773064313233,
+            "return_from_event_close_pct": -8.008683167902575
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-06-18",
+            "close_to_close_pct": 65.16267672863114
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-06-23",
+            "close_to_close_pct": -2.856103751210748
+          }
+        },
+        {
+          "symbol": "SYN",
+          "event_date": "2026-06-22",
+          "event_end_date": null,
+          "document_rating": "中高",
+          "signal": {
+            "date": "2026-06-15",
+            "basis": "窗口起点",
+            "signal": "事件前窗毛转账量约为基线周均 14.66x"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-06-22",
+            "open": 0.17547384541516964,
+            "high": 0.3108572640059473,
+            "low": 0.1633932292830905,
+            "close": 0.28389667139868935,
+            "volume": 693405.1598172681,
+            "trade_count": 532
+          },
+          "event_day_open_close_return_pct": 61.78859631587385,
+          "event_day_return_pct": 61.78859631587385,
+          "price_quality": "正常",
+          "signal_price": 0.049739358487370655,
+          "signal_to_event_close_pct": 470.76866295083744,
+          "signal_lead_days": 7,
+          "post_event_close_returns_pct": {
+            "d_plus_1": -2.856103751210748,
+            "d_plus_3": 16.755329888239956,
+            "d_plus_7": 79.86402139955611
+          },
+          "post_7d_max_up_pct": 154.05197373522722,
+          "post_7d_max_down_pct": -15.21098955749226,
+          "post_7d_max_high": {
+            "date": "2026-06-29",
+            "price": 0.7212450970569826,
+            "return_from_event_close_pct": 154.05197373522722
+          },
+          "post_7d_min_low": {
+            "date": "2026-06-23",
+            "price": 0.24071317835816658,
+            "return_from_event_close_pct": -15.21098955749226
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-06-29",
+            "close_to_close_pct": 34.017195154089144
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-06-27",
+            "close_to_close_pct": -10.057029715326038
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "M",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "bsc",
+        "platform": "bsc",
+        "contract": "0x22b1458e780f8fa71e2f84502cee8b5a3cc731fa",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 11,
+      "range": {
+        "start": "2026-03-23",
+        "end": "2026-04-02"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "M",
+          "event_date": "2026-03-25",
+          "event_end_date": null,
+          "document_rating": "弱",
+          "signal": null,
+          "available": true,
+          "event_prices": {
+            "date": "2026-03-25",
+            "open": 1.7022049861364221,
+            "high": 2.6336330450978416,
+            "low": 1.6945964212227258,
+            "close": 2.4506095819759643,
+            "volume": 1223857.4294424483,
+            "trade_count": 566
+          },
+          "event_day_open_close_return_pct": 43.96677262344488,
+          "event_day_return_pct": 43.96677262344488,
+          "price_quality": "正常",
+          "post_event_close_returns_pct": {
+            "d_plus_1": -11.688962781829403,
+            "d_plus_3": -11.302172476094817,
+            "d_plus_7": 0.3706962600001029
+          },
+          "post_7d_max_up_pct": 3.6474856611837803,
+          "post_7d_max_down_pct": -21.696233468087655,
+          "post_7d_max_high": {
+            "date": "2026-03-26",
+            "price": 2.5399952150901335,
+            "return_from_event_close_pct": 3.6474856611837803
+          },
+          "post_7d_min_low": {
+            "date": "2026-03-26",
+            "price": 1.9189196056791322,
+            "return_from_event_close_pct": -21.696233468087655
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-04-01",
+            "close_to_close_pct": 4.821574343466706
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-03-26",
+            "close_to_close_pct": -11.688962781829403
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "BEAT",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "bsc",
+        "platform": "bsc",
+        "contract": "0xcf3232b85b43bca90e51d38cc06cc8bb8c8a3e36",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 13,
+      "range": {
+        "start": "2026-05-18",
+        "end": "2026-05-30"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "BEAT",
+          "event_date": "2026-05-22",
+          "event_end_date": null,
+          "document_rating": "中",
+          "signal": {
+            "date": "2026-05-20",
+            "basis": "明确交易日",
+            "signal": "批量分发和固定金额重复转账；新快照覆盖约 638.6 万 BEAT"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-05-22",
+            "open": 0.7468030433970075,
+            "high": 1.2662351892626273,
+            "low": 0.7259474464529247,
+            "close": 1.2305696345313901,
+            "volume": 43156120.6679504,
+            "trade_count": 2877
+          },
+          "event_day_open_close_return_pct": 64.77833686025937,
+          "event_day_return_pct": 64.77833686025937,
+          "price_quality": "正常",
+          "signal_price": 0.654001522151744,
+          "signal_to_event_close_pct": 88.16005664370128,
+          "signal_lead_days": 2,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 2.1158448660385965,
+            "d_plus_3": -20.434833911636108,
+            "d_plus_7": -8.089503703251378
+          },
+          "post_7d_max_up_pct": 22.637598464018073,
+          "post_7d_max_down_pct": -23.791627152294147,
+          "post_7d_max_high": {
+            "date": "2026-05-24",
+            "price": 1.5091410472167408,
+            "return_from_event_close_pct": 22.637598464018073
+          },
+          "post_7d_min_low": {
+            "date": "2026-05-26",
+            "price": 0.9377970952343331,
+            "return_from_event_close_pct": -23.791627152294147
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-05-27",
+            "close_to_close_pct": 19.149416965503963
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-05-25",
+            "close_to_close_pct": -17.78712118793735
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "B",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "bsc",
+        "platform": "bsc",
+        "contract": "0x6bdcce4a559076e37755a78ce0c06214e59e4444",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 11,
+      "range": {
+        "start": "2026-04-29",
+        "end": "2026-05-09"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "B",
+          "event_date": "2026-05-01",
+          "event_end_date": null,
+          "document_rating": "弱",
+          "signal": null,
+          "available": true,
+          "event_prices": {
+            "date": "2026-05-01",
+            "open": 0.12971058852915973,
+            "high": 0.3347201926146755,
+            "low": 0.12628480166982675,
+            "close": 0.31491302786047815,
+            "volume": 61786070.418160744,
+            "trade_count": 2485
+          },
+          "event_day_open_close_return_pct": 142.78128056576028,
+          "event_day_return_pct": 142.78128056576028,
+          "price_quality": "正常",
+          "post_event_close_returns_pct": {
+            "d_plus_1": 2.92612500234124,
+            "d_plus_3": 16.994098422167013,
+            "d_plus_7": 21.393699083967466
+          },
+          "post_7d_max_up_pct": 73.8262221175562,
+          "post_7d_max_down_pct": -9.908269176436324,
+          "post_7d_max_high": {
+            "date": "2026-05-06",
+            "price": 0.5474014192858764,
+            "return_from_event_close_pct": 73.8262221175562
+          },
+          "post_7d_min_low": {
+            "date": "2026-05-07",
+            "price": 0.28371059738839605,
+            "return_from_event_close_pct": -9.908269176436324
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-05-03",
+            "close_to_close_pct": 30.212311740834807
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-05-06",
+            "close_to_close_pct": -24.128664673449542
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "DEXE",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "bsc",
+        "platform": "bsc",
+        "contract": "0x6e88056e8376ae7709496ba64d37fa2f8015ce3e",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 12,
+      "range": {
+        "start": "2026-06-19",
+        "end": "2026-06-30"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "DEXE",
+          "event_date": "2026-06-22",
+          "event_end_date": null,
+          "document_rating": "弱",
+          "signal": {
+            "date": "2026-06-21",
+            "basis": "明确交易日",
+            "signal": "Ethereum 最大转账 5,392.268 DEXE，但总规模未放大"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-06-22",
+            "open": 13.97388388159881,
+            "high": 18.49037220168367,
+            "low": 13.470870823282388,
+            "close": 18.49037220168367,
+            "volume": 1171889.882199666,
+            "trade_count": 575
+          },
+          "event_day_open_close_return_pct": 32.32092350525606,
+          "event_day_return_pct": 32.32092350525606,
+          "price_quality": "正常",
+          "signal_price": 13.97388388159881,
+          "signal_to_event_close_pct": 32.32092350525606,
+          "signal_lead_days": 1,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 26.006708701332638,
+            "d_plus_3": 23.696403819560928,
+            "d_plus_7": 25.451177068074827
+          },
+          "post_7d_max_up_pct": 37.619602391273844,
+          "post_7d_max_down_pct": -0.23168837790694674,
+          "post_7d_max_high": {
+            "date": "2026-06-25",
+            "price": 25.446376704623695,
+            "return_from_event_close_pct": 37.619602391273844
+          },
+          "post_7d_min_low": {
+            "date": "2026-06-23",
+            "price": 18.447532158260632,
+            "return_from_event_close_pct": -0.23168837790694674
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-06-23",
+            "close_to_close_pct": 26.006708701332638
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-06-26",
+            "close_to_close_pct": -6.289404498560202
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "VELVET",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "base",
+        "platform": "base",
+        "contract": "0xbf927b841994731c573bdf09ceb0c6b0aa887cdd",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 35,
+      "range": {
+        "start": "2026-05-31",
+        "end": "2026-07-04"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "VELVET",
+          "event_date": "2026-06-04",
+          "event_end_date": null,
+          "document_rating": "高监测、低归因",
+          "signal": {
+            "date": "2026-06-02",
+            "basis": "明确交易日",
+            "signal": "三笔锁仓/迁移转账合计 51,208,639 VELVET"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-06-04",
+            "open": 0.10810814584410723,
+            "high": 0.1269644755764134,
+            "low": 0.10262161742091519,
+            "close": 0.12065554437669015,
+            "volume": 397682.3608182706,
+            "trade_count": 494
+          },
+          "event_day_open_close_return_pct": 11.60633959135362,
+          "event_day_return_pct": 11.60633959135362,
+          "price_quality": "正常",
+          "signal_price": 0.09328548866766972,
+          "signal_to_event_close_pct": 29.340100051923912,
+          "signal_lead_days": 2,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 27.5838276409778,
+            "d_plus_3": 106.58893752278873,
+            "d_plus_7": 1170.9224073315288
+          },
+          "post_7d_max_up_pct": 1319.5835577411488,
+          "post_7d_max_down_pct": -9.089791891379406,
+          "post_7d_max_high": {
+            "date": "2026-06-11",
+            "price": 1.7128062694745687,
+            "return_from_event_close_pct": 1319.5835577411488
+          },
+          "post_7d_min_low": {
+            "date": "2026-06-05",
+            "price": 0.10968820648743809,
+            "return_from_event_close_pct": -9.089791891379406
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-06-10",
+            "close_to_close_pct": 121.36718591295134
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-06-06",
+            "close_to_close_pct": 19.633961537435795
+          }
+        },
+        {
+          "symbol": "VELVET",
+          "event_date": "2026-06-26",
+          "event_end_date": null,
+          "document_rating": "中",
+          "signal": {
+            "date": "2026-06-24",
+            "basis": "明确交易日",
+            "signal": "Base 最大单笔 35,901.1137 VELVET，但前窗整体仅为基线 0.052x"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-06-26",
+            "open": 0.5154454543768838,
+            "high": 0.7198205982689947,
+            "low": 0.4802499328576981,
+            "close": 0.6729596910220468,
+            "volume": 3733630.743987543,
+            "trade_count": 1231
+          },
+          "event_day_open_close_return_pct": 30.55885648183281,
+          "event_day_return_pct": 30.55885648183281,
+          "price_quality": "正常",
+          "signal_price": 0.4791068438123766,
+          "signal_to_event_close_pct": 40.46129787400512,
+          "signal_lead_days": 2,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 130.43187368161077,
+            "d_plus_3": 138.32743503958352,
+            "d_plus_7": -32.31850403376725
+          },
+          "post_7d_max_up_pct": 217.6010720639351,
+          "post_7d_max_down_pct": -41.084870147895955,
+          "post_7d_max_high": {
+            "date": "2026-06-29",
+            "price": 2.137327193244166,
+            "return_from_event_close_pct": 217.6010720639351
+          },
+          "post_7d_min_low": {
+            "date": "2026-07-03",
+            "price": 0.396475075817957,
+            "return_from_event_close_pct": -41.084870147895955
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-06-27",
+            "close_to_close_pct": 130.43187368161077
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-07-02",
+            "close_to_close_pct": -67.03944465288203
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "H",
+      "source": null,
+      "bars": 0,
+      "range": {
+        "start": "2026-05-26",
+        "end": "2026-06-19"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "H",
+          "event_date": "2026-05-28",
+          "event_end_date": null,
+          "document_rating": "无效映射",
+          "signal": null,
+          "available": false,
+          "reason": "事件日没有可用日 K"
+        },
+        {
+          "symbol": "H",
+          "event_date": "2026-06-11",
+          "event_end_date": null,
+          "document_rating": "无效映射",
+          "signal": null,
+          "available": false,
+          "reason": "事件日没有可用日 K"
+        }
+      ]
+    },
+    {
+      "symbol": "RIF",
+      "source": {
+        "kind": "Binance Spot",
+        "market": "spot",
+        "pair": "RIFUSDT",
+        "quote": "USDT",
+        "fallback_reason": "精确合约 DEX 日 K 仅覆盖 5/70 天，改用主市场现货序列"
+      },
+      "bars": 70,
+      "range": {
+        "start": "2026-04-13",
+        "end": "2026-06-21"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "RIF",
+          "event_date": "2026-04-15",
+          "event_end_date": null,
+          "document_rating": "低",
+          "signal": null,
+          "available": true,
+          "event_prices": {
+            "date": "2026-04-15",
+            "open": 0.0431,
+            "high": 0.051,
+            "low": 0.0431,
+            "close": 0.0445,
+            "volume": 75584165.0,
+            "trade_count": 39923
+          },
+          "event_day_open_close_return_pct": 3.248259860788849,
+          "event_day_return_pct": 3.248259860788849,
+          "price_quality": "主市场",
+          "post_event_close_returns_pct": {
+            "d_plus_1": -3.5955056179775235,
+            "d_plus_3": -3.370786516853941,
+            "d_plus_7": -3.370786516853941
+          },
+          "post_7d_max_up_pct": 10.1123595505618,
+          "post_7d_max_down_pct": -9.438202247190997,
+          "post_7d_max_high": {
+            "date": "2026-04-21",
+            "price": 0.049,
+            "return_from_event_close_pct": 10.1123595505618
+          },
+          "post_7d_min_low": {
+            "date": "2026-04-16",
+            "price": 0.0403,
+            "return_from_event_close_pct": -9.438202247190997
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-04-17",
+            "close_to_close_pct": 6.2937062937062915
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-04-21",
+            "close_to_close_pct": -8.315098468271332
+          }
+        },
+        {
+          "symbol": "RIF",
+          "event_date": "2026-05-12",
+          "event_end_date": null,
+          "document_rating": "低",
+          "signal": null,
+          "available": true,
+          "event_prices": {
+            "date": "2026-05-12",
+            "open": 0.0766,
+            "high": 0.0835,
+            "low": 0.0693,
+            "close": 0.0824,
+            "volume": 67706817.0,
+            "trade_count": 42176
+          },
+          "event_day_open_close_return_pct": 7.571801566579639,
+          "event_day_return_pct": 7.71241830065359,
+          "price_quality": "主市场",
+          "post_event_close_returns_pct": {
+            "d_plus_1": -5.946601941747575,
+            "d_plus_3": -8.737864077669899,
+            "d_plus_7": -16.383495145631066
+          },
+          "post_7d_max_up_pct": 0.9708737864077666,
+          "post_7d_max_down_pct": -18.689320388349508,
+          "post_7d_max_high": {
+            "date": "2026-05-13",
+            "price": 0.0832,
+            "return_from_event_close_pct": 0.9708737864077666
+          },
+          "post_7d_min_low": {
+            "date": "2026-05-18",
+            "price": 0.067,
+            "return_from_event_close_pct": -18.689320388349508
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-05-15",
+            "close_to_close_pct": 2.452316076294281
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-05-13",
+            "close_to_close_pct": -5.946601941747575
+          }
+        },
+        {
+          "symbol": "RIF",
+          "event_date": "2026-06-13",
+          "event_end_date": null,
+          "document_rating": "低",
+          "signal": null,
+          "available": true,
+          "event_prices": {
+            "date": "2026-06-13",
+            "open": 0.0798,
+            "high": 0.1298,
+            "low": 0.0755,
+            "close": 0.1231,
+            "volume": 179540985.0,
+            "trade_count": 165259
+          },
+          "event_day_open_close_return_pct": 54.2606516290727,
+          "event_day_return_pct": 54.45420326223338,
+          "price_quality": "主市场",
+          "post_event_close_returns_pct": {
+            "d_plus_1": -2.0308692120227456,
+            "d_plus_3": -22.50203086921202,
+            "d_plus_7": -25.91389114541023
+          },
+          "post_7d_max_up_pct": 19.17140536149471,
+          "post_7d_max_down_pct": -43.05442729488222,
+          "post_7d_max_high": {
+            "date": "2026-06-15",
+            "price": 0.1467,
+            "return_from_event_close_pct": 19.17140536149471
+          },
+          "post_7d_min_low": {
+            "date": "2026-06-18",
+            "price": 0.0701,
+            "return_from_event_close_pct": -43.05442729488222
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-06-19",
+            "close_to_close_pct": 30.077120822622106
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-06-17",
+            "close_to_close_pct": -23.899371069182397
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "ALLO",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "base",
+        "platform": "base",
+        "contract": "0x032d86656db142138ac97d2c5c4e3766e8c0482d",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 17,
+      "range": {
+        "start": "2026-05-20",
+        "end": "2026-06-05"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "ALLO",
+          "event_date": "2026-05-28",
+          "event_end_date": null,
+          "document_rating": "中",
+          "signal": {
+            "date": "2026-05-22",
+            "basis": "明确交易日",
+            "signal": "Ethereum 出现 492,609.7225 ALLO 大额转账，BSC 前窗规模较小"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-05-28",
+            "open": 0.09124026141375287,
+            "high": 0.16583265560911398,
+            "low": 0.08967414573866543,
+            "close": 0.16322204452109496,
+            "volume": 149146.65189505543,
+            "trade_count": 39
+          },
+          "event_day_open_close_return_pct": 78.89256561960276,
+          "event_day_return_pct": 78.89256561960276,
+          "price_quality": "低流动性",
+          "signal_price": 0.08964591915205411,
+          "signal_to_event_close_pct": 82.07414912467318,
+          "signal_lead_days": 6,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 56.68789547654094,
+            "d_plus_3": 66.27613917768826,
+            "d_plus_7": -30.949878761190963
+          },
+          "post_7d_max_up_pct": 120.37988100539359,
+          "post_7d_max_down_pct": -57.16323044956759,
+          "post_7d_max_high": {
+            "date": "2026-06-02",
+            "price": 0.35970854749015957,
+            "return_from_event_close_pct": 120.37988100539359
+          },
+          "post_7d_min_low": {
+            "date": "2026-06-03",
+            "price": 0.06991905106700562,
+            "return_from_event_close_pct": -57.16323044956759
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-06-02",
+            "close_to_close_pct": 242.59984001099087
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-06-03",
+            "close_to_close_pct": -67.81627627676527
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "TAIKO",
+      "source": {
+        "kind": "Binance Web3 DEX",
+        "chain": "eth",
+        "platform": "ethereum",
+        "contract": "0x10dea67478c5f8c5e2d90e5e9b26dbe60c54d800",
+        "quote": "USD",
+        "date_coverage": 1.0
+      },
+      "bars": 16,
+      "range": {
+        "start": "2026-06-23",
+        "end": "2026-07-08"
+      },
+      "errors": [],
+      "events": [
+        {
+          "symbol": "TAIKO",
+          "event_date": "2026-06-30",
+          "event_end_date": null,
+          "document_rating": "中",
+          "signal": {
+            "date": "2026-06-25",
+            "basis": "明确交易日",
+            "signal": "单笔 Safe 转账 971,128 TAIKO，但前窗整体仅为基线 0.046x"
+          },
+          "available": true,
+          "event_prices": {
+            "date": "2026-06-30",
+            "open": 0.04641184566605163,
+            "high": 0.0836187958688215,
+            "low": 0.03955765244809325,
+            "close": 0.06732654069431987,
+            "volume": 668.017645623082,
+            "trade_count": 22
+          },
+          "event_day_open_close_return_pct": 45.06326936178382,
+          "event_day_return_pct": 45.06326936178382,
+          "price_quality": "低流动性",
+          "signal_price": 0.04930836332016227,
+          "signal_to_event_close_pct": 36.54182812186333,
+          "signal_lead_days": 5,
+          "post_event_close_returns_pct": {
+            "d_plus_1": 248.99280957170927,
+            "d_plus_3": 61.137396000405865,
+            "d_plus_7": 29.98469649142903
+          },
+          "post_7d_max_up_pct": 466.4997007063172,
+          "post_7d_max_down_pct": -6.197781524098356,
+          "post_7d_max_high": {
+            "date": "2026-07-01",
+            "price": 0.3814046515292389,
+            "return_from_event_close_pct": 466.4997007063172
+          },
+          "post_7d_min_low": {
+            "date": "2026-07-01",
+            "price": 0.06315378879435275,
+            "return_from_event_close_pct": -6.197781524098356
+          },
+          "post_7d_largest_daily_gain": {
+            "date": "2026-07-01",
+            "close_to_close_pct": 248.99280957170927
+          },
+          "post_7d_largest_daily_drop": {
+            "date": "2026-07-02",
+            "close_to_close_pct": -45.57871908433185
+          }
+        }
+      ]
+    }
+  ]
+}

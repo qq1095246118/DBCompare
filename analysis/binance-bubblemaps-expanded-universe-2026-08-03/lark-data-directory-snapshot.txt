@@ -1,0 +1,100 @@
+主机文件数据目录
+原始数据下载清单
+最后更新：2026-07-03
+本文记录已经下载的原始数据范围，以及它们在共享目录下的落盘位置；路径位于 /data2/shares/raw_tmp 时表示待校验落盘，路径位于 /data2/shares/raw 时表示 canonical raw。这里记录的是数据覆盖范围，不等同于下载计划，也不表示远端数据源的完整可用范围。
+落盘命名约定：/data2/shares/{raw,raw_tmp}/tardis/ 下第一层目录统一为 exchange-market，quote 不写入第一层目录，而是放在 data type 之后，例如 {exchange-market}/{data_type}/{quote}/{YYYY-MM-DD}/{instrument}.csv.zst。
+迁移口径：/data2/shares/raw 是新的生产 canonical raw 根目录。2026-06-26 及以前的历史数据物理文件仍保留在旧盘 /data/shares/raw；日更、月更、普通历史 backfill/retry 默认先写入待校验目录 /data2/shares/raw_tmp，校验通过后再移动到 /data2/shares/raw。只有修复 2026-06-27 之前已经跑过、且需要物理补回旧盘的历史缺口时，才显式使用 --legacy-raw 或 LEGACY_RAW=1 写入 /data/shares/raw。
+注意：代码层面的 canonical 目录名统一为 exchange-market，例如 binance-futures-perp、bybit-futures-perp、bitget-futures-perp、okex-swap-perp、kraken-futures-perp。旧目录名仍会作为 legacy 路径识别，避免重复下载。
+Tardis 数据
+
+Binance Vision 数据
+
+Bitget USDT 未完成（永续数据源规划）
+本节记录 Bitget USDT 永续合约数据需求、目标数据源和当前采集实现状态。目标覆盖时间为 2022-01-01 至 2026-07-01；若官方或第三方源无法覆盖到 2022，最低验收覆盖为 2024-01-01 至 2026-07-01。这里的“完成状态”表示仓库采集链路状态，不等同于全量历史数据已经全部落盘。
+
+OKX Historical Data
+
+Coinbase Exchange Historical Data
+
+Kraken Historical Data
+
+路径口径
+当前下载配置以 /data2/shares/raw_tmp 为待校验 raw 根目录；/data2/shares/raw 是校验后的 canonical raw 根目录，/data/shares/raw 只作为旧路径兼容入口。
+2026-06-26 及以前的历史分区物理保留在 /data/shares/raw；新日更/月更/普通补数分区先写入 /data2/shares/raw_tmp，校验通过后移动到 /data2/shares/raw。
+旧盘历史缺口修复需要显式加 --legacy-raw 或 LEGACY_RAW=1，用于把输出根目录切到 /data/shares/raw；OKX kline 旧 manifest 路径会兼容转换到当前 okx/history/{market}/klines/{quote}/1m 目录结构。
+Tardis 待校验落盘根目录是 /data2/shares/raw_tmp/tardis；canonical 根目录是 /data2/shares/raw/tardis。
+Binance Vision 待校验落盘根目录是 /data2/shares/raw_tmp/binance/vision；canonical 根目录是 /data2/shares/raw/binance/vision。
+Bitget 官方 REST 待校验落盘根目录是 /data2/shares/raw_tmp/bitget/history；canonical 目标根目录是 /data2/shares/raw/bitget/history。
+OKX Historical Data 待校验落盘根目录是 /data2/shares/raw_tmp/okx/history；canonical 根目录是 /data2/shares/raw/okx/history。
+CoinGlass 待校验落盘根目录是 /data2/shares/raw_tmp/coinglass/futures；canonical 目标根目录是 /data2/shares/raw/coinglass/futures。
+Coinbase Historical Data 待校验落盘根目录是 /data2/shares/raw_tmp/coinbase/api；canonical 根目录是 /data2/shares/raw/coinbase/api。
+Kraken Historical Data 待校验落盘根目录是 /data2/shares/raw_tmp/kraken/drive-google；canonical 根目录是 /data2/shares/raw/kraken/drive-google。
+表里的固定目录已经写到 quote 层级，例如 USDT、USDC、FDUSD 或 USD。
+日文件的日期层级使用 YYYY-MM-DD。
+月文件的日期层级使用 YYYY-MM。
+{instrument}、{symbol}、{interval} 是路径占位符，实际值由下载配置和品种列表决定。
+更新机制
+生产环境使用同一个 crontab 统一调度 Tardis、Binance Vision 和 OKX Historical Data，模板见 deploy/cron.example。服务器实际工作目录为 /data2/shares/code/nextalpha-tardis-data，cron 使用北京时间 Asia/Shanghai。Coinbase/Kraken 现货 1m kline 当前仍在历史回补阶段，暂不纳入生产日更调度。
+日更任务默认采用最近 2 个完整 UTC 日期的滚动窗口，不包含当天；这样可以覆盖数据源出数延迟，并依赖 skip_existing 跳过已落盘文件。
+
+每次 wrapper 运行会生成独立 manifest，例如 data/manifests/tardis_daily_YYYYMMDDTHHMMSSZ.csv、data/manifests/tardis_daily_kraken_spot_usdt_YYYYMMDDTHHMMSSZ.csv、data/manifests/binance_vision_daily_YYYYMMDDTHHMMSSZ.csv、data/manifests/okx_history_spot_USDT_daily_YYYYMMDDTHHMMSSZ_a1.csv。判断任务是否按时触发，可查看各 wrapper 日志中的 start ... 和 done ... 行；status=0 表示该 wrapper 完成，Tardis 若出现 main_status=0 retry_status=1，表示主下载成功但自动 retry 后仍有 cache job 未生成。
+Tardis 缺失详情索引
+TD-01 bitget-futures-perp
+trades：五个标的均缺 2026-06-07 至 2026-06-10。
+book_snapshot_25：
+BTCUSDT 缺 2026-04-26、2026-05-07 至 2026-05-08、2026-05-10 至 2026-05-11、2026-05-13 至 2026-05-14、2026-05-17 至 2026-06-10。
+ETHUSDT、SOLUSDT 缺 2026-03-01 至 2026-03-26、2026-04-07 至 2026-04-24、2026-04-26、2026-05-07 至 2026-05-08、2026-05-10 至 2026-05-11、2026-05-13 至 2026-05-14、2026-05-17 至 2026-06-10。
+BNBUSDT 缺 2026-02-01 至 2026-03-12、2026-04-07 至 2026-04-24、2026-04-26、2026-05-07 至 2026-05-08、2026-05-10 至 2026-05-11、2026-05-13 至 2026-05-14、2026-05-17 至 2026-06-10。
+XRPUSDT 缺 2026-02-01 至 2026-03-26、2026-04-07 至 2026-04-24、2026-04-26、2026-05-07 至 2026-05-08、2026-05-10 至 2026-05-11、2026-05-13 至 2026-05-14、2026-05-17 至 2026-06-10。
+TD-02 kraken-futures-perp
+trades：
+PI_XBTUSD 缺 2026-02-01 至 2026-03-31、2026-05-11 至 2026-06-10。
+PF_SOLUSD 缺 2026-02-01 至 2026-03-23、2026-03-30 至 2026-04-13、2026-04-15 至 2026-04-30、2026-05-08、2026-06-08 至 2026-06-10。
+PI_ETHUSD、PF_BNBUSD、PI_XRPUSD 缺 2026-02-01 至 2026-06-10。
+book_snapshot_25：五个标的均缺 2026-02-01 至 2026-04-30、2026-05-02 至 2026-06-10。
+TD-03 binance spot
+BTCUSDT、BTCFDUSD、BTCUSDC 已齐。其中 BTCUSDT、BTCUSDC 已延伸至 2026-06-20；BTCFDUSD 的 trades、book_snapshot_25 缺 2026-06-11 至 2026-06-20。
+trades：
+BNBUSDT 缺 2026-04-23。
+ETHUSDT 缺 2026-04-22 至 2026-04-24、2026-04-26 至 2026-04-27、2026-06-01 至 2026-06-02。
+SOLUSDT 缺 2026-04-23、2026-06-04。
+XRPUSDT 缺 2026-06-01。
+book_snapshot_25：
+BNBUSDT 缺 2026-04-23、2026-04-26 至 2026-04-27、2026-06-01 至 2026-06-02。
+ETHUSDT 缺 2026-04-23、2026-04-27、2026-06-01、2026-06-03。
+SOLUSDT 缺 2026-04-27、2026-06-01 至 2026-06-02。
+XRPUSDT 缺 2026-04-27、2026-06-01、2026-06-03。
+TD-04 okex spot
+BTC-USDT 的 trades、book_snapshot_25 已延伸至 2026-06-20。
+以下缺口已核对为 Tardis 上游无文件，不进入后续补数/重试队列。
+trades：仅 ETH-USDT 缺 2026-06-03。
+book_snapshot_25：
+BNB-USDT 缺 2026-04-22、2026-04-24。
+ETH-USDT 缺 2026-04-23 至 2026-04-24、2026-04-26 至 2026-04-27、2026-06-02 至 2026-06-03。
+SOL-USDT 缺 2026-04-23、2026-04-25、2026-04-27 至 2026-04-28、2026-06-02、2026-06-04。
+XRP-USDT 缺 2026-04-24、2026-04-26、2026-04-28、2026-05-08、2026-06-01。
+TD-05 coinbase spot
+trades 五个标的均已齐。BTC-USD 的 trades、book_snapshot_25 已延伸至 2026-06-20。
+book_snapshot_25：
+BTC-USD 已齐。
+BNB-USD 缺 2026-04-22 至 2026-04-27。
+ETH-USDT 缺 2026-03-23、2026-04-22 至 2026-04-24。
+SOL-USDT、XRP-USDT 均缺 2026-04-23。
+TD-06 kraken spot
+XBT-USD 的 trades、book_snapshot_25 已齐，该标的已延伸至 2026-06-20；ETH-USD、BNB-USD、SOL-USD、XRP-USD 在目标区间整段缺失。
+Kraken spot USDT 的 20 个矩阵标的已加入 tardis_daily，raw 路径为 /data2/shares/raw/tardis/kraken-spot/trades/USDT/ 和 /data2/shares/raw/tardis/kraken-spot/book_snapshot_25/USDT/。
+TD-07 bybit-spot
+BTCUSDT 的 book_snapshot_25 已延伸至 2026-06-20；trades 在 2026-06-11 至 2026-06-20 中缺 2026-06-19。trades 五个标的均已齐。
+book_snapshot_25：
+BTCUSDT、BNBUSDT 已齐。
+ETHUSDT 缺 2026-04-22、2026-04-25、2026-04-27、2026-05-31、2026-06-02 至 2026-06-04。
+SOLUSDT 缺 2026-04-24、2026-04-27、2026-06-02 至 2026-06-04。
+XRPUSDT 缺 2026-04-25、2026-04-27、2026-06-01 至 2026-06-02、2026-06-04。
+TD-08 gate-io spot
+BTC_USDT 的 trades、book_snapshot_25 已齐，该标的已延伸至 2026-06-20；ETH_USDT、BNB_USDT、SOL_USDT、XRP_USDT 在目标区间整段缺失。
+TD-09 bitget spot
+trades 五个标的均已齐。
+book_snapshot_25：
+BTCUSDT、BNBUSDT 已齐。
+ETHUSDT、SOLUSDT 均缺 2026-04-27。
+XRPUSDT 缺 2026-04-25。

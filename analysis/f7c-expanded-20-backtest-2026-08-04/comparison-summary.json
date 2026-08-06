@@ -1,0 +1,64 @@
+{
+  "common_cutoff": "2026-07-29",
+  "portfolio_assumptions": {
+    "initial_equity": 1.0,
+    "margin_fraction_per_entry": 0.3,
+    "leverage": 2.0,
+    "max_positions": 3,
+    "fee_per_side": 0.002
+  },
+  "old_13": {
+    "old_daily": {"total_return": -0.2063, "max_drawdown_5m": -0.8826},
+    "v1_multitimeframe": {"total_return": 0.8429, "max_drawdown_5m": -0.2713},
+    "v2_multitimeframe": {"total_return": 1.9094, "max_drawdown_5m": -0.3277},
+    "v2_trade_diagnostics": {
+      "trade_count": 26,
+      "win_rate": 0.385,
+      "mean_return_2x": 0.2096,
+      "median_return_2x": -0.0701,
+      "best_return_2x": 4.3427,
+      "worst_return_2x": -0.3256
+    }
+  },
+  "new_20": {
+    "old_daily": {"total_return": 0.6829518398997054, "max_drawdown_5m": -0.3932215942946291, "executed_trades": 48},
+    "v1_multitimeframe": {"total_return": 0.6682992588702947, "max_drawdown_5m": -0.36622667366987605, "executed_trades": 48},
+    "v2_multitimeframe": {"total_return": 0.5125285685848859, "max_drawdown_5m": -0.37898895127775134, "executed_trades": 47, "capacity_skipped_entries": 1},
+    "v2_trade_diagnostics": {
+      "trade_count": 48,
+      "win_rate": 0.4375,
+      "mean_return_2x": 0.038529124528479744,
+      "median_return_2x": -0.051250238026417205,
+      "best_return_2x": 0.826617122754091,
+      "worst_return_2x": -0.2502812388222626
+    },
+    "label_review": {"reviewed_unique_endpoints": 433, "total_unique_endpoints": 759, "pending_unique_endpoints": 326},
+    "transfer_coverage": {"available_members": 2797, "ordinary_members": 2831, "missing_members": 34}
+  },
+  "combined_33": {
+    "daily_1x": {
+      "total_return": -0.03928661466225092,
+      "max_drawdown": -0.7396661955119539,
+      "closed_trades": 70,
+      "open_trades": 3
+    },
+    "weighted_2x": {
+      "old_daily": {"total_return": -0.13524729033851624, "max_drawdown_5m": -0.8976467514081318, "executed_trades": 68, "capacity_skipped_entries": 0},
+      "v1_multitimeframe": {"total_return": 1.8116032480438369, "max_drawdown_5m": -0.2941026392383934, "executed_trades": 64, "capacity_skipped_entries": 4},
+      "v2_multitimeframe": {"total_return": 3.0722802901833894, "max_drawdown_5m": -0.2915575435205766, "executed_trades": 60, "capacity_skipped_entries": 8}
+    },
+    "v2_trade_diagnostics": {
+      "comparable_trades": 68,
+      "win_rate": 0.39705882352941174,
+      "mean_return_2x": 0.09652866683212331,
+      "median_return_2x": -0.07010449868454732,
+      "best_return_2x": 4.342690652869354,
+      "worst_return_2x": -0.3256131071602009
+    },
+    "v2_concentration_sensitivity": {
+      "without_velvet_2026_06_06": 0.7573179967523977,
+      "without_gwei_2026_06_23": 2.1614462652888964,
+      "without_both": 0.3642642504619058
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "trade_count": 70,
+  "completed_count": 68,
+  "win_rate": 0.38235294117647056,
+  "mean_return_2x": 0.06024349070873947,
+  "median_return_2x": -0.053959537611743325,
+  "best_return_2x": 1.4876990984474001,
+  "worst_return_2x": -0.2917103146974309
+}

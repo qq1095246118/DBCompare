@@ -1,0 +1,497 @@
+{
+  "generated_at_utc": "2026-08-05T11:45:37.829266+00:00",
+  "method": "monthly_expanding_walk_forward_logistic_with_splines",
+  "cold_start_month_excluded": "2026-01",
+  "ablations": [
+    {
+      "model": "volume",
+      "oos_completed_trades": 365,
+      "oos_months": "2026-02,2026-03,2026-04,2026-05,2026-06,2026-07",
+      "base_win_rate": 0.3013698630136986,
+      "auc": 0.42955436720142604,
+      "brier": 0.22372749653601082,
+      "constant_base_brier": 0.21054606868080314,
+      "log_loss": 0.642811549521806
+    },
+    {
+      "model": "cex",
+      "oos_completed_trades": 365,
+      "oos_months": "2026-02,2026-03,2026-04,2026-05,2026-06,2026-07",
+      "base_win_rate": 0.3013698630136986,
+      "auc": 0.4766844919786096,
+      "brier": 0.2216960090329688,
+      "constant_base_brier": 0.21054606868080314,
+      "log_loss": 0.6346145207834726
+    },
+    {
+      "model": "price_action",
+      "oos_completed_trades": 365,
+      "oos_months": "2026-02,2026-03,2026-04,2026-05,2026-06,2026-07",
+      "base_win_rate": 0.3013698630136986,
+      "auc": 0.37971479500891264,
+      "brier": 0.22602975086479177,
+      "constant_base_brier": 0.21054606868080314,
+      "log_loss": 0.6486004992699146
+    },
+    {
+      "model": "market",
+      "oos_completed_trades": 365,
+      "oos_months": "2026-02,2026-03,2026-04,2026-05,2026-06,2026-07",
+      "base_win_rate": 0.3013698630136986,
+      "auc": 0.39040998217468803,
+      "brier": 0.2403340500632348,
+      "constant_base_brier": 0.21054606868080314,
+      "log_loss": 0.6883924811123345
+    },
+    {
+      "model": "full",
+      "oos_completed_trades": 365,
+      "oos_months": "2026-02,2026-03,2026-04,2026-05,2026-06,2026-07",
+      "base_win_rate": 0.3013698630136986,
+      "auc": 0.46741532976827094,
+      "brier": 0.24770481845114703,
+      "constant_base_brier": 0.21054606868080314,
+      "log_loss": 0.7225805295256967
+    }
+  ],
+  "filter_results": [
+    {
+      "scenario": "no_filter",
+      "label": "不筛选",
+      "trades": 365,
+      "retention": 1.0,
+      "win_rate": 0.3013698630136986,
+      "mean_return_2x": -0.017932018019024706,
+      "median_return_2x": -0.15213783459848182,
+      "failure_rejected_rate": 0.0,
+      "winner_rejected_rate": 0.0,
+      "positive_months": 1,
+      "months": 6
+    },
+    {
+      "scenario": "top_25",
+      "label": "保留模型评分最高25%附近",
+      "trades": 89,
+      "retention": 0.24383561643835616,
+      "win_rate": 0.34831460674157305,
+      "mean_return_2x": 0.02640834035699089,
+      "median_return_2x": -0.12134218289085556,
+      "failure_rejected_rate": 0.7725490196078432,
+      "winner_rejected_rate": 0.7181818181818183,
+      "positive_months": 1,
+      "months": 6
+    },
+    {
+      "scenario": "top_40",
+      "label": "保留模型评分最高40%附近",
+      "trades": 124,
+      "retention": 0.33972602739726027,
+      "win_rate": 0.2903225806451613,
+      "mean_return_2x": -0.005650974280370577,
+      "median_return_2x": -0.13150755140104053,
+      "failure_rejected_rate": 0.6549019607843137,
+      "winner_rejected_rate": 0.6727272727272727,
+      "positive_months": 1,
+      "months": 6
+    },
+    {
+      "scenario": "top_50",
+      "label": "保留模型评分最高50%附近",
+      "trades": 159,
+      "retention": 0.43561643835616437,
+      "win_rate": 0.31446540880503143,
+      "mean_return_2x": -0.004496328490459541,
+      "median_return_2x": -0.12899768625636254,
+      "failure_rejected_rate": 0.5725490196078431,
+      "winner_rejected_rate": 0.5454545454545454,
+      "positive_months": 1,
+      "months": 6
+    },
+    {
+      "scenario": "top_67",
+      "label": "保留模型评分最高67%附近",
+      "trades": 231,
+      "retention": 0.6328767123287671,
+      "win_rate": 0.30735930735930733,
+      "mean_return_2x": -0.0050866106416333065,
+      "median_return_2x": -0.12959177215189874,
+      "failure_rejected_rate": 0.37254901960784315,
+      "winner_rejected_rate": 0.3545454545454545,
+      "positive_months": 1,
+      "months": 6
+    },
+    {
+      "scenario": "top_75",
+      "label": "保留模型评分最高75%附近",
+      "trades": 261,
+      "retention": 0.7150684931506849,
+      "win_rate": 0.30268199233716475,
+      "mean_return_2x": -0.011852976268265125,
+      "median_return_2x": -0.13736780812422034,
+      "failure_rejected_rate": 0.28627450980392155,
+      "winner_rejected_rate": 0.28181818181818186,
+      "positive_months": 1,
+      "months": 6
+    },
+    {
+      "scenario": "bottom_50",
+      "label": "模型评分较低约50%（反向对照）",
+      "trades": 206,
+      "retention": 0.5643835616438356,
+      "win_rate": 0.2912621359223301,
+      "mean_return_2x": -0.02830228323767452,
+      "median_return_2x": -0.165503793386642,
+      "failure_rejected_rate": 0.4274509803921569,
+      "winner_rejected_rate": 0.4545454545454546,
+      "positive_months": 2,
+      "months": 6
+    },
+    {
+      "scenario": "bottom_25",
+      "label": "模型评分最低约25%（反向对照）",
+      "trades": 104,
+      "retention": 0.28493150684931506,
+      "win_rate": 0.2980769230769231,
+      "mean_return_2x": -0.03318807472045019,
+      "median_return_2x": -0.16669822571310366,
+      "failure_rejected_rate": 0.7137254901960784,
+      "winner_rejected_rate": 0.7181818181818183,
+      "positive_months": 2,
+      "months": 6
+    }
+  ],
+  "monthly_filter_results": [
+    {
+      "month": "2026-02",
+      "scenario": "no_filter",
+      "trades": 49,
+      "win_rate": 0.24489795918367346,
+      "mean_return_2x": -0.058560476346075065,
+      "median_return_2x": -0.16687849540659036
+    },
+    {
+      "month": "2026-02",
+      "scenario": "top_25",
+      "trades": 16,
+      "win_rate": 0.25,
+      "mean_return_2x": -0.04688580772049497,
+      "median_return_2x": -0.16760667239626303
+    },
+    {
+      "month": "2026-02",
+      "scenario": "top_50",
+      "trades": 19,
+      "win_rate": 0.3157894736842105,
+      "mean_return_2x": -0.02448165190088837,
+      "median_return_2x": -0.1409626787913233
+    },
+    {
+      "month": "2026-02",
+      "scenario": "top_67",
+      "trades": 26,
+      "win_rate": 0.3076923076923077,
+      "mean_return_2x": -0.03349040031127,
+      "median_return_2x": -0.10436910013035477
+    },
+    {
+      "month": "2026-03",
+      "scenario": "no_filter",
+      "trades": 64,
+      "win_rate": 0.390625,
+      "mean_return_2x": -0.004978978182317595,
+      "median_return_2x": -0.12024135479152921
+    },
+    {
+      "month": "2026-03",
+      "scenario": "top_25",
+      "trades": 8,
+      "win_rate": 0.375,
+      "mean_return_2x": -0.06086061592488153,
+      "median_return_2x": -0.1678178770435183
+    },
+    {
+      "month": "2026-03",
+      "scenario": "top_50",
+      "trades": 19,
+      "win_rate": 0.3684210526315789,
+      "mean_return_2x": -0.07333203294561727,
+      "median_return_2x": -0.16609900990099
+    },
+    {
+      "month": "2026-03",
+      "scenario": "top_67",
+      "trades": 29,
+      "win_rate": 0.3793103448275862,
+      "mean_return_2x": -0.0273230625151479,
+      "median_return_2x": -0.135436923076923
+    },
+    {
+      "month": "2026-04",
+      "scenario": "no_filter",
+      "trades": 71,
+      "win_rate": 0.5774647887323944,
+      "mean_return_2x": 0.12238145086003949,
+      "median_return_2x": 0.018755448997384582
+    },
+    {
+      "month": "2026-04",
+      "scenario": "top_25",
+      "trades": 23,
+      "win_rate": 0.782608695652174,
+      "mean_return_2x": 0.2737000005656803,
+      "median_return_2x": 0.11483644428016983
+    },
+    {
+      "month": "2026-04",
+      "scenario": "top_50",
+      "trades": 35,
+      "win_rate": 0.6857142857142857,
+      "mean_return_2x": 0.1724255953997136,
+      "median_return_2x": 0.06326187290969897
+    },
+    {
+      "month": "2026-04",
+      "scenario": "top_67",
+      "trades": 48,
+      "win_rate": 0.6458333333333334,
+      "mean_return_2x": 0.1646671052429585,
+      "median_return_2x": 0.048225062517760806
+    },
+    {
+      "month": "2026-05",
+      "scenario": "no_filter",
+      "trades": 60,
+      "win_rate": 0.18333333333333332,
+      "mean_return_2x": -0.056045601434771206,
+      "median_return_2x": -0.16949020075676763
+    },
+    {
+      "month": "2026-05",
+      "scenario": "top_25",
+      "trades": 18,
+      "win_rate": 0.2222222222222222,
+      "mean_return_2x": -0.03124999312860755,
+      "median_return_2x": -0.16904075825068796
+    },
+    {
+      "month": "2026-05",
+      "scenario": "top_50",
+      "trades": 40,
+      "win_rate": 0.2,
+      "mean_return_2x": -0.025855623708425417,
+      "median_return_2x": -0.16904075825068796
+    },
+    {
+      "month": "2026-05",
+      "scenario": "top_67",
+      "trades": 54,
+      "win_rate": 0.18518518518518517,
+      "mean_return_2x": -0.050655083123304405,
+      "median_return_2x": -0.16977915424973594
+    },
+    {
+      "month": "2026-06",
+      "scenario": "no_filter",
+      "trades": 66,
+      "win_rate": 0.25757575757575757,
+      "mean_return_2x": -0.04671151790469958,
+      "median_return_2x": -0.1603477964759025
+    },
+    {
+      "month": "2026-06",
+      "scenario": "top_25",
+      "trades": 15,
+      "win_rate": 0.13333333333333333,
+      "mean_return_2x": -0.06859391825777882,
+      "median_return_2x": -0.12134218289085556
+    },
+    {
+      "month": "2026-06",
+      "scenario": "top_50",
+      "trades": 22,
+      "win_rate": 0.22727272727272727,
+      "mean_return_2x": -0.038979838951849415,
+      "median_return_2x": -0.09664294773285295
+    },
+    {
+      "month": "2026-06",
+      "scenario": "top_67",
+      "trades": 34,
+      "win_rate": 0.2647058823529412,
+      "mean_return_2x": -0.017285503445892355,
+      "median_return_2x": -0.1406447404515688
+    },
+    {
+      "month": "2026-07",
+      "scenario": "no_filter",
+      "trades": 55,
+      "win_rate": 0.07272727272727272,
+      "mean_return_2x": -0.10182646137426131,
+      "median_return_2x": -0.1684698341925597
+    },
+    {
+      "month": "2026-07",
+      "scenario": "top_25",
+      "trades": 9,
+      "win_rate": 0,
+      "mean_return_2x": -0.12403235779220742,
+      "median_return_2x": -0.16805660377358497
+    },
+    {
+      "month": "2026-07",
+      "scenario": "top_50",
+      "trades": 24,
+      "win_rate": 0,
+      "mean_return_2x": -0.12498211048382217,
+      "median_return_2x": -0.16811097665882896
+    },
+    {
+      "month": "2026-07",
+      "scenario": "top_67",
+      "trades": 40,
+      "win_rate": 0.05,
+      "mean_return_2x": -0.10232068207570537,
+      "median_return_2x": -0.16811097665882896
+    }
+  ],
+  "shared_replays": [
+    {
+      "scenario": "no_filter",
+      "label": "OOS月份不筛选",
+      "candidate_signals": 419,
+      "executed_trades": 84,
+      "executed_symbols": 49,
+      "skipped_signals": 335,
+      "win_rate": 0.2976190476190476,
+      "total_return": -0.7265328262118376,
+      "max_drawdown_5m": -0.7605557580848831
+    },
+    {
+      "scenario": "top_25",
+      "label": "保留模型评分最高25%附近",
+      "candidate_signals": 105,
+      "executed_trades": 49,
+      "executed_symbols": 34,
+      "skipped_signals": 56,
+      "win_rate": 0.2857142857142857,
+      "total_return": -0.16747477085385787,
+      "max_drawdown_5m": -0.5835591021628846
+    },
+    {
+      "scenario": "top_40",
+      "label": "保留模型评分最高40%附近",
+      "candidate_signals": 151,
+      "executed_trades": 54,
+      "executed_symbols": 41,
+      "skipped_signals": 97,
+      "win_rate": 0.24074074074074073,
+      "total_return": -0.42027579119486147,
+      "max_drawdown_5m": -0.5732412329759135
+    },
+    {
+      "scenario": "top_50",
+      "label": "保留模型评分最高50%附近",
+      "candidate_signals": 192,
+      "executed_trades": 64,
+      "executed_symbols": 48,
+      "skipped_signals": 128,
+      "win_rate": 0.3125,
+      "total_return": -0.24755202488277894,
+      "max_drawdown_5m": -0.5239061346811551
+    },
+    {
+      "scenario": "top_67",
+      "label": "保留模型评分最高67%附近",
+      "candidate_signals": 272,
+      "executed_trades": 71,
+      "executed_symbols": 48,
+      "skipped_signals": 201,
+      "win_rate": 0.28169014084507044,
+      "total_return": -0.4709194145576715,
+      "max_drawdown_5m": -0.5912765868491804
+    },
+    {
+      "scenario": "top_75",
+      "label": "保留模型评分最高75%附近",
+      "candidate_signals": 308,
+      "executed_trades": 74,
+      "executed_symbols": 46,
+      "skipped_signals": 234,
+      "win_rate": 0.32432432432432434,
+      "total_return": -0.6167086512839828,
+      "max_drawdown_5m": -0.6652697828153591
+    },
+    {
+      "scenario": "bottom_50",
+      "label": "模型评分较低约50%（反向对照）",
+      "candidate_signals": 227,
+      "executed_trades": 82,
+      "executed_symbols": 54,
+      "skipped_signals": 145,
+      "win_rate": 0.32926829268292684,
+      "total_return": -0.6411449858228555,
+      "max_drawdown_5m": -0.8357189646960097
+    },
+    {
+      "scenario": "bottom_25",
+      "label": "模型评分最低约25%（反向对照）",
+      "candidate_signals": 111,
+      "executed_trades": 61,
+      "executed_symbols": 48,
+      "skipped_signals": 50,
+      "win_rate": 0.2786885245901639,
+      "total_return": -0.6024317945025,
+      "max_drawdown_5m": -0.6938464323044564
+    },
+    {
+      "scenario": "top_25_without_best_trade",
+      "label": "Top 25%移除最佳交易（247-BAS-2026-04-19）",
+      "candidate_signals": 104,
+      "executed_trades": 48,
+      "executed_symbols": 33,
+      "skipped_signals": 56,
+      "win_rate": 0.2708333333333333,
+      "total_return": -0.4791465025611956,
+      "max_drawdown_5m": -0.5633531263689111
+    },
+    {
+      "scenario": "random_top25_30_median",
+      "label": "Top 25%等密度随机信号（30次中位）",
+      "candidate_signals": 105,
+      "executed_trades": 61.5,
+      "executed_symbols": "",
+      "skipped_signals": "",
+      "win_rate": 0.3088235294117647,
+      "total_return": -0.41840378872424294,
+      "max_drawdown_5m": -0.6183906358921711,
+      "random_return_p10": -0.6983684884482015,
+      "random_return_p90": 0.014975606011873045,
+      "model_return_percentile_vs_random": 0.7333333333333333
+    },
+    {
+      "scenario": "top_50_without_best_trade",
+      "label": "Top 50%移除最佳交易（247-BAS-2026-04-19）",
+      "candidate_signals": 191,
+      "executed_trades": 62,
+      "executed_symbols": 45,
+      "skipped_signals": 129,
+      "win_rate": 0.3064516129032258,
+      "total_return": -0.5153586367554326,
+      "max_drawdown_5m": -0.5464687805048809
+    },
+    {
+      "scenario": "random_top50_30_median",
+      "label": "Top 50%等密度随机信号（30次中位）",
+      "candidate_signals": 192,
+      "executed_trades": 73.0,
+      "executed_symbols": "",
+      "skipped_signals": "",
+      "win_rate": 0.31695453643041493,
+      "total_return": -0.42342818836384816,
+      "max_drawdown_5m": -0.6862670549444988,
+      "random_return_p10": -0.7263026110838797,
+      "random_return_p90": -0.05923645695394558,
+      "model_return_percentile_vs_random": 0.7333333333333333
+    }
+  ]
+}

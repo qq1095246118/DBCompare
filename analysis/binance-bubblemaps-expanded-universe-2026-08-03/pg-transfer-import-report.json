@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-08-03T09:21:06.277965Z",
+  "source": "postgresql",
+  "identity_key": "chain+token_address",
+  "symbols": [
+    {
+      "symbol": "BLESS",
+      "chain": "bsc",
+      "token_address": "0x7c8217517ed4711fe2deccdfeffe8d906b9ae11f",
+      "current_member_count": 104,
+      "pg_member_count": 9,
+      "pg_event_count": 335,
+      "pg_member_coverage_ratio": 0.08653846,
+      "created_member_files": 0,
+      "merged_existing_member_files": 9,
+      "events_added": 0
+    },
+    {
+      "symbol": "FF",
+      "chain": "bsc",
+      "token_address": "0xac23b90a79504865d52b49b327328411a23d4db2",
+      "current_member_count": 89,
+      "pg_member_count": 0,
+      "pg_event_count": 0,
+      "pg_member_coverage_ratio": 0.0,
+      "created_member_files": 0,
+      "merged_existing_member_files": 0,
+      "events_added": 0
+    },
+    {
+      "symbol": "ZBT",
+      "chain": "bsc",
+      "token_address": "0xfab99fcf605fd8f4593edb70a43ba56542777777",
+      "current_member_count": 159,
+      "pg_member_count": 0,
+      "pg_event_count": 0,
+      "pg_member_coverage_ratio": 0.0,
+      "created_member_files": 0,
+      "merged_existing_member_files": 0,
+      "events_added": 0
+    }
+  ]
+}

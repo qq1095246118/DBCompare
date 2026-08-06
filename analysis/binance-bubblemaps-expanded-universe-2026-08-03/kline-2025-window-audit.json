@@ -1,0 +1,27 @@
+{
+  "audited_at": "2026-08-05T06:33:44Z",
+  "source": "ssh_binance_vision",
+  "host": "rayer@192.168.32.153",
+  "research_start_date": "2025-01-01",
+  "audited_through": "2026-08-03",
+  "roots": [
+    "/data2/shares/raw/binance/vision/futures-um/klines/USDT/1d",
+    "/data/shares/raw/binance/vision/futures-um/klines/USDT/1d",
+    "/data2/shares/raw_tmp/binance/vision/futures-um/klines/USDT/1d"
+  ],
+  "summary": {
+    "target_symbols": 233,
+    "symbols_with_files": 233,
+    "symbols_present_on_2025_01_01": 117,
+    "symbols_starting_later_in_2025": 112,
+    "symbols_starting_in_2026": 4,
+    "symbols_missing": 0
+  },
+  "symbols_starting_in_2026": [
+    {"symbol": "ACUUSDT", "first_date": "2026-01-21"},
+    {"symbol": "ELSAUSDT", "first_date": "2026-01-22"},
+    {"symbol": "SKRUSDT", "first_date": "2026-01-22"},
+    {"symbol": "FIGHTUSDT", "first_date": "2026-01-23"}
+  ],
+  "policy": "Use max(2025-01-01, actual Binance futures listing date); do not backfill or forward-fill pre-listing bars. Files from raw_tmp require ZIP/CSV/OHLC validation before use."
+}

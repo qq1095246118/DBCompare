@@ -1,0 +1,62 @@
+{
+  "sample_label": "新增样本外",
+  "selection_note": "从币安小市值高波动候选中排除全部原文样本和首批样本外币，要求至少 180 天日线、至少 6 段绝对涨跌达到 20% 的事件，并优先选择 Bubblemaps Cluster 普通成员覆盖较多者。",
+  "excluded_symbols": [
+    "SIREN",
+    "RAVE",
+    "TAC",
+    "BIRB",
+    "PLAY",
+    "SYN",
+    "M",
+    "BEAT",
+    "B",
+    "DEXE",
+    "VELVET",
+    "H",
+    "RIF",
+    "ALLO",
+    "TAIKO",
+    "BANK",
+    "SOON",
+    "ESPORTS",
+    "KOMA"
+  ],
+  "symbols": {
+    "CYS": {
+      "targets": {
+        "bsc": [
+          "0x0c69199c1562233640e0db5ce2c399a88eb507c7"
+        ]
+      }
+    },
+    "BULLA": {
+      "targets": {
+        "bsc": [
+          "0x595e21b20e78674f8a64c1566a20b2b316bc3511"
+        ]
+      }
+    },
+    "EVAA": {
+      "targets": {
+        "bsc": [
+          "0xaa036928c9c0df07d525b55ea8ee690bb5a628c1"
+        ]
+      }
+    },
+    "GWEI": {
+      "targets": {
+        "bsc": [
+          "0x30117e4bc17d7b044194b76a38365c53b72f7d49"
+        ]
+      }
+    },
+    "CLO": {
+      "targets": {
+        "bsc": [
+          "0x81d3a238b02827f62b9f390f947d36d4a5bf89d2"
+        ]
+      }
+    }
+  }
+}

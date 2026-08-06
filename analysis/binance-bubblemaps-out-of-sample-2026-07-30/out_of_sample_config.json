@@ -1,0 +1,44 @@
+{
+  "sample_label": "样本外",
+  "excluded_in_sample_symbols": [
+    "SIREN",
+    "RAVE",
+    "TAC",
+    "BIRB",
+    "PLAY",
+    "SYN",
+    "M",
+    "BEAT",
+    "B",
+    "DEXE",
+    "VELVET",
+    "H",
+    "RIF",
+    "ALLO",
+    "TAIKO",
+    "BANK"
+  ],
+  "symbols": {
+    "SOON": {
+      "targets": {
+        "bsc": [
+          "0xb9e1fd5a02d3a33b25a14d661414e6ed6954a721"
+        ]
+      }
+    },
+    "ESPORTS": {
+      "targets": {
+        "bsc": [
+          "0xf39e4b21c84e737df08e2c3b32541d856f508e48"
+        ]
+      }
+    },
+    "KOMA": {
+      "targets": {
+        "bsc": [
+          "0xd5eaaac47bd1993d661bc087e15dfb079a7f3c19"
+        ]
+      }
+    }
+  }
+}

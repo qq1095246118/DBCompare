@@ -1,0 +1,1419 @@
+{
+  "generated_at": "2026-07-30T06:37:30.992931+00:00",
+  "sample_label": "样本外",
+  "selected_symbols": [
+    "SOON",
+    "ESPORTS",
+    "KOMA"
+  ],
+  "excluded_in_sample_symbols": [
+    "ALLO",
+    "B",
+    "BANK",
+    "BEAT",
+    "BIRB",
+    "DEXE",
+    "H",
+    "M",
+    "PLAY",
+    "RAVE",
+    "RIF",
+    "SIREN",
+    "SYN",
+    "TAC",
+    "TAIKO",
+    "VELVET"
+  ],
+  "price_source": "https://fapi.binance.com/fapi/v1/klines",
+  "price_cutoff": "2026-07-29",
+  "event_threshold_pct": 20.0,
+  "episode_gap_days": 7,
+  "bubblemaps_snapshot": {
+    "source": "bubblemaps_api",
+    "status": "success",
+    "captured_at": "2026-07-30T06:36:53.108281Z",
+    "business_date": "2026-07-30",
+    "snapshot": "analysis/binance-bubblemaps-out-of-sample-2026-07-30/bubblemaps-snapshot",
+    "missing_targets": []
+  },
+  "summary": {
+    "episode_count": 24,
+    "up_episode_count": 20,
+    "down_episode_count": 4,
+    "up_composite_count": 3,
+    "down_composite_count": 2,
+    "up_composite_rate_pct": 15.0,
+    "down_composite_rate_pct": 50.0,
+    "event_composite_count": 5,
+    "event_composite_rate_pct": 20.833333333333336,
+    "control_count": 143,
+    "control_composite_count": 21,
+    "control_composite_rate_pct": 14.685314685314685,
+    "event_vs_control_lift": 1.418650793650794,
+    "fisher_exact_p_value": 0.541153028942789
+  },
+  "tokens": [
+    {
+      "symbol": "SOON",
+      "candidate_rank": 2,
+      "candidate_market_cap_usd": 119353488.03142017,
+      "chains": [
+        "bsc"
+      ],
+      "targets": [
+        "bsc:0xb9e1fd5a02d3a33b25a14d661414e6ed6954a721"
+      ],
+      "cluster_amount": "488591400.3519321195385",
+      "top_cluster_share_percent": [
+        "79.1368613545547779412100"
+      ],
+      "unique_transfer_count": 5321,
+      "reported_unique_transfer_count": 5321,
+      "bar_start": "2025-05-23",
+      "bar_end": "2026-07-29",
+      "bar_count": 433,
+      "episodes": [
+        {
+          "start_date": "2025-05-30",
+          "start_return_pct": -24.459838788596745,
+          "max_date": "2025-05-30",
+          "max_return_pct": -24.459838788596745,
+          "shock_day_count": 1,
+          "direction": "down",
+          "features": {
+            "anchor": "2025-05-30",
+            "pre_start": "2025-05-23",
+            "pre_end": "2025-05-29",
+            "baseline_start": "2025-04-25",
+            "baseline_end": "2025-05-22",
+            "pre": {
+              "count": 554,
+              "amount": "349599027.569797575394291121",
+              "active_addresses": 323,
+              "new_addresses": 317,
+              "max_transfer": "200000000.0",
+              "external_inflow": "290422817.73188287177107",
+              "external_outflow": "30505610.3724367638878",
+              "net_external_flow": "259917207.35944610788327"
+            },
+            "baseline_week_mean": {
+              "count": "8.5",
+              "amount": "63811011.099999999899",
+              "active_addresses": "3.75",
+              "new_addresses": "3.25",
+              "max_transfer": "25000000.0",
+              "abs_net_external_flow": "12622022.199999999798"
+            },
+            "ratios": {
+              "amount": 5.478663032339846,
+              "count": 65.17647058823529,
+              "active_addresses": 86.13333333333334,
+              "new_addresses": 97.53846153846153,
+              "max_transfer": 8.0,
+              "abs_net_flow": 20.59235859682184
+            },
+            "ratio_text": {
+              "amount": "5.48x",
+              "count": "65.18x",
+              "active_addresses": "86.13x",
+              "new_addresses": "97.54x",
+              "max_transfer": "8.00x",
+              "abs_net_flow": "20.59x"
+            },
+            "signals": [
+              "gross_amount_burst",
+              "transfer_count_burst",
+              "active_address_burst",
+              "new_address_burst",
+              "whale_transfer",
+              "net_flow_shock"
+            ],
+            "signal_count": 6,
+            "composite_signal": true
+          }
+        },
+        {
+          "start_date": "2025-06-24",
+          "start_return_pct": 26.82696841112684,
+          "max_date": "2025-06-24",
+          "max_return_pct": 26.82696841112684,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-06-24",
+            "pre_start": "2025-06-17",
+            "pre_end": "2025-06-23",
+            "baseline_start": "2025-05-20",
+            "baseline_end": "2025-06-16",
+            "pre": {
+              "count": 137,
+              "amount": "6479723.40598451645271",
+              "active_addresses": 109,
+              "new_addresses": 33,
+              "max_transfer": "1047351.8509255673",
+              "external_inflow": "1435850.21779699990099",
+              "external_outflow": "4979072.72945104395218",
+              "net_external_flow": "-3543222.51165404405119"
+            },
+            "baseline_week_mean": {
+              "count": "260",
+              "amount": "117150602.7514029452824020982",
+              "active_addresses": "144.25",
+              "new_addresses": "117.25",
+              "max_transfer": "15000000.0",
+              "abs_net_external_flow": "15652271.208323934623607"
+            },
+            "ratios": {
+              "amount": 0.05531105477736791,
+              "count": 0.5269230769230769,
+              "active_addresses": 0.755632582322357,
+              "new_addresses": 0.2814498933901919,
+              "max_transfer": 0.06982345672837115,
+              "abs_net_flow": 0.22637114221287868
+            },
+            "ratio_text": {
+              "amount": "0.06x",
+              "count": "0.53x",
+              "active_addresses": "0.76x",
+              "new_addresses": "0.28x",
+              "max_transfer": "0.07x",
+              "abs_net_flow": "0.23x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-07-05",
+          "start_return_pct": -40.54922973878098,
+          "max_date": "2025-07-05",
+          "max_return_pct": -40.54922973878098,
+          "shock_day_count": 1,
+          "direction": "down",
+          "features": {
+            "anchor": "2025-07-05",
+            "pre_start": "2025-06-28",
+            "pre_end": "2025-07-04",
+            "baseline_start": "2025-05-31",
+            "baseline_end": "2025-06-27",
+            "pre": {
+              "count": 86,
+              "amount": "4060909.708224884014692997",
+              "active_addresses": 57,
+              "new_addresses": 25,
+              "max_transfer": "537231.68",
+              "external_inflow": "3321078.294391614555089697",
+              "external_outflow": "216776.0986031876487893",
+              "net_external_flow": "3104302.195788426906300397"
+            },
+            "baseline_week_mean": {
+              "count": "153",
+              "amount": "21204208.552921782287664168",
+              "active_addresses": "92.25",
+              "new_addresses": "36.25",
+              "max_transfer": "5523675.92546278365",
+              "abs_net_external_flow": "10032068.532014420098032"
+            },
+            "ratios": {
+              "amount": 0.19151432594570103,
+              "count": 0.5620915032679739,
+              "active_addresses": 0.6178861788617886,
+              "new_addresses": 0.6896551724137931,
+              "max_transfer": 0.09725981162716199,
+              "abs_net_flow": 0.3094378976660648
+            },
+            "ratio_text": {
+              "amount": "0.19x",
+              "count": "0.56x",
+              "active_addresses": "0.62x",
+              "new_addresses": "0.69x",
+              "max_transfer": "0.10x",
+              "abs_net_flow": "0.31x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-08-09",
+          "start_return_pct": 100.59857837635616,
+          "max_date": "2025-08-09",
+          "max_return_pct": 100.59857837635616,
+          "shock_day_count": 2,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-08-09",
+            "pre_start": "2025-08-02",
+            "pre_end": "2025-08-08",
+            "baseline_start": "2025-07-05",
+            "baseline_end": "2025-08-01",
+            "pre": {
+              "count": 53,
+              "amount": "2901079.06592843071479368",
+              "active_addresses": 38,
+              "new_addresses": 6,
+              "max_transfer": "961134.5630665402",
+              "external_inflow": "1477958.4893880000017",
+              "external_outflow": "1041520.04915521297081368",
+              "net_external_flow": "436438.44023278703088632"
+            },
+            "baseline_week_mean": {
+              "count": "60.5",
+              "amount": "4325735.80253723532559067",
+              "active_addresses": "43",
+              "new_addresses": "10",
+              "max_transfer": "944167.39313867335",
+              "abs_net_external_flow": "903530.7538401050557465"
+            },
+            "ratios": {
+              "amount": 0.6706556290901584,
+              "count": 0.8760330578512396,
+              "active_addresses": 0.8837209302325582,
+              "new_addresses": 0.6,
+              "max_transfer": 1.017970510368361,
+              "abs_net_flow": 0.48303661870708403
+            },
+            "ratio_text": {
+              "amount": "0.67x",
+              "count": "0.88x",
+              "active_addresses": "0.88x",
+              "new_addresses": "0.60x",
+              "max_transfer": "1.02x",
+              "abs_net_flow": "0.48x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-10-02",
+          "start_return_pct": 21.399002493765586,
+          "max_date": "2025-10-06",
+          "max_return_pct": 56.805469235550035,
+          "shock_day_count": 2,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-10-02",
+            "pre_start": "2025-09-25",
+            "pre_end": "2025-10-01",
+            "baseline_start": "2025-08-28",
+            "baseline_end": "2025-09-24",
+            "pre": {
+              "count": 98,
+              "amount": "2717584.9674739611892448",
+              "active_addresses": 47,
+              "new_addresses": 7,
+              "max_transfer": "203467.175739113",
+              "external_inflow": "744211.18224042463996",
+              "external_outflow": "1166051.09455984784673",
+              "net_external_flow": "-421839.91231942320677"
+            },
+            "baseline_week_mean": {
+              "count": "54",
+              "amount": "4762795.7291111866796091425",
+              "active_addresses": "26.5",
+              "new_addresses": "6.75",
+              "max_transfer": "2908657.5137109663",
+              "abs_net_external_flow": "1808359.987773754275865"
+            },
+            "ratios": {
+              "amount": 0.5705860847366439,
+              "count": 1.8148148148148149,
+              "active_addresses": 1.7735849056603774,
+              "new_addresses": 1.037037037037037,
+              "max_transfer": 0.06995226312482644,
+              "abs_net_flow": 0.23327208917000214
+            },
+            "ratio_text": {
+              "amount": "0.57x",
+              "count": "1.81x",
+              "active_addresses": "1.77x",
+              "new_addresses": "1.04x",
+              "max_transfer": "0.07x",
+              "abs_net_flow": "0.23x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-10-21",
+          "start_return_pct": -30.134180067602166,
+          "max_date": "2025-10-21",
+          "max_return_pct": -30.134180067602166,
+          "shock_day_count": 1,
+          "direction": "down",
+          "features": {
+            "anchor": "2025-10-21",
+            "pre_start": "2025-10-14",
+            "pre_end": "2025-10-20",
+            "baseline_start": "2025-09-16",
+            "baseline_end": "2025-10-13",
+            "pre": {
+              "count": 92,
+              "amount": "2362490.274488332854624",
+              "active_addresses": 43,
+              "new_addresses": 7,
+              "max_transfer": "549233.9021973732",
+              "external_inflow": "769115.707550851455",
+              "external_outflow": "722094.354796233036124",
+              "net_external_flow": "47021.352754618418876"
+            },
+            "baseline_week_mean": {
+              "count": "104",
+              "amount": "18139207.2519953066429639445",
+              "active_addresses": "40.75",
+              "new_addresses": "8.25",
+              "max_transfer": "4871676.4001610395",
+              "abs_net_external_flow": "4816931.9299916115742975"
+            },
+            "ratios": {
+              "amount": 0.1302422008673207,
+              "count": 0.8846153846153846,
+              "active_addresses": 1.0552147239263803,
+              "new_addresses": 0.8484848484848485,
+              "max_transfer": 0.11274022678912285,
+              "abs_net_flow": 0.009761680969965525
+            },
+            "ratio_text": {
+              "amount": "0.13x",
+              "count": "0.88x",
+              "active_addresses": "1.06x",
+              "new_addresses": "0.85x",
+              "max_transfer": "0.11x",
+              "abs_net_flow": "0.01x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-11-05",
+          "start_return_pct": 117.81219748305904,
+          "max_date": "2025-11-05",
+          "max_return_pct": 117.81219748305904,
+          "shock_day_count": 6,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-11-05",
+            "pre_start": "2025-10-29",
+            "pre_end": "2025-11-04",
+            "baseline_start": "2025-10-01",
+            "baseline_end": "2025-10-28",
+            "pre": {
+              "count": 82,
+              "amount": "44186597.8549940812826257",
+              "active_addresses": 31,
+              "new_addresses": 5,
+              "max_transfer": "16666666.666666668",
+              "external_inflow": "11032876.18658642463",
+              "external_outflow": "118923.389040371463458",
+              "net_external_flow": "10913952.797546053166542"
+            },
+            "baseline_week_mean": {
+              "count": "103",
+              "amount": "15836912.701010205175207962",
+              "active_addresses": "43",
+              "new_addresses": "9.5",
+              "max_transfer": "282392.35907390007",
+              "abs_net_external_flow": "666157.3140143146211025"
+            },
+            "ratios": {
+              "amount": 2.790101750840333,
+              "count": 0.7961165048543689,
+              "active_addresses": 0.7209302325581395,
+              "new_addresses": 0.5263157894736842,
+              "max_transfer": 59.019538351974745,
+              "abs_net_flow": 16.38344662430822
+            },
+            "ratio_text": {
+              "amount": "2.79x",
+              "count": "0.80x",
+              "active_addresses": "0.72x",
+              "new_addresses": "0.53x",
+              "max_transfer": "59.02x",
+              "abs_net_flow": "16.38x"
+            },
+            "signals": [
+              "whale_transfer",
+              "net_flow_shock"
+            ],
+            "signal_count": 2,
+            "composite_signal": true
+          }
+        },
+        {
+          "start_date": "2025-12-19",
+          "start_return_pct": 30.27133050016346,
+          "max_date": "2025-12-19",
+          "max_return_pct": 30.27133050016346,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-12-19",
+            "pre_start": "2025-12-12",
+            "pre_end": "2025-12-18",
+            "baseline_start": "2025-11-14",
+            "baseline_end": "2025-12-11",
+            "pre": {
+              "count": 35,
+              "amount": "1188866.24725137691785",
+              "active_addresses": 17,
+              "new_addresses": 1,
+              "max_transfer": "82192.73211567731",
+              "external_inflow": "592368.06757925118619",
+              "external_outflow": "17407.7445935072734",
+              "net_external_flow": "574960.32298574391279"
+            },
+            "baseline_week_mean": {
+              "count": "68",
+              "amount": "2400377.17051683983901725",
+              "active_addresses": "33.5",
+              "new_addresses": "5",
+              "max_transfer": "291095.890410958905",
+              "abs_net_external_flow": "580597.09749513046028"
+            },
+            "ratios": {
+              "amount": 0.49528310044516666,
+              "count": 0.5147058823529411,
+              "active_addresses": 0.5074626865671642,
+              "new_addresses": 0.2,
+              "max_transfer": 0.2823562091503268,
+              "abs_net_flow": 0.9902914180354926
+            },
+            "ratio_text": {
+              "amount": "0.50x",
+              "count": "0.51x",
+              "active_addresses": "0.51x",
+              "new_addresses": "0.20x",
+              "max_transfer": "0.28x",
+              "abs_net_flow": "0.99x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2026-04-17",
+          "start_return_pct": 38.343949044585976,
+          "max_date": "2026-04-17",
+          "max_return_pct": 38.343949044585976,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2026-04-17",
+            "pre_start": "2026-04-10",
+            "pre_end": "2026-04-16",
+            "baseline_start": "2026-03-13",
+            "baseline_end": "2026-04-09",
+            "pre": {
+              "count": 39,
+              "amount": "1236843.12495759652113",
+              "active_addresses": 19,
+              "new_addresses": 4,
+              "max_transfer": "82192.73211567731",
+              "external_inflow": "595839.29399491710124",
+              "external_outflow": "5480.56938924889511",
+              "net_external_flow": "590358.72460566820613"
+            },
+            "baseline_week_mean": {
+              "count": "29.5",
+              "amount": "3457144.80221745068746",
+              "active_addresses": "12.25",
+              "new_addresses": "0.75",
+              "max_transfer": "1367808.2191780822",
+              "abs_net_external_flow": "575140.91112093933654"
+            },
+            "ratios": {
+              "amount": 0.3577643389898716,
+              "count": 1.3220338983050848,
+              "active_addresses": 1.5510204081632653,
+              "new_addresses": 5.333333333333333,
+              "max_transfer": 0.06009083069048016,
+              "abs_net_flow": 1.0264592783967839
+            },
+            "ratio_text": {
+              "amount": "0.36x",
+              "count": "1.32x",
+              "active_addresses": "1.55x",
+              "new_addresses": "5.33x",
+              "max_transfer": "0.06x",
+              "abs_net_flow": "1.03x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2026-07-26",
+          "start_return_pct": 20.705882352941174,
+          "max_date": "2026-07-29",
+          "max_return_pct": -28.5663082437276,
+          "shock_day_count": 2,
+          "direction": "up",
+          "features": {
+            "anchor": "2026-07-26",
+            "pre_start": "2026-07-19",
+            "pre_end": "2026-07-25",
+            "baseline_start": "2026-06-21",
+            "baseline_end": "2026-07-18",
+            "pre": {
+              "count": 43,
+              "amount": "10077020.474954133991974",
+              "active_addresses": 22,
+              "new_addresses": 5,
+              "max_transfer": "8888889.555556035",
+              "external_inflow": "9468348.4355056196503",
+              "external_outflow": "3761.2186174023296",
+              "net_external_flow": "9464587.2168882173207"
+            },
+            "baseline_week_mean": {
+              "count": "37",
+              "amount": "1784734.17620226088943025",
+              "active_addresses": "21",
+              "new_addresses": "4.25",
+              "max_transfer": "314544.286996166715",
+              "abs_net_external_flow": "575207.968179366316276"
+            },
+            "ratios": {
+              "amount": 5.646230463517567,
+              "count": 1.162162162162162,
+              "active_addresses": 1.0476190476190477,
+              "new_addresses": 1.1764705882352942,
+              "max_transfer": 28.259580361300163,
+              "abs_net_flow": 16.454200463956173
+            },
+            "ratio_text": {
+              "amount": "5.65x",
+              "count": "1.16x",
+              "active_addresses": "1.05x",
+              "new_addresses": "1.18x",
+              "max_transfer": "28.26x",
+              "abs_net_flow": "16.45x"
+            },
+            "signals": [
+              "gross_amount_burst",
+              "whale_transfer",
+              "net_flow_shock"
+            ],
+            "signal_count": 3,
+            "composite_signal": true
+          }
+        }
+      ],
+      "event_composite_count": 3,
+      "event_composite_rate_pct": 30.0,
+      "control_count": 39,
+      "control_composite_count": 4,
+      "control_composite_rate_pct": 10.256410256410255,
+      "recurring_signals": [
+        "gross_amount_burst",
+        "net_flow_shock",
+        "whale_transfer"
+      ]
+    },
+    {
+      "symbol": "ESPORTS",
+      "candidate_rank": 3,
+      "candidate_market_cap_usd": 19359680.17155239,
+      "chains": [
+        "bsc"
+      ],
+      "targets": [
+        "bsc:0xf39e4b21c84e737df08e2c3b32541d856f508e48"
+      ],
+      "cluster_amount": "782465328.004316329810",
+      "top_cluster_share_percent": [
+        "85.590440425222205004300"
+      ],
+      "unique_transfer_count": 12909,
+      "reported_unique_transfer_count": 12909,
+      "bar_start": "2025-07-29",
+      "bar_end": "2026-07-29",
+      "bar_count": 366,
+      "episodes": [
+        {
+          "start_date": "2025-08-03",
+          "start_return_pct": 29.858657243816246,
+          "max_date": "2025-08-03",
+          "max_return_pct": 29.858657243816246,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-08-03",
+            "pre_start": "2025-07-27",
+            "pre_end": "2025-08-02",
+            "baseline_start": "2025-06-29",
+            "baseline_end": "2025-07-26",
+            "pre": {
+              "count": 101,
+              "amount": "360038.9999999999995",
+              "active_addresses": 97,
+              "new_addresses": 94,
+              "max_transfer": "71578.0",
+              "external_inflow": "10.0",
+              "external_outflow": "360028.9999999999995",
+              "net_external_flow": "-360018.9999999999995"
+            },
+            "baseline_week_mean": {
+              "count": "229.5",
+              "amount": "110200735.50746421340108",
+              "active_addresses": "218.5",
+              "new_addresses": "218",
+              "max_transfer": "93380.000000000015",
+              "abs_net_external_flow": "1280453.00000000001075"
+            },
+            "ratios": {
+              "amount": 0.0032671197550729007,
+              "count": 0.4400871459694989,
+              "active_addresses": 0.4439359267734554,
+              "new_addresses": 0.43119266055045874,
+              "max_transfer": 0.7665238809166844,
+              "abs_net_flow": 0.28116533757974715
+            },
+            "ratio_text": {
+              "amount": "0.00x",
+              "count": "0.44x",
+              "active_addresses": "0.44x",
+              "new_addresses": "0.43x",
+              "max_transfer": "0.77x",
+              "abs_net_flow": "0.28x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-10-10",
+          "start_return_pct": -21.75526632167687,
+          "max_date": "2025-10-12",
+          "max_return_pct": 41.41275104798849,
+          "shock_day_count": 2,
+          "direction": "down",
+          "features": {
+            "anchor": "2025-10-10",
+            "pre_start": "2025-10-03",
+            "pre_end": "2025-10-09",
+            "baseline_start": "2025-09-05",
+            "baseline_end": "2025-10-02",
+            "pre": {
+              "count": 37,
+              "amount": "221445.1900000000095",
+              "active_addresses": 29,
+              "new_addresses": 12,
+              "max_transfer": "57601.41",
+              "external_inflow": "213917.2300000000095",
+              "external_outflow": "5715.59",
+              "net_external_flow": "208201.6400000000095"
+            },
+            "baseline_week_mean": {
+              "count": "5.25",
+              "amount": "20471.5925",
+              "active_addresses": "6.5",
+              "new_addresses": "3",
+              "max_transfer": "13500.0",
+              "abs_net_external_flow": "17987.0"
+            },
+            "ratios": {
+              "amount": 10.81719411911897,
+              "count": 7.0476190476190474,
+              "active_addresses": 4.461538461538462,
+              "new_addresses": 4.0,
+              "max_transfer": 4.266771111111111,
+              "abs_net_flow": 11.575117584922445
+            },
+            "ratio_text": {
+              "amount": "10.82x",
+              "count": "7.05x",
+              "active_addresses": "4.46x",
+              "new_addresses": "4.00x",
+              "max_transfer": "4.27x",
+              "abs_net_flow": "11.58x"
+            },
+            "signals": [
+              "gross_amount_burst",
+              "transfer_count_burst",
+              "active_address_burst",
+              "new_address_burst"
+            ],
+            "signal_count": 4,
+            "composite_signal": true
+          }
+        },
+        {
+          "start_date": "2025-11-12",
+          "start_return_pct": 48.678785975106976,
+          "max_date": "2025-11-12",
+          "max_return_pct": 48.678785975106976,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-11-12",
+            "pre_start": "2025-11-05",
+            "pre_end": "2025-11-11",
+            "baseline_start": "2025-10-08",
+            "baseline_end": "2025-11-04",
+            "pre": {
+              "count": 7,
+              "amount": "27534.54",
+              "active_addresses": 7,
+              "new_addresses": 1,
+              "max_transfer": "10094.08",
+              "external_inflow": "0",
+              "external_outflow": "27534.54",
+              "net_external_flow": "-27534.54"
+            },
+            "baseline_week_mean": {
+              "count": "68.75",
+              "amount": "405522.459999999997525",
+              "active_addresses": "67",
+              "new_addresses": "44.25",
+              "max_transfer": "155025.999999999995",
+              "abs_net_external_flow": "288751.945000000005"
+            },
+            "ratios": {
+              "amount": 0.06789892722588041,
+              "count": 0.10181818181818182,
+              "active_addresses": 0.1044776119402985,
+              "new_addresses": 0.022598870056497175,
+              "max_transfer": 0.06511217473198044,
+              "abs_net_flow": 0.09535707196708233
+            },
+            "ratio_text": {
+              "amount": "0.07x",
+              "count": "0.10x",
+              "active_addresses": "0.10x",
+              "new_addresses": "0.02x",
+              "max_transfer": "0.07x",
+              "abs_net_flow": "0.10x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2026-04-04",
+          "start_return_pct": 20.49834428098365,
+          "max_date": "2026-04-04",
+          "max_return_pct": 20.49834428098365,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2026-04-04",
+            "pre_start": "2026-03-28",
+            "pre_end": "2026-04-03",
+            "baseline_start": "2026-02-28",
+            "baseline_end": "2026-03-27",
+            "pre": {
+              "count": 2,
+              "amount": "400.0",
+              "active_addresses": 3,
+              "new_addresses": 1,
+              "max_transfer": "350.0",
+              "external_inflow": "0",
+              "external_outflow": "400.0",
+              "net_external_flow": "-400.0"
+            },
+            "baseline_week_mean": {
+              "count": "5.5",
+              "amount": "30565480.546852213192",
+              "active_addresses": "6.5",
+              "new_addresses": "3.25",
+              "max_transfer": "1822.0",
+              "abs_net_external_flow": "10699.0"
+            },
+            "ratios": {
+              "amount": 1.3086658310078296e-05,
+              "count": 0.36363636363636365,
+              "active_addresses": 0.46153846153846156,
+              "new_addresses": 0.3076923076923077,
+              "max_transfer": 0.19209659714599342,
+              "abs_net_flow": 0.03738667165155622
+            },
+            "ratio_text": {
+              "amount": "0.00x",
+              "count": "0.36x",
+              "active_addresses": "0.46x",
+              "new_addresses": "0.31x",
+              "max_transfer": "0.19x",
+              "abs_net_flow": "0.04x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2026-04-24",
+          "start_return_pct": 31.3441318556408,
+          "max_date": "2026-04-24",
+          "max_return_pct": 31.3441318556408,
+          "shock_day_count": 2,
+          "direction": "up",
+          "features": {
+            "anchor": "2026-04-24",
+            "pre_start": "2026-04-17",
+            "pre_end": "2026-04-23",
+            "baseline_start": "2026-03-20",
+            "baseline_end": "2026-04-16",
+            "pre": {
+              "count": 2,
+              "amount": "1012.97",
+              "active_addresses": 3,
+              "new_addresses": 0,
+              "max_transfer": "1003.0",
+              "external_inflow": "0",
+              "external_outflow": "1012.97",
+              "net_external_flow": "-1012.97"
+            },
+            "baseline_week_mean": {
+              "count": "1.75",
+              "amount": "340.7975",
+              "active_addresses": "2.75",
+              "new_addresses": "0.25",
+              "max_transfer": "287.5",
+              "abs_net_external_flow": "362.5"
+            },
+            "ratios": {
+              "amount": 2.972351616429111,
+              "count": 1.1428571428571428,
+              "active_addresses": 1.0909090909090908,
+              "new_addresses": 0.0,
+              "max_transfer": 3.488695652173913,
+              "abs_net_flow": 2.7944
+            },
+            "ratio_text": {
+              "amount": "2.97x",
+              "count": "1.14x",
+              "active_addresses": "1.09x",
+              "new_addresses": "0.00x",
+              "max_transfer": "3.49x",
+              "abs_net_flow": "2.79x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2026-05-11",
+          "start_return_pct": 24.878575283324334,
+          "max_date": "2026-06-17",
+          "max_return_pct": 169.40222897669705,
+          "shock_day_count": 18,
+          "direction": "up",
+          "features": {
+            "anchor": "2026-05-11",
+            "pre_start": "2026-05-04",
+            "pre_end": "2026-05-10",
+            "baseline_start": "2026-04-06",
+            "baseline_end": "2026-05-03",
+            "pre": {
+              "count": 1,
+              "amount": "220.0",
+              "active_addresses": 2,
+              "new_addresses": 1,
+              "max_transfer": "220.0",
+              "external_inflow": "0",
+              "external_outflow": "220.0",
+              "net_external_flow": "-220.0"
+            },
+            "baseline_week_mean": {
+              "count": "1.5",
+              "amount": "394.764017739264032775",
+              "active_addresses": "2.5",
+              "new_addresses": "0.5",
+              "max_transfer": "282.5",
+              "abs_net_external_flow": "282.5"
+            },
+            "ratios": {
+              "amount": 0.5572949663951056,
+              "count": 0.6666666666666666,
+              "active_addresses": 0.8,
+              "new_addresses": 2.0,
+              "max_transfer": 0.7787610619469026,
+              "abs_net_flow": 0.7787610619469026
+            },
+            "ratio_text": {
+              "amount": "0.56x",
+              "count": "0.67x",
+              "active_addresses": "0.80x",
+              "new_addresses": "2.00x",
+              "max_transfer": "0.78x",
+              "abs_net_flow": "0.78x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2026-07-09",
+          "start_return_pct": 32.36565781346512,
+          "max_date": "2026-07-26",
+          "max_return_pct": -58.11534342970781,
+          "shock_day_count": 9,
+          "direction": "up",
+          "features": {
+            "anchor": "2026-07-09",
+            "pre_start": "2026-07-02",
+            "pre_end": "2026-07-08",
+            "baseline_start": "2026-06-04",
+            "baseline_end": "2026-07-01",
+            "pre": {
+              "count": 214,
+              "amount": "3362007.55398974153232831",
+              "active_addresses": 55,
+              "new_addresses": 2,
+              "max_transfer": "194795.7413484364",
+              "external_inflow": "1604563.01769439895607131",
+              "external_outflow": "622149.9994469785501485",
+              "net_external_flow": "982413.01824742040592281"
+            },
+            "baseline_week_mean": {
+              "count": "1008",
+              "amount": "34883281.621245891804766407",
+              "active_addresses": "85.25",
+              "new_addresses": "21",
+              "max_transfer": "1591670.5000000001",
+              "abs_net_external_flow": "5798827.022853481159131786"
+            },
+            "ratios": {
+              "amount": 0.09637876362933953,
+              "count": 0.2123015873015873,
+              "active_addresses": 0.6451612903225806,
+              "new_addresses": 0.09523809523809523,
+              "max_transfer": 0.12238446421444413,
+              "abs_net_flow": 0.16941581709122883
+            },
+            "ratio_text": {
+              "amount": "0.10x",
+              "count": "0.21x",
+              "active_addresses": "0.65x",
+              "new_addresses": "0.10x",
+              "max_transfer": "0.12x",
+              "abs_net_flow": "0.17x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        }
+      ],
+      "event_composite_count": 1,
+      "event_composite_rate_pct": 14.285714285714285,
+      "control_count": 36,
+      "control_composite_count": 10,
+      "control_composite_rate_pct": 27.77777777777778,
+      "recurring_signals": []
+    },
+    {
+      "symbol": "KOMA",
+      "candidate_rank": 6,
+      "candidate_market_cap_usd": 5448797.720440648,
+      "chains": [
+        "bsc"
+      ],
+      "targets": [
+        "bsc:0xd5eaaac47bd1993d661bc087e15dfb079a7f3c19"
+      ],
+      "cluster_amount": "367653056.428932518588",
+      "top_cluster_share_percent": [
+        "35.884736553161600744500"
+      ],
+      "unique_transfer_count": 2906,
+      "reported_unique_transfer_count": 2906,
+      "bar_start": "2024-12-10",
+      "bar_end": "2026-07-29",
+      "bar_count": 597,
+      "episodes": [
+        {
+          "start_date": "2024-12-22",
+          "start_return_pct": 34.068779780401904,
+          "max_date": "2024-12-22",
+          "max_return_pct": 34.068779780401904,
+          "shock_day_count": 2,
+          "direction": "up",
+          "features": {
+            "anchor": "2024-12-22",
+            "pre_start": "2024-12-15",
+            "pre_end": "2024-12-21",
+            "baseline_start": "2024-11-17",
+            "baseline_end": "2024-12-14",
+            "pre": {
+              "count": 172,
+              "amount": "1680495.60398556736914",
+              "active_addresses": 40,
+              "new_addresses": 10,
+              "max_transfer": "201590.60080438116",
+              "external_inflow": "1146439.51898633861858",
+              "external_outflow": "151781.129735266405",
+              "net_external_flow": "994658.38925107221358"
+            },
+            "baseline_week_mean": {
+              "count": "66.5",
+              "amount": "2451346.0783911447675475",
+              "active_addresses": "27.75",
+              "new_addresses": "10.5",
+              "max_transfer": "640890.93005915971",
+              "abs_net_external_flow": "74375.39680486705528"
+            },
+            "ratios": {
+              "amount": 0.6855399238807202,
+              "count": 2.5864661654135337,
+              "active_addresses": 1.4414414414414414,
+              "new_addresses": 0.9523809523809523,
+              "max_transfer": 0.3145474391184981,
+              "abs_net_flow": 13.373486824691236
+            },
+            "ratio_text": {
+              "amount": "0.69x",
+              "count": "2.59x",
+              "active_addresses": "1.44x",
+              "new_addresses": "0.95x",
+              "max_transfer": "0.31x",
+              "abs_net_flow": "13.37x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-02-08",
+          "start_return_pct": 32.412645590682196,
+          "max_date": "2025-02-08",
+          "max_return_pct": 32.412645590682196,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-02-08",
+            "pre_start": "2025-02-01",
+            "pre_end": "2025-02-07",
+            "baseline_start": "2025-01-04",
+            "baseline_end": "2025-01-31",
+            "pre": {
+              "count": 5,
+              "amount": "206242.2678065529176",
+              "active_addresses": 7,
+              "new_addresses": 1,
+              "max_transfer": "179300.21248139604",
+              "external_inflow": "183529.676926305083",
+              "external_outflow": "0",
+              "net_external_flow": "183529.676926305083"
+            },
+            "baseline_week_mean": {
+              "count": "14",
+              "amount": "329488.61035703867000",
+              "active_addresses": "11.25",
+              "new_addresses": "2",
+              "max_transfer": "44133.34219665815",
+              "abs_net_external_flow": "54590.2759690522134"
+            },
+            "ratios": {
+              "amount": 0.6259465769789911,
+              "count": 0.35714285714285715,
+              "active_addresses": 0.6222222222222222,
+              "new_addresses": 0.5,
+              "max_transfer": 4.06269282037228,
+              "abs_net_flow": 3.361948143115267
+            },
+            "ratio_text": {
+              "amount": "0.63x",
+              "count": "0.36x",
+              "active_addresses": "0.62x",
+              "new_addresses": "0.50x",
+              "max_transfer": "4.06x",
+              "abs_net_flow": "3.36x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-03-19",
+          "start_return_pct": 29.888119339371343,
+          "max_date": "2025-03-19",
+          "max_return_pct": 29.888119339371343,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-03-19",
+            "pre_start": "2025-03-12",
+            "pre_end": "2025-03-18",
+            "baseline_start": "2025-02-12",
+            "baseline_end": "2025-03-11",
+            "pre": {
+              "count": 12,
+              "amount": "179166.2184593892822",
+              "active_addresses": 11,
+              "new_addresses": 1,
+              "max_transfer": "50749.99999999999",
+              "external_inflow": "3526.9983523854915",
+              "external_outflow": "0",
+              "net_external_flow": "3526.9983523854915"
+            },
+            "baseline_week_mean": {
+              "count": "18.25",
+              "amount": "276618.55780549476059",
+              "active_addresses": "11.25",
+              "new_addresses": "1.25",
+              "max_transfer": "35844.9354121045905",
+              "abs_net_external_flow": "11004.59478513404577"
+            },
+            "ratios": {
+              "amount": 0.6477013685588318,
+              "count": 0.6575342465753424,
+              "active_addresses": 0.9777777777777777,
+              "new_addresses": 0.8,
+              "max_transfer": 1.4158206568524618,
+              "abs_net_flow": 0.3205023375463188
+            },
+            "ratio_text": {
+              "amount": "0.65x",
+              "count": "0.66x",
+              "active_addresses": "0.98x",
+              "new_addresses": "0.80x",
+              "max_transfer": "1.42x",
+              "abs_net_flow": "0.32x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-04-21",
+          "start_return_pct": 31.57894736842104,
+          "max_date": "2025-04-21",
+          "max_return_pct": 31.57894736842104,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-04-21",
+            "pre_start": "2025-04-14",
+            "pre_end": "2025-04-20",
+            "baseline_start": "2025-03-17",
+            "baseline_end": "2025-04-13",
+            "pre": {
+              "count": 3,
+              "amount": "9966.8611538657549",
+              "active_addresses": 2,
+              "new_addresses": 0,
+              "max_transfer": "3550.6273711472845",
+              "external_inflow": "9966.8611538657549",
+              "external_outflow": "0",
+              "net_external_flow": "9966.8611538657549"
+            },
+            "baseline_week_mean": {
+              "count": "12.5",
+              "amount": "693620.45230110696209",
+              "active_addresses": "8.75",
+              "new_addresses": "1.5",
+              "max_transfer": "100614.624902028045",
+              "abs_net_external_flow": "8994.45201887343135"
+            },
+            "ratios": {
+              "amount": 0.01436932997116851,
+              "count": 0.24,
+              "active_addresses": 0.22857142857142856,
+              "new_addresses": 0.0,
+              "max_transfer": 0.03528937641624817,
+              "abs_net_flow": 1.1081121043229623
+            },
+            "ratio_text": {
+              "amount": "0.01x",
+              "count": "0.24x",
+              "active_addresses": "0.23x",
+              "new_addresses": "0.00x",
+              "max_transfer": "0.04x",
+              "abs_net_flow": "1.11x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2025-05-08",
+          "start_return_pct": 50.818746470920395,
+          "max_date": "2025-05-08",
+          "max_return_pct": 50.818746470920395,
+          "shock_day_count": 2,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-05-08",
+            "pre_start": "2025-05-01",
+            "pre_end": "2025-05-07",
+            "baseline_start": "2025-04-03",
+            "baseline_end": "2025-04-30",
+            "pre": {
+              "count": 9,
+              "amount": "5757370.28999164410653",
+              "active_addresses": 10,
+              "new_addresses": 4,
+              "max_transfer": "2676794.3463051",
+              "external_inflow": "99186.64854141410653",
+              "external_outflow": "2681323.3463051",
+              "net_external_flow": "-2582136.69776368589347"
+            },
+            "baseline_week_mean": {
+              "count": "6.25",
+              "amount": "386610.56701100164864",
+              "active_addresses": "5.5",
+              "new_addresses": "0.75",
+              "max_transfer": "71722.0434739569295",
+              "abs_net_external_flow": "9725.43587329870085"
+            },
+            "ratios": {
+              "amount": 14.891911347647692,
+              "count": 1.44,
+              "active_addresses": 1.8181818181818181,
+              "new_addresses": 5.333333333333333,
+              "max_transfer": 37.32178025960838,
+              "abs_net_flow": 265.503441840892
+            },
+            "ratio_text": {
+              "amount": "14.89x",
+              "count": "1.44x",
+              "active_addresses": "1.82x",
+              "new_addresses": "5.33x",
+              "max_transfer": "37.32x",
+              "abs_net_flow": "265.50x"
+            },
+            "signals": [
+              "gross_amount_burst",
+              "whale_transfer"
+            ],
+            "signal_count": 2,
+            "composite_signal": true
+          }
+        },
+        {
+          "start_date": "2025-10-07",
+          "start_return_pct": 21.71401059220028,
+          "max_date": "2025-10-10",
+          "max_return_pct": -32.534381139489184,
+          "shock_day_count": 2,
+          "direction": "up",
+          "features": {
+            "anchor": "2025-10-07",
+            "pre_start": "2025-09-30",
+            "pre_end": "2025-10-06",
+            "baseline_start": "2025-09-02",
+            "baseline_end": "2025-09-29",
+            "pre": {
+              "count": 2,
+              "amount": "128000.0",
+              "active_addresses": 3,
+              "new_addresses": 0,
+              "max_transfer": "125000.0",
+              "external_inflow": "0",
+              "external_outflow": "0",
+              "net_external_flow": "0"
+            },
+            "baseline_week_mean": {
+              "count": "2.75",
+              "amount": "42406.6379012169562",
+              "active_addresses": "3",
+              "new_addresses": "0",
+              "max_transfer": "19197.996",
+              "abs_net_external_flow": "0"
+            },
+            "ratios": {
+              "amount": 3.0183953818307003,
+              "count": 0.7272727272727273,
+              "active_addresses": 1.0,
+              "new_addresses": null,
+              "max_transfer": 6.5110962623390485,
+              "abs_net_flow": null
+            },
+            "ratio_text": {
+              "amount": "3.02x",
+              "count": "0.73x",
+              "active_addresses": "1.00x",
+              "new_addresses": "N/A",
+              "max_transfer": "6.51x",
+              "abs_net_flow": "N/A"
+            },
+            "signals": [
+              "gross_amount_burst"
+            ],
+            "signal_count": 1,
+            "composite_signal": false
+          }
+        },
+        {
+          "start_date": "2026-04-05",
+          "start_return_pct": 56.901364764267996,
+          "max_date": "2026-04-05",
+          "max_return_pct": 56.901364764267996,
+          "shock_day_count": 1,
+          "direction": "up",
+          "features": {
+            "anchor": "2026-04-05",
+            "pre_start": "2026-03-29",
+            "pre_end": "2026-04-04",
+            "baseline_start": "2026-03-01",
+            "baseline_end": "2026-03-28",
+            "pre": {
+              "count": 8,
+              "amount": "650155.36022003100",
+              "active_addresses": 6,
+              "new_addresses": 1,
+              "max_transfer": "137686.46931790037",
+              "external_inflow": "467318.59779893785",
+              "external_outflow": "45150.29310319278",
+              "net_external_flow": "422168.30469574507"
+            },
+            "baseline_week_mean": {
+              "count": "5.75",
+              "amount": "541308.094322507044575",
+              "active_addresses": "6.75",
+              "new_addresses": "1.75",
+              "max_transfer": "79307.780133605",
+              "abs_net_external_flow": "46250.0"
+            },
+            "ratios": {
+              "amount": 1.201081910725454,
+              "count": 1.391304347826087,
+              "active_addresses": 0.8888888888888888,
+              "new_addresses": 0.5714285714285714,
+              "max_transfer": 1.7361029281862175,
+              "abs_net_flow": 9.127963344772866
+            },
+            "ratio_text": {
+              "amount": "1.20x",
+              "count": "1.39x",
+              "active_addresses": "0.89x",
+              "new_addresses": "0.57x",
+              "max_transfer": "1.74x",
+              "abs_net_flow": "9.13x"
+            },
+            "signals": [],
+            "signal_count": 0,
+            "composite_signal": false
+          }
+        }
+      ],
+      "event_composite_count": 1,
+      "event_composite_rate_pct": 14.285714285714285,
+      "control_count": 68,
+      "control_composite_count": 7,
+      "control_composite_rate_pct": 10.294117647058822,
+      "recurring_signals": [
+        "gross_amount_burst"
+      ]
+    }
+  ]
+}

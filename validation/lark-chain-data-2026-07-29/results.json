@@ -1,0 +1,3110 @@
+{
+  "coverage": {
+    "expected_target_count": 33,
+    "captured_target_count": 33,
+    "unmatched_captured_targets": [],
+    "missing_targets": [],
+    "skipped_tokens": [],
+    "manifest_status": "partial_success",
+    "manifest_captured_at": "2026-07-29T10:06:11.515053Z",
+    "snapshot": "/tmp/dbcompare-doc-validation-2026-07-29/full-market-retry/2026-07-29",
+    "tokens": {
+      "arbitrum:0x080f6aed32fc474dd5717105dba5ea57268f46eb": {
+        "symbol": "SYN",
+        "ordinary_member_count": 108,
+        "supernode_count": 10,
+        "unique_transfer_count_reported": 4568,
+        "top_cluster_share_percent": "78.903706748360140531800"
+      },
+      "arbitrum:0xe5e851b01dd3eda24fde709a407db44555b6d1e0": {
+        "symbol": "RIF",
+        "ordinary_member_count": 0,
+        "supernode_count": 0,
+        "unique_transfer_count_reported": 0,
+        "top_cluster_share_percent": null
+      },
+      "avalanche:0x1f1e7c893855525b303f99bdf5c3c05be09ca251": {
+        "symbol": "SYN",
+        "ordinary_member_count": 166,
+        "supernode_count": 5,
+        "unique_transfer_count_reported": 1435,
+        "top_cluster_share_percent": "52.00484676664331235900"
+      },
+      "base:0x032d86656db142138ac97d2c5c4e3766e8c0482d": {
+        "symbol": "ALLO",
+        "ordinary_member_count": 118,
+        "supernode_count": 21,
+        "unique_transfer_count_reported": 1810,
+        "top_cluster_share_percent": "24.653956413623714332600"
+      },
+      "base:0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "symbol": "RAVE",
+        "ordinary_member_count": 87,
+        "supernode_count": 12,
+        "unique_transfer_count_reported": 3583,
+        "top_cluster_share_percent": "81.066348135946733244700"
+      },
+      "base:0x432036208d2717394d2614d6697c46df3ed69540": {
+        "symbol": "SYN",
+        "ordinary_member_count": 127,
+        "supernode_count": 60,
+        "unique_transfer_count_reported": 1363,
+        "top_cluster_share_percent": "59.05373658822131766348036848674300"
+      },
+      "base:0x853a7c99227499dba9db8c3a02aa691afdebf841": {
+        "symbol": "PLAY",
+        "ordinary_member_count": 196,
+        "supernode_count": 37,
+        "unique_transfer_count_reported": 7296,
+        "top_cluster_share_percent": "98.62412983065538084004300"
+      },
+      "base:0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "symbol": "VELVET",
+        "ordinary_member_count": 36,
+        "supernode_count": 20,
+        "unique_transfer_count_reported": 1124,
+        "top_cluster_share_percent": "74.50438945882468296800"
+      },
+      "base:0xe5e851b01dd3eda24fde709a407db44555b6d1e0": {
+        "symbol": "RIF",
+        "ordinary_member_count": 2,
+        "supernode_count": 0,
+        "unique_transfer_count_reported": 7,
+        "top_cluster_share_percent": "0.7268989767335985900"
+      },
+      "bsc:0x1219c409fabe2c27bd0d1a565daeed9bd9f271de": {
+        "symbol": "TAC",
+        "ordinary_member_count": 100,
+        "supernode_count": 20,
+        "unique_transfer_count_reported": 1447,
+        "top_cluster_share_percent": "54.39799074817086892500"
+      },
+      "bsc:0x22b1458e780f8fa71e2f84502cee8b5a3cc731fa": {
+        "symbol": "M",
+        "ordinary_member_count": 91,
+        "supernode_count": 20,
+        "unique_transfer_count_reported": 12370,
+        "top_cluster_share_percent": "13.4390751058593065113200"
+      },
+      "bsc:0x30c60b20c25b2810ca524810467a0c342294fc61": {
+        "symbol": "TAIKO",
+        "ordinary_member_count": 83,
+        "supernode_count": 26,
+        "unique_transfer_count_reported": 4856,
+        "top_cluster_share_percent": "93.5578086469427645244400"
+      },
+      "bsc:0x3aee7602b612de36088f3ffed8c8f10e86ebf2bf": {
+        "symbol": "BANK",
+        "ordinary_member_count": 124,
+        "supernode_count": 27,
+        "unique_transfer_count_reported": 2797,
+        "top_cluster_share_percent": "76.6932679537475196072700"
+      },
+      "bsc:0x6bdcce4a559076e37755a78ce0c06214e59e4444": {
+        "symbol": "B",
+        "ordinary_member_count": 28,
+        "supernode_count": 6,
+        "unique_transfer_count_reported": 128,
+        "top_cluster_share_percent": "5.17125874507209954700"
+      },
+      "bsc:0x6e88056e8376ae7709496ba64d37fa2f8015ce3e": {
+        "symbol": "DEXE",
+        "ordinary_member_count": 118,
+        "supernode_count": 16,
+        "unique_transfer_count_reported": 7314,
+        "top_cluster_share_percent": "65.4780011043844379881600"
+      },
+      "bsc:0x8b194370825e37b33373e74a41009161808c1488": {
+        "symbol": "VELVET",
+        "ordinary_member_count": 144,
+        "supernode_count": 41,
+        "unique_transfer_count_reported": 8514,
+        "top_cluster_share_percent": "81.1738268848668688935000"
+      },
+      "bsc:0x97693439ea2f0ecdeb9135881e49f354656a911c": {
+        "symbol": "RAVE",
+        "ordinary_member_count": 146,
+        "supernode_count": 22,
+        "unique_transfer_count_reported": 2411,
+        "top_cluster_share_percent": "86.938816629381568555600"
+      },
+      "bsc:0x997a58129890bbda032231a52ed1ddc845fc18e1": {
+        "symbol": "SIREN",
+        "ordinary_member_count": 103,
+        "supernode_count": 21,
+        "unique_transfer_count_reported": 6011,
+        "top_cluster_share_percent": "47.57462687029337883600"
+      },
+      "bsc:0xa4080f1778e69467e905b8d6f72f6e441f9e9484": {
+        "symbol": "SYN",
+        "ordinary_member_count": 165,
+        "supernode_count": 12,
+        "unique_transfer_count_reported": 6325,
+        "top_cluster_share_percent": "96.681466899918953572500"
+      },
+      "bsc:0xcce5f304fd043d6a4e8ccb5376a4a4fb583b98d5": {
+        "symbol": "ALLO",
+        "ordinary_member_count": 97,
+        "supernode_count": 14,
+        "unique_transfer_count_reported": 350,
+        "top_cluster_share_percent": "75.9187248780387356406100"
+      },
+      "bsc:0xcf3232b85b43bca90e51d38cc06cc8bb8c8a3e36": {
+        "symbol": "BEAT",
+        "ordinary_member_count": 55,
+        "supernode_count": 6,
+        "unique_transfer_count_reported": 9313,
+        "top_cluster_share_percent": "38.053928600176506400"
+      },
+      "bsc:0xf86089b30f30285d492b0527c37b9c2225bfcf8c": {
+        "symbol": "PLAY",
+        "ordinary_member_count": 140,
+        "supernode_count": 19,
+        "unique_transfer_count_reported": 13453,
+        "top_cluster_share_percent": "87.914143225750982948100"
+      },
+      "eth:0x01b603be3d545f096015741e6503440282bf45fb": {
+        "symbol": "RIF",
+        "ordinary_member_count": 6,
+        "supernode_count": 5,
+        "unique_transfer_count_reported": 21,
+        "top_cluster_share_percent": "87.3503204022531050461300"
+      },
+      "eth:0x0f2d719407fdbeff09d87557abb7232601fd9f29": {
+        "symbol": "SYN",
+        "ordinary_member_count": 141,
+        "supernode_count": 25,
+        "unique_transfer_count_reported": 2993,
+        "top_cluster_share_percent": "43.46744596823379144700"
+      },
+      "eth:0x10dea67478c5f8c5e2d90e5e9b26dbe60c54d800": {
+        "symbol": "TAIKO",
+        "ordinary_member_count": 80,
+        "supernode_count": 10,
+        "unique_transfer_count_reported": 9387,
+        "top_cluster_share_percent": "75.46137867591175198000"
+      },
+      "eth:0x17205fab260a7a6383a81452ce6315a39370db97": {
+        "symbol": "RAVE",
+        "ordinary_member_count": 171,
+        "supernode_count": 20,
+        "unique_transfer_count_reported": 1508,
+        "top_cluster_share_percent": "99.5190399237974275519400"
+      },
+      "eth:0x8408d45b61f5823298f19a09b53b7339c0280489": {
+        "symbol": "ALLO",
+        "ordinary_member_count": 145,
+        "supernode_count": 31,
+        "unique_transfer_count_reported": 6427,
+        "top_cluster_share_percent": "46.98044392089576300"
+      },
+      "eth:0xde4ee8057785a7e8e800db58f9784845a5c2cbd6": {
+        "symbol": "DEXE",
+        "ordinary_member_count": 149,
+        "supernode_count": 21,
+        "unique_transfer_count_reported": 6613,
+        "top_cluster_share_percent": "63.502187782976351347100"
+      },
+      "eth:0xe76c5b78f93909d34404e9eb4c1f19e7582a5de1": {
+        "symbol": "H",
+        "ordinary_member_count": 172,
+        "supernode_count": 20,
+        "unique_transfer_count_reported": 595,
+        "top_cluster_share_percent": "90.195889556028459091800"
+      },
+      "polygon:0xf8f9efc0db77d8881500bb06ff5d6abc3070e695": {
+        "symbol": "SYN",
+        "ordinary_member_count": 108,
+        "supernode_count": 7,
+        "unique_transfer_count_reported": 2961,
+        "top_cluster_share_percent": "69.210147808702234947200"
+      },
+      "solana:AAeENcfHbTExuTvs4q7r9Bjax98Dg6BGX3aMph4bTLdK": {
+        "symbol": "RIF",
+        "ordinary_member_count": 0,
+        "supernode_count": 0,
+        "unique_transfer_count_reported": 0,
+        "top_cluster_share_percent": null
+      },
+      "solana:G7vQWurMkMMm2dU3iZpXYFTHT9Biio4F4gZCrwFpKNwG": {
+        "symbol": "BIRB",
+        "ordinary_member_count": 205,
+        "supernode_count": 31,
+        "unique_transfer_count_reported": 13439,
+        "top_cluster_share_percent": "95.4512174226035916569000"
+      },
+      "ton:EQBE_gBrU3mPI9hHjlJoR_kYyrhQgyCFD6EUWfa42W8T7EBP": {
+        "symbol": "TAC",
+        "ordinary_member_count": 213,
+        "supernode_count": 23,
+        "unique_transfer_count_reported": 3700,
+        "top_cluster_share_percent": "96.8267715701435252804100"
+      }
+    },
+    "error_count": 69,
+    "transfer_error_count": 67,
+    "final_error_count": 2
+  },
+  "events": [
+    {
+      "symbol": "TAC",
+      "event_date": "2026-06-17",
+      "event_end_date": "2026-06-17",
+      "rating_in_document": "低",
+      "note": null,
+      "available_history": {
+        "start": "2025-07-10",
+        "end": "2026-07-29",
+        "record_count": 5147
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-13",
+          "end": "2026-06-09",
+          "count": 298,
+          "amount": "275714610.76186651138405",
+          "active_addresses": 105,
+          "first_visible_addresses": 50,
+          "median_amount": "4974.344099475839",
+          "maximum": {
+            "amount": "232750161.67079002",
+            "chain": "ton",
+            "day": "2026-05-15",
+            "event_time": "2026-05-15T16:32:03+00:00",
+            "tx_hash": "46E2ADB1EBD454652AA4CEE4E5200FC16EA710B3C924BF630C2C84339975B016",
+            "from_address": "0:c9959a997e1d4e4383d8db37b86d2101ce78dcf1f1b3904d9888fe572ef0efd4",
+            "to_address": "0:9ee8e6653451d75816a2e55dc2cd8b1d3baf32651d8631d31858ee8d275c188b"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 37,
+              "amount": "30089455.83513385173255",
+              "active_addresses": 16
+            },
+            "ton": {
+              "count": 261,
+              "amount": "245625154.92673265965150",
+              "active_addresses": 89
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-06-10",
+          "end": "2026-06-16",
+          "count": 62,
+          "amount": "3587357.55711995444127",
+          "active_addresses": 40,
+          "first_visible_addresses": 9,
+          "median_amount": "3552.22645000000015",
+          "maximum": {
+            "amount": "1737308.5764",
+            "chain": "ton",
+            "day": "2026-06-12",
+            "event_time": "2026-06-12T12:03:45+00:00",
+            "tx_hash": "306E17D5AC8BD1C1D2BCF071AD638F9BECCD98B24ED421066861BAE4DD123493",
+            "from_address": "0:3183d4febac2b7567f5ca800efa048ac527a92e93dd2bf048234b44980fa7f4f",
+            "to_address": "0:c8b0596f090b2415fe55ef2e0785f1c576992bfde436aeac75efcec3ab1f0fac"
+          },
+          "by_chain": {
+            "ton": {
+              "count": 62,
+              "amount": "3587357.55711995444127",
+              "active_addresses": 40
+            }
+          }
+        },
+        "event": {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "count": 39,
+          "amount": "4280253.27641364983023",
+          "active_addresses": 36,
+          "first_visible_addresses": 5,
+          "median_amount": "5000.0",
+          "maximum": {
+            "amount": "2914484.66193764",
+            "chain": "ton",
+            "day": "2026-06-17",
+            "event_time": "2026-06-17T20:32:02+00:00",
+            "tx_hash": "C4E9B83FBAD54660AC142AF40AEF3270088CBD2D17108B1A189E1EDD8AB14A04",
+            "from_address": "0:c9959a997e1d4e4383d8db37b86d2101ce78dcf1f1b3904d9888fe572ef0efd4",
+            "to_address": "0:9ee8e6653451d75816a2e55dc2cd8b1d3baf32651d8631d31858ee8d275c188b"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 15,
+              "amount": "104854.41297886215828",
+              "active_addresses": 14
+            },
+            "ton": {
+              "count": 24,
+              "amount": "4175398.86343478767195",
+              "active_addresses": 22
+            }
+          }
+        },
+        "after": {
+          "start": "2026-06-18",
+          "end": "2026-06-24",
+          "count": 72,
+          "amount": "136923479.9922565243417225",
+          "active_addresses": 44,
+          "first_visible_addresses": 12,
+          "median_amount": "5000.0",
+          "maximum": {
+            "amount": "15934780.0",
+            "chain": "ton",
+            "day": "2026-06-24",
+            "event_time": "2026-06-24T18:05:21+00:00",
+            "tx_hash": "EBBB3DD5DE1E48D75731221D4A04B663D485AE3A1A2BB61F219A04282F322959",
+            "from_address": "0:70d07ec77924441c3d557512574c47214110c4889598b32e3e17c0775ce7b39d",
+            "to_address": "0:9c3eaa0fa1d966d13bc877c424c14cf4d52a3d766030cca0c54a56db667a676b"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 14,
+              "amount": "18826.0006643638366",
+              "active_addresses": 8
+            },
+            "ton": {
+              "count": 58,
+              "amount": "136904653.9915921605051225",
+              "active_addresses": 36
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "0.05204450423874474001938142505",
+        "pre_count_vs_baseline_week": "0.8322147651006711409395973154",
+        "event_daily_amount_vs_pre_daily": "8.352045330811635033371383002",
+        "event_daily_count_vs_pre_daily": "4.403225806451612903225806452"
+      }
+    },
+    {
+      "symbol": "TAC",
+      "event_date": "2026-06-29",
+      "event_end_date": "2026-06-29",
+      "rating_in_document": "高",
+      "note": null,
+      "available_history": {
+        "start": "2025-07-10",
+        "end": "2026-07-29",
+        "record_count": 5147
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-25",
+          "end": "2026-06-21",
+          "count": 322,
+          "amount": "20378755.5425866294954325",
+          "active_addresses": 112,
+          "first_visible_addresses": 43,
+          "median_amount": "4712.185479936005",
+          "maximum": {
+            "amount": "3242277.71175574",
+            "chain": "ton",
+            "day": "2026-06-20",
+            "event_time": "2026-06-20T08:33:06+00:00",
+            "tx_hash": "E8CE0B81FDFF1D2680C9989FFB69F226BD61FCB7617815272017D29906FA7A5D",
+            "from_address": "0:c9959a997e1d4e4383d8db37b86d2101ce78dcf1f1b3904d9888fe572ef0efd4",
+            "to_address": "0:9ee8e6653451d75816a2e55dc2cd8b1d3baf32651d8631d31858ee8d275c188b"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 51,
+              "amount": "318196.02783162184693",
+              "active_addresses": 22
+            },
+            "ton": {
+              "count": 271,
+              "amount": "20060559.5147550076485025",
+              "active_addresses": 90
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-06-22",
+          "end": "2026-06-28",
+          "count": 113,
+          "amount": "626606823.420079399439041",
+          "active_addresses": 55,
+          "first_visible_addresses": 22,
+          "median_amount": "49876.092713939994",
+          "maximum": {
+            "amount": "71928799.634483",
+            "chain": "ton",
+            "day": "2026-06-25",
+            "event_time": "2026-06-25T04:33:02+00:00",
+            "tx_hash": "669E7F0E12CE1E20B131E717B253B14C131EBB7DA0A346B953CE5A39D0030711",
+            "from_address": "0:c9959a997e1d4e4383d8db37b86d2101ce78dcf1f1b3904d9888fe572ef0efd4",
+            "to_address": "0:9ee8e6653451d75816a2e55dc2cd8b1d3baf32651d8631d31858ee8d275c188b"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 14,
+              "amount": "27186.43091787582334",
+              "active_addresses": 10
+            },
+            "ton": {
+              "count": 99,
+              "amount": "626579636.989161523615701",
+              "active_addresses": 45
+            }
+          }
+        },
+        "event": {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "count": 225,
+          "amount": "23490522.559009497009668",
+          "active_addresses": 78,
+          "first_visible_addresses": 12,
+          "median_amount": "3235.0000000000005",
+          "maximum": {
+            "amount": "6651475.20021259",
+            "chain": "ton",
+            "day": "2026-06-29",
+            "event_time": "2026-06-29T23:13:10+00:00",
+            "tx_hash": "CB28A0964AE7193E41232B04FEF61088342652EC6BC61B06D9EDC7B31159EC74",
+            "from_address": "0:f938abb44deb73fa56a39b895796017d5b350f9ea9d5db7d52643296dd660edb",
+            "to_address": "0:9c3eaa0fa1d966d13bc877c424c14cf4d52a3d766030cca0c54a56db667a676b"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 71,
+              "amount": "527171.75211369744316",
+              "active_addresses": 24
+            },
+            "ton": {
+              "count": 154,
+              "amount": "22963350.806895799566508",
+              "active_addresses": 54
+            }
+          }
+        },
+        "after": {
+          "start": "2026-06-30",
+          "end": "2026-07-06",
+          "count": 292,
+          "amount": "453154591.32601004641647914",
+          "active_addresses": 109,
+          "first_visible_addresses": 31,
+          "median_amount": "2999.0000000000005",
+          "maximum": {
+            "amount": "100000000.0",
+            "chain": "ton",
+            "day": "2026-07-01",
+            "event_time": "2026-07-01T16:59:34+00:00",
+            "tx_hash": "B8CF62295FE92E8CDC1EFBDF9E70EBDA22795AF1957A5EEB278B4873A40CEDF0",
+            "from_address": "0:9ee8e6653451d75816a2e55dc2cd8b1d3baf32651d8631d31858ee8d275c188b",
+            "to_address": "0:c9959a997e1d4e4383d8db37b86d2101ce78dcf1f1b3904d9888fe572ef0efd4"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 88,
+              "amount": "919502.13269895590358714",
+              "active_addresses": 37
+            },
+            "ton": {
+              "count": 204,
+              "amount": "452235089.193311090512892",
+              "active_addresses": 72
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "122.9921664471854414480468647",
+        "pre_count_vs_baseline_week": "1.403726708074534161490683230",
+        "event_daily_amount_vs_pre_daily": "0.2624191945685685286769290136",
+        "event_daily_count_vs_pre_daily": "13.93805309734513274336283186"
+      }
+    },
+    {
+      "symbol": "TAC",
+      "event_date": "2026-07-09",
+      "event_end_date": "2026-07-09",
+      "rating_in_document": "高",
+      "note": null,
+      "available_history": {
+        "start": "2025-07-10",
+        "end": "2026-07-29",
+        "record_count": 5147
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-06-04",
+          "end": "2026-07-01",
+          "count": 705,
+          "amount": "973179023.1317552638961545",
+          "active_addresses": 174,
+          "first_visible_addresses": 77,
+          "median_amount": "4832.003701779076",
+          "maximum": {
+            "amount": "100000000.0",
+            "chain": "ton",
+            "day": "2026-07-01",
+            "event_time": "2026-07-01T16:59:34+00:00",
+            "tx_hash": "B8CF62295FE92E8CDC1EFBDF9E70EBDA22795AF1957A5EEB278B4873A40CEDF0",
+            "from_address": "0:9ee8e6653451d75816a2e55dc2cd8b1d3baf32651d8631d31858ee8d275c188b",
+            "to_address": "0:c9959a997e1d4e4383d8db37b86d2101ce78dcf1f1b3904d9888fe572ef0efd4"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 178,
+              "amount": "1303872.52385882917994",
+              "active_addresses": 40
+            },
+            "ton": {
+              "count": 527,
+              "amount": "971875150.6078964347162145",
+              "active_addresses": 134
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-07-02",
+          "end": "2026-07-08",
+          "count": 890,
+          "amount": "1182400280.131835527960335244",
+          "active_addresses": 254,
+          "first_visible_addresses": 135,
+          "median_amount": "7784.64821276304375",
+          "maximum": {
+            "amount": "300000000.0",
+            "chain": "ton",
+            "day": "2026-07-07",
+            "event_time": "2026-07-07T13:16:30+00:00",
+            "tx_hash": "36ECE7B621B511CDFD270BD1A52C20937A0030B329C6B7E5AB0375EF0B8372F7",
+            "from_address": "0:9c3eaa0fa1d966d13bc877c424c14cf4d52a3d766030cca0c54a56db667a676b",
+            "to_address": "0:5175474897bab54998478c5b9d567dfa11ebbfd4614aec45fea651fc58ad38bc"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 235,
+              "amount": "9339517.46827603875113714",
+              "active_addresses": 100
+            },
+            "ton": {
+              "count": 655,
+              "amount": "1173060762.663559489209198104",
+              "active_addresses": 154
+            }
+          }
+        },
+        "event": {
+          "start": "2026-07-09",
+          "end": "2026-07-09",
+          "count": 250,
+          "amount": "48810738.04931883665602",
+          "active_addresses": 129,
+          "first_visible_addresses": 38,
+          "median_amount": "5410.2230874427155",
+          "maximum": {
+            "amount": "9883689.845682856",
+            "chain": "ton",
+            "day": "2026-07-09",
+            "event_time": "2026-07-09T02:01:03+00:00",
+            "tx_hash": "B56E5140AD184F94B348DCDB886D9AC47ABDCA53B737908090702A475C8204EB",
+            "from_address": "0:13c75b319b581ff512edb2865c9d3ac20d199c31e594dd6436bee9590cd04b15",
+            "to_address": "0:3b865f3176d329c18280bb36477a2ece4a726955ace73bb27014b5588d8e00b7"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 128,
+              "amount": "1897333.96129262333778",
+              "active_addresses": 57
+            },
+            "ton": {
+              "count": 122,
+              "amount": "46913404.08802621331824",
+              "active_addresses": 72
+            }
+          }
+        },
+        "after": {
+          "start": "2026-07-10",
+          "end": "2026-07-16",
+          "count": 544,
+          "amount": "1720581778.924709745949003487",
+          "active_addresses": 172,
+          "first_visible_addresses": 49,
+          "median_amount": "5568.58272816334875",
+          "maximum": {
+            "amount": "262094509.0",
+            "chain": "ton",
+            "day": "2026-07-11",
+            "event_time": "2026-07-11T18:20:13+00:00",
+            "tx_hash": "DFC753B9DB3C6FB7A485FC7AFAA790022FCAC3B125B9391FB99FA2866F28C2B2",
+            "from_address": "0:d1b7fcd399e0a5956469faa0765389d7086f6b4b61da2f7f74a7b3b2c63da0b9",
+            "to_address": "0:fc2287ef1d63cd145861aec74ef53846697043ea5c5b7c8cd9787b45b6dcdfc8"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 217,
+              "amount": "2332631.151915198312334487",
+              "active_addresses": 74
+            },
+            "ton": {
+              "count": 327,
+              "amount": "1718249147.772794547636669",
+              "active_addresses": 98
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "4.859949719535845517317376046",
+        "pre_count_vs_baseline_week": "5.049645390070921985815602837",
+        "event_daily_amount_vs_pre_daily": "0.2889674267559676857674860290",
+        "event_daily_count_vs_pre_daily": "1.966292134831460674157303371"
+      }
+    },
+    {
+      "symbol": "BANK",
+      "event_date": "2026-07-18",
+      "event_end_date": "2026-07-18",
+      "rating_in_document": "高",
+      "note": null,
+      "available_history": {
+        "start": "2025-04-17",
+        "end": "2026-07-29",
+        "record_count": 2797
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-06-13",
+          "end": "2026-07-10",
+          "count": 42,
+          "amount": "1176666.2819003210430",
+          "active_addresses": 32,
+          "first_visible_addresses": 7,
+          "median_amount": "5858.3093967448435",
+          "maximum": {
+            "amount": "210000.0",
+            "chain": "bsc",
+            "day": "2026-06-25",
+            "event_time": "2026-06-25T06:52:49+00:00",
+            "tx_hash": "0x1f850667bcad42690e757bbfef94797210faf004d6cae31f3e0e2d08086c3af5",
+            "from_address": "0xede6d2301178d364a5b011260694aa6688c3b11a",
+            "to_address": "0x61922174b8ed7fde8f26153f42ef5169f595482e"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 42,
+              "amount": "1176666.2819003210430",
+              "active_addresses": 32
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-07-11",
+          "end": "2026-07-17",
+          "count": 24,
+          "amount": "10377858.1017407927193858",
+          "active_addresses": 19,
+          "first_visible_addresses": 5,
+          "median_amount": "14023.957067271377",
+          "maximum": {
+            "amount": "5228523.531619657",
+            "chain": "bsc",
+            "day": "2026-07-15",
+            "event_time": "2026-07-15T17:38:38+00:00",
+            "tx_hash": "0x76c8ba28f26f7d8bf25da2546f100ab728edbae64aa6330416a5d95f6de77545",
+            "from_address": "0x46a15b0b27311cedf172ab29e4f4766fbe7f4364",
+            "to_address": "0x48c8ac40b6b7f540b8a17d5cb3d6cb4d0d87fc8f"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 24,
+              "amount": "10377858.1017407927193858",
+              "active_addresses": 19
+            }
+          }
+        },
+        "event": {
+          "start": "2026-07-18",
+          "end": "2026-07-18",
+          "count": 33,
+          "amount": "1011181.968063439169",
+          "active_addresses": 21,
+          "first_visible_addresses": 10,
+          "median_amount": "10000.0",
+          "maximum": {
+            "amount": "376796.68015688995",
+            "chain": "bsc",
+            "day": "2026-07-18",
+            "event_time": "2026-07-18T16:08:34+00:00",
+            "tx_hash": "0xa1fb40e447264ac601388bcd6a854d00094feba7c244b8b4956cfaa56a4b4f54",
+            "from_address": "0x799be5bd334b9062fa9dea592cc54c601122ee64",
+            "to_address": "0x2e3fc1eed2e3391e491378a0b7ef068c288c9c16"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 33,
+              "amount": "1011181.968063439169",
+              "active_addresses": 21
+            }
+          }
+        },
+        "after": {
+          "start": "2026-07-19",
+          "end": "2026-07-25",
+          "count": 481,
+          "amount": "89451050.505803716314811001",
+          "active_addresses": 89,
+          "first_visible_addresses": 52,
+          "median_amount": "1158.8312867971538",
+          "maximum": {
+            "amount": "84000000.0",
+            "chain": "bsc",
+            "day": "2026-07-19",
+            "event_time": "2026-07-19T15:43:58+00:00",
+            "tx_hash": "0xd7c9fc210cad579cbcf40deb6f63efe6305cd871b5eafa2436acd2392eaaa986",
+            "from_address": "0xede6d2301178d364a5b011260694aa6688c3b11a",
+            "to_address": "0x572193a5f5edb8af31947072d8433be336a22bd8"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 481,
+              "amount": "89451050.505803716314811001",
+              "active_addresses": 89
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "35.27884927570290467242731018",
+        "pre_count_vs_baseline_week": "2.285714285714285714285714286",
+        "event_daily_amount_vs_pre_daily": "0.6820553631636914723845191253",
+        "event_daily_count_vs_pre_daily": "9.624999999999999999999999999"
+      }
+    },
+    {
+      "symbol": "BIRB",
+      "event_date": "2026-07-02",
+      "event_end_date": "2026-07-02",
+      "rating_in_document": "高",
+      "note": "正文称 2026-06-29 为事件前三天，据此推定事件日。",
+      "available_history": {
+        "start": "2026-01-16",
+        "end": "2026-07-29",
+        "record_count": 13439
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-28",
+          "end": "2026-06-24",
+          "count": 460,
+          "amount": "60434337.268855",
+          "active_addresses": 180,
+          "first_visible_addresses": 27,
+          "median_amount": "8490.135",
+          "maximum": {
+            "amount": "10000000.0",
+            "chain": "solana",
+            "day": "2026-05-28",
+            "event_time": "2026-05-28T18:17:00+00:00",
+            "tx_hash": "3sav3V1JH6dVZTESNd1PeNwSwLyeQKRkWHpUddxUzSPVMAVyjiNRxqMQFZXQaWY9vXJM47zrbkAUSehdwy2yCNKZ",
+            "from_address": "AwRwpCB1rTTbs1LCFm2NgmvDWwk2SPuPLsV7mCVQuQ9f",
+            "to_address": "Ahe9AL4RQFU6DiuqLBctokfv2YDRqxoNNPL6KM4vWC1V"
+          },
+          "by_chain": {
+            "solana": {
+              "count": 460,
+              "amount": "60434337.268855",
+              "active_addresses": 180
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-06-25",
+          "end": "2026-07-01",
+          "count": 1688,
+          "amount": "132511319.701816",
+          "active_addresses": 979,
+          "first_visible_addresses": 873,
+          "median_amount": "2046.0",
+          "maximum": {
+            "amount": "32525070.0",
+            "chain": "solana",
+            "day": "2026-06-29",
+            "event_time": "2026-06-29T03:15:59+00:00",
+            "tx_hash": "3PfZt2fnZ53MGcHQ5rVzMDeQFynp7S63G6RqSQzMHPocbXRCvP4qHEZMv19syJDSDUKxqmcKaLiNijZcdnJrCd2M",
+            "from_address": "34FS9nngUwBHPF5mAZPMKJAfZYBQogxJbjkcjTqsr2QZ",
+            "to_address": "mzyQWg3HyTMQovaWAqiK34sDiRzoFCMefSKrez81UBT"
+          },
+          "by_chain": {
+            "solana": {
+              "count": 1688,
+              "amount": "132511319.701816",
+              "active_addresses": 979
+            }
+          }
+        },
+        "event": {
+          "start": "2026-07-02",
+          "end": "2026-07-02",
+          "count": 683,
+          "amount": "27690438.302986",
+          "active_addresses": 265,
+          "first_visible_addresses": 172,
+          "median_amount": "5965.9",
+          "maximum": {
+            "amount": "1424709.0",
+            "chain": "solana",
+            "day": "2026-07-02",
+            "event_time": "2026-07-02T05:47:03+00:00",
+            "tx_hash": "4F2vspKSdgr2Qz641hJU3jsTg8EHmd5LKTTdJTXWZ3c2qSyyAGs2XyMZzQS99NhrkDth9CguMpWBmj8ooLKFtt1B",
+            "from_address": "mzyQWg3HyTMQovaWAqiK34sDiRzoFCMefSKrez81UBT",
+            "to_address": "FodAmNYHg1BENkzg1Yagb1HumBcCwkHQP7Hskfyfs849"
+          },
+          "by_chain": {
+            "solana": {
+              "count": 683,
+              "amount": "27690438.302986",
+              "active_addresses": 265
+            }
+          }
+        },
+        "after": {
+          "start": "2026-07-03",
+          "end": "2026-07-09",
+          "count": 784,
+          "amount": "48335223.371015",
+          "active_addresses": 347,
+          "first_visible_addresses": 205,
+          "median_amount": "8239.254567",
+          "maximum": {
+            "amount": "6600000.0",
+            "chain": "solana",
+            "day": "2026-07-05",
+            "event_time": "2026-07-05T03:22:22+00:00",
+            "tx_hash": "2TsZwMKv4f7MP3nyZf6tSTwN7MWqTGQy24jB5RNRqaSMZ1yVZFD1SS26v9Cma7y9LLShJWA8rTSLvDUePcBhAUZE",
+            "from_address": "95NeynbGtEjMcaLo8igg75przKhACdGgwq38R98mRS6y",
+            "to_address": "4kBPueDUQ3wywF7vw8BHPePvjXqFZAConwexeoF5vsQR"
+          },
+          "by_chain": {
+            "solana": {
+              "count": 784,
+              "amount": "48335223.371015",
+              "active_addresses": 347
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "8.770598020281828677248977696",
+        "pre_count_vs_baseline_week": "14.67826086956521739130434783",
+        "event_daily_amount_vs_pre_daily": "1.462766113544680188841277239",
+        "event_daily_count_vs_pre_daily": "2.832345971563981042654028437"
+      }
+    },
+    {
+      "symbol": "PLAY",
+      "event_date": "2026-04-15",
+      "event_end_date": "2026-04-15",
+      "rating_in_document": "中",
+      "note": null,
+      "available_history": {
+        "start": "2025-05-29",
+        "end": "2026-07-29",
+        "record_count": 20749
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-03-11",
+          "end": "2026-04-07",
+          "count": 1192,
+          "amount": "357331539.97167685740355638",
+          "active_addresses": 640,
+          "first_visible_addresses": 508,
+          "median_amount": "3111.925",
+          "maximum": {
+            "amount": "72840000.0",
+            "chain": "base",
+            "day": "2026-03-24",
+            "event_time": "2026-03-24T14:07:39+00:00",
+            "tx_hash": "0x2824cac8c7e5362ba45f233ca7f4fdafd24d9fed53a8704fa50ad9c49a5116c2",
+            "from_address": "0x5c38ab2c57b1446d031572fea5f13bbd85f341f4",
+            "to_address": "0x26fadb3e79326f66317d994abd6b9ad7aee161b8"
+          },
+          "by_chain": {
+            "base": {
+              "count": 754,
+              "amount": "317071037.593263962864155",
+              "active_addresses": 552
+            },
+            "bsc": {
+              "count": 438,
+              "amount": "40260502.37841289453940138",
+              "active_addresses": 203
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-04-08",
+          "end": "2026-04-14",
+          "count": 140,
+          "amount": "18251728.7641415423212185",
+          "active_addresses": 81,
+          "first_visible_addresses": 37,
+          "median_amount": "26735.1178675606415",
+          "maximum": {
+            "amount": "2539768.2399999998",
+            "chain": "base",
+            "day": "2026-04-14",
+            "event_time": "2026-04-14T14:36:47+00:00",
+            "tx_hash": "0x14bdf1ae4fc21fa96f74164ce3fba73b706a013472f6ee0a8f1723f65d11b8fa",
+            "from_address": "0x5c38ab2c57b1446d031572fea5f13bbd85f341f4",
+            "to_address": "0x0fb2819e0e6613c3b4e5fac708c10ff17fcb83e8"
+          },
+          "by_chain": {
+            "base": {
+              "count": 75,
+              "amount": "10507658.5762837464393485",
+              "active_addresses": 41
+            },
+            "bsc": {
+              "count": 65,
+              "amount": "7744070.18785779588187",
+              "active_addresses": 40
+            }
+          }
+        },
+        "event": {
+          "start": "2026-04-15",
+          "end": "2026-04-15",
+          "count": 69,
+          "amount": "3275843.4882514555604",
+          "active_addresses": 41,
+          "first_visible_addresses": 8,
+          "median_amount": "9152.0",
+          "maximum": {
+            "amount": "1045969.4820279748",
+            "chain": "bsc",
+            "day": "2026-04-15",
+            "event_time": "2026-04-15T19:24:18+00:00",
+            "tx_hash": "0x3bca9245fb32c15fa96f6de8584cb12c0a46d8f00fdd0462b1d89628565597f1",
+            "from_address": "0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae",
+            "to_address": "0x1bdef2c72d4b8f7b06d010a92ed16c4de511a1d5"
+          },
+          "by_chain": {
+            "base": {
+              "count": 51,
+              "amount": "678712.8532314289920",
+              "active_addresses": 26
+            },
+            "bsc": {
+              "count": 18,
+              "amount": "2597130.6350200265684",
+              "active_addresses": 16
+            }
+          }
+        },
+        "after": {
+          "start": "2026-04-16",
+          "end": "2026-04-22",
+          "count": 274,
+          "amount": "25408883.859171101967334529",
+          "active_addresses": 107,
+          "first_visible_addresses": 57,
+          "median_amount": "10417.803396341502",
+          "maximum": {
+            "amount": "3013286.2399999998",
+            "chain": "base",
+            "day": "2026-04-20",
+            "event_time": "2026-04-20T08:47:23+00:00",
+            "tx_hash": "0x0b25a386f5596018c69fa551c5102c423290484b34dd84f366df7177ac6cfdcb",
+            "from_address": "0x5c38ab2c57b1446d031572fea5f13bbd85f341f4",
+            "to_address": "0x1cc34eebb9485c1ae41e902df2833a81a139db76"
+          },
+          "by_chain": {
+            "base": {
+              "count": 68,
+              "amount": "11783015.05780716650416",
+              "active_addresses": 43
+            },
+            "bsc": {
+              "count": 206,
+              "amount": "13625868.801363935463174529",
+              "active_addresses": 64
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "0.2043114219986092210730202459",
+        "pre_count_vs_baseline_week": "0.4697986577181208053691275168",
+        "event_daily_amount_vs_pre_daily": "1.256368901493410312229636952",
+        "event_daily_count_vs_pre_daily": "3.45"
+      }
+    },
+    {
+      "symbol": "PLAY",
+      "event_date": "2026-05-25",
+      "event_end_date": "2026-05-25",
+      "rating_in_document": "中",
+      "note": null,
+      "available_history": {
+        "start": "2025-05-29",
+        "end": "2026-07-29",
+        "record_count": 20749
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-04-20",
+          "end": "2026-05-17",
+          "count": 608,
+          "amount": "35926045.387992700894903817",
+          "active_addresses": 141,
+          "first_visible_addresses": 59,
+          "median_amount": "8082.5000000000005",
+          "maximum": {
+            "amount": "3888720.0",
+            "chain": "base",
+            "day": "2026-05-07",
+            "event_time": "2026-05-07T09:50:21+00:00",
+            "tx_hash": "0x2c7066bb07b1742733c3c6bfbab2f5c592d35731b28b25424084ebe664774f12",
+            "from_address": "0x26fadb3e79326f66317d994abd6b9ad7aee161b8",
+            "to_address": "0x73d8bd54f7cf5fab43fe4ef40a62d390644946db"
+          },
+          "by_chain": {
+            "base": {
+              "count": 362,
+              "amount": "23971200.414375700256421817",
+              "active_addresses": 75
+            },
+            "bsc": {
+              "count": 246,
+              "amount": "11954844.973617000638482",
+              "active_addresses": 68
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-05-18",
+          "end": "2026-05-24",
+          "count": 849,
+          "amount": "97985464.364165423971741",
+          "active_addresses": 102,
+          "first_visible_addresses": 39,
+          "median_amount": "8979.7139",
+          "maximum": {
+            "amount": "44208333.0",
+            "chain": "base",
+            "day": "2026-05-21",
+            "event_time": "2026-05-21T14:48:35+00:00",
+            "tx_hash": "0x5b6bd82d8a08ee433628e83ea72d2b0d875300bc3ebd1e81ea9453ee0bde6a95",
+            "from_address": "0xe9fe6c3c6fa47a279c0819ae71e994a2b9a1dc99",
+            "to_address": "0x5fe5301bd90a05331ecee2d673363e962c3ae04e"
+          },
+          "by_chain": {
+            "base": {
+              "count": 781,
+              "amount": "88017754.494880462327141",
+              "active_addresses": 82
+            },
+            "bsc": {
+              "count": 68,
+              "amount": "9967709.8692849616446",
+              "active_addresses": 20
+            }
+          }
+        },
+        "event": {
+          "start": "2026-05-25",
+          "end": "2026-05-25",
+          "count": 146,
+          "amount": "4956635.372251946983113",
+          "active_addresses": 48,
+          "first_visible_addresses": 10,
+          "median_amount": "8681.95405",
+          "maximum": {
+            "amount": "1570068.7895785437",
+            "chain": "base",
+            "day": "2026-05-25",
+            "event_time": "2026-05-25T11:01:01+00:00",
+            "tx_hash": "0x1efae6ba3afb1233eff61393b2b2ef8fcf6090bb4508e2d2986ee07c3623c473",
+            "from_address": "0x18b0f4547a89fe4c5fe84f258bea3601fa281e9f",
+            "to_address": "0x2677c4c8757da1857cc7cc4071e0e0dd32ccb975"
+          },
+          "by_chain": {
+            "base": {
+              "count": 133,
+              "amount": "3540308.948036922889113",
+              "active_addresses": 35
+            },
+            "bsc": {
+              "count": 13,
+              "amount": "1416326.4242150240940",
+              "active_addresses": 13
+            }
+          }
+        },
+        "after": {
+          "start": "2026-05-26",
+          "end": "2026-06-01",
+          "count": 230,
+          "amount": "5961550.504332727725473671",
+          "active_addresses": 70,
+          "first_visible_addresses": 14,
+          "median_amount": "7202.63080000000025",
+          "maximum": {
+            "amount": "844046.2152",
+            "chain": "base",
+            "day": "2026-05-26",
+            "event_time": "2026-05-26T12:11:49+00:00",
+            "tx_hash": "0x44521d51484974147754bab58a72205f20b691e14f9cd3ebe9a53d47ca60bf13",
+            "from_address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
+            "to_address": "0x669cfe380accab4159c9571fdfccbf5ca4d3d571"
+          },
+          "by_chain": {
+            "base": {
+              "count": 191,
+              "amount": "4575336.553195509668173671",
+              "active_addresses": 50
+            },
+            "bsc": {
+              "count": 39,
+              "amount": "1386213.9511372180573",
+              "active_addresses": 20
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "10.90968552825069783960161067",
+        "pre_count_vs_baseline_week": "5.585526315789473684210526316",
+        "event_daily_amount_vs_pre_daily": "0.3540979045301394434491599844",
+        "event_daily_count_vs_pre_daily": "1.203769140164899882214369847"
+      }
+    },
+    {
+      "symbol": "PLAY",
+      "event_date": "2026-05-31",
+      "event_end_date": "2026-05-31",
+      "rating_in_document": "中",
+      "note": null,
+      "available_history": {
+        "start": "2025-05-29",
+        "end": "2026-07-29",
+        "record_count": 20749
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-04-26",
+          "end": "2026-05-23",
+          "count": 1095,
+          "amount": "119311742.875004772031457817",
+          "active_addresses": 157,
+          "first_visible_addresses": 66,
+          "median_amount": "9949.61",
+          "maximum": {
+            "amount": "44208333.0",
+            "chain": "base",
+            "day": "2026-05-21",
+            "event_time": "2026-05-21T14:48:35+00:00",
+            "tx_hash": "0x5b6bd82d8a08ee433628e83ea72d2b0d875300bc3ebd1e81ea9453ee0bde6a95",
+            "from_address": "0xe9fe6c3c6fa47a279c0819ae71e994a2b9a1dc99",
+            "to_address": "0x5fe5301bd90a05331ecee2d673363e962c3ae04e"
+          },
+          "by_chain": {
+            "base": {
+              "count": 878,
+              "amount": "101300969.859018184400242817",
+              "active_addresses": 101
+            },
+            "bsc": {
+              "count": 217,
+              "amount": "18010773.015986587631215",
+              "active_addresses": 57
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-05-24",
+          "end": "2026-05-30",
+          "count": 478,
+          "amount": "12511979.908581478366969671",
+          "active_addresses": 95,
+          "first_visible_addresses": 23,
+          "median_amount": "7822.772164610133",
+          "maximum": {
+            "amount": "1570068.7895785437",
+            "chain": "base",
+            "day": "2026-05-25",
+            "event_time": "2026-05-25T11:01:01+00:00",
+            "tx_hash": "0x1efae6ba3afb1233eff61393b2b2ef8fcf6090bb4508e2d2986ee07c3623c473",
+            "from_address": "0x18b0f4547a89fe4c5fe84f258bea3601fa281e9f",
+            "to_address": "0x2677c4c8757da1857cc7cc4071e0e0dd32ccb975"
+          },
+          "by_chain": {
+            "base": {
+              "count": 423,
+              "amount": "8577065.805502362387069671",
+              "active_addresses": 72
+            },
+            "bsc": {
+              "count": 55,
+              "amount": "3934914.1030791159799",
+              "active_addresses": 24
+            }
+          }
+        },
+        "event": {
+          "start": "2026-05-31",
+          "end": "2026-05-31",
+          "count": 66,
+          "amount": "1085812.371966935508037",
+          "active_addresses": 34,
+          "first_visible_addresses": 4,
+          "median_amount": "7797.2789",
+          "maximum": {
+            "amount": "305848.14",
+            "chain": "base",
+            "day": "2026-05-31",
+            "event_time": "2026-05-31T11:00:59+00:00",
+            "tx_hash": "0x923ad1e31f9b602d0a77985e5a26fe338f01bb54879279506ff435b867e0b325",
+            "from_address": "0x18b0f4547a89fe4c5fe84f258bea3601fa281e9f",
+            "to_address": "0x2677c4c8757da1857cc7cc4071e0e0dd32ccb975"
+          },
+          "by_chain": {
+            "base": {
+              "count": 60,
+              "amount": "1012425.849632384859637",
+              "active_addresses": 28
+            },
+            "bsc": {
+              "count": 6,
+              "amount": "73386.5223345506484",
+              "active_addresses": 6
+            }
+          }
+        },
+        "after": {
+          "start": "2026-06-01",
+          "end": "2026-06-07",
+          "count": 286,
+          "amount": "37362743.82521940980894872",
+          "active_addresses": 82,
+          "first_visible_addresses": 17,
+          "median_amount": "6852.5550416420065",
+          "maximum": {
+            "amount": "27274940.6456346",
+            "chain": "base",
+            "day": "2026-06-07",
+            "event_time": "2026-06-07T12:06:57+00:00",
+            "tx_hash": "0x0be7e38dd64616c9bf39e13c863041cf35f80fb1eb92b2e562619f93be1ee346",
+            "from_address": "0xe9fe6c3c6fa47a279c0819ae71e994a2b9a1dc99",
+            "to_address": "0x5c38ab2c57b1446d031572fea5f13bbd85f341f4"
+          },
+          "by_chain": {
+            "base": {
+              "count": 244,
+              "amount": "36593118.37232720548244872",
+              "active_addresses": 64
+            },
+            "bsc": {
+              "count": 42,
+              "amount": "769625.4528922043265",
+              "active_addresses": 18
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "0.4194718678006229044026934819",
+        "pre_count_vs_baseline_week": "1.746118721461187214611872146",
+        "event_daily_amount_vs_pre_daily": "0.6074727308789502177586858056",
+        "event_daily_count_vs_pre_daily": "0.9665271966527196652719665271"
+      }
+    },
+    {
+      "symbol": "SYN",
+      "event_date": "2026-06-17",
+      "event_end_date": "2026-06-18",
+      "rating_in_document": "中高",
+      "note": null,
+      "available_history": {
+        "start": "2021-08-28",
+        "end": "2026-07-29",
+        "record_count": 19645
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-13",
+          "end": "2026-06-09",
+          "count": 431,
+          "amount": "3104343.789935430372524252",
+          "active_addresses": 65,
+          "first_visible_addresses": 19,
+          "median_amount": "72.84733640387911",
+          "maximum": {
+            "amount": "1832925.23706984",
+            "chain": "avalanche",
+            "day": "2026-06-09",
+            "event_time": "2026-06-09T14:46:25+00:00",
+            "tx_hash": "0x05209ef1d5c361971be333d5a7c77ea6ffcc86ee1d9dbbcaa9d4c3366c265745",
+            "from_address": "0x9f8c163cba728e99993abe7495f06c0a3c8ac8b9",
+            "to_address": "0xe9530411510c4d6cf699712904beca2849488176"
+          },
+          "by_chain": {
+            "arbitrum": {
+              "count": 56,
+              "amount": "588422.03539208173381618",
+              "active_addresses": 22
+            },
+            "avalanche": {
+              "count": 6,
+              "amount": "1837228.98288381483704",
+              "active_addresses": 6
+            },
+            "bsc": {
+              "count": 281,
+              "amount": "32039.548662351820162",
+              "active_addresses": 18
+            },
+            "eth": {
+              "count": 66,
+              "amount": "169422.0306954773105",
+              "active_addresses": 12
+            },
+            "polygon": {
+              "count": 22,
+              "amount": "477231.192301704671006072",
+              "active_addresses": 12
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-06-10",
+          "end": "2026-06-16",
+          "count": 150,
+          "amount": "6169710.9060217849421841",
+          "active_addresses": 57,
+          "first_visible_addresses": 15,
+          "median_amount": "243.7081165615978",
+          "maximum": {
+            "amount": "1050000.0",
+            "chain": "eth",
+            "day": "2026-06-16",
+            "event_time": "2026-06-16T09:51:11+00:00",
+            "tx_hash": "0x9d01f976f1c42f19ac823657f0507c372cb58d236397a1cf634b40b2fd9374e7",
+            "from_address": "0xab782bc7d4a2b306825de5a7730034f8f63ee1bc",
+            "to_address": "0xd9695b20bb61cb0c4abd91922a1b696743ccaf66"
+          },
+          "by_chain": {
+            "arbitrum": {
+              "count": 17,
+              "amount": "9287.199837496305351",
+              "active_addresses": 12
+            },
+            "bsc": {
+              "count": 73,
+              "amount": "19193.2933624304373171",
+              "active_addresses": 17
+            },
+            "eth": {
+              "count": 51,
+              "amount": "6141039.9138356210066",
+              "active_addresses": 26
+            },
+            "polygon": {
+              "count": 9,
+              "amount": "190.498986237192916",
+              "active_addresses": 8
+            }
+          }
+        },
+        "event": {
+          "start": "2026-06-17",
+          "end": "2026-06-18",
+          "count": 286,
+          "amount": "6559108.70729888525376383",
+          "active_addresses": 55,
+          "first_visible_addresses": 16,
+          "median_amount": "43.472953659976958",
+          "maximum": {
+            "amount": "5866860.944908285",
+            "chain": "eth",
+            "day": "2026-06-17",
+            "event_time": "2026-06-17T08:17:11+00:00",
+            "tx_hash": "0xd40106308e130d404f1375eba02f1cb3f7541145870f894ee3936c0f62dad602",
+            "from_address": "0xc3681709ee476308b45812eabe0eb22f3b816880",
+            "to_address": "0xc80afd311c9626528de66d86814770361fe92416"
+          },
+          "by_chain": {
+            "arbitrum": {
+              "count": 18,
+              "amount": "642.6593843223580654",
+              "active_addresses": 7
+            },
+            "base": {
+              "count": 1,
+              "amount": "2.0452117151820337",
+              "active_addresses": 2
+            },
+            "bsc": {
+              "count": 223,
+              "amount": "15821.31954984883427193",
+              "active_addresses": 25
+            },
+            "eth": {
+              "count": 27,
+              "amount": "6542454.3727004932723",
+              "active_addresses": 15
+            },
+            "polygon": {
+              "count": 17,
+              "amount": "188.3104525056070928",
+              "active_addresses": 8
+            }
+          }
+        },
+        "after": {
+          "start": "2026-06-19",
+          "end": "2026-06-25",
+          "count": 1107,
+          "amount": "4090318.549288348633167734",
+          "active_addresses": 128,
+          "first_visible_addresses": 45,
+          "median_amount": "14.625",
+          "maximum": {
+            "amount": "1836568.23706984",
+            "chain": "avalanche",
+            "day": "2026-06-21",
+            "event_time": "2026-06-21T23:06:48+00:00",
+            "tx_hash": "0x11161254f85fd06c0a8c4985b7dc21b7d45e3b99116fed9686fc8d27c18faadb",
+            "from_address": "0xe9530411510c4d6cf699712904beca2849488176",
+            "to_address": "0x0000000000000000000000000000000000000000"
+          },
+          "by_chain": {
+            "arbitrum": {
+              "count": 192,
+              "amount": "2464.739634863317764604",
+              "active_addresses": 31
+            },
+            "avalanche": {
+              "count": 16,
+              "amount": "1839639.7177698400001",
+              "active_addresses": 7
+            },
+            "base": {
+              "count": 5,
+              "amount": "2558.909364626519300",
+              "active_addresses": 2
+            },
+            "bsc": {
+              "count": 724,
+              "amount": "27090.30835161838532038",
+              "active_addresses": 46
+            },
+            "eth": {
+              "count": 77,
+              "amount": "2218139.30308663831287",
+              "active_addresses": 31
+            },
+            "polygon": {
+              "count": 93,
+              "amount": "425.57108076209781275",
+              "active_addresses": 21
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "7.949777889967674606557204388",
+        "pre_count_vs_baseline_week": "1.392111368909512761020881671",
+        "event_daily_amount_vs_pre_daily": "3.720900513043428940465167052",
+        "event_daily_count_vs_pre_daily": "6.673333333333333333333333333"
+      }
+    },
+    {
+      "symbol": "SYN",
+      "event_date": "2026-06-22",
+      "event_end_date": "2026-06-22",
+      "rating_in_document": "中高",
+      "note": null,
+      "available_history": {
+        "start": "2021-08-28",
+        "end": "2026-07-29",
+        "record_count": 19645
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-18",
+          "end": "2026-06-14",
+          "count": 499,
+          "amount": "4037458.095581232038733022",
+          "active_addresses": 75,
+          "first_visible_addresses": 25,
+          "median_amount": "75.0",
+          "maximum": {
+            "amount": "1832925.23706984",
+            "chain": "avalanche",
+            "day": "2026-06-09",
+            "event_time": "2026-06-09T14:46:25+00:00",
+            "tx_hash": "0x05209ef1d5c361971be333d5a7c77ea6ffcc86ee1d9dbbcaa9d4c3366c265745",
+            "from_address": "0x9f8c163cba728e99993abe7495f06c0a3c8ac8b9",
+            "to_address": "0xe9530411510c4d6cf699712904beca2849488176"
+          },
+          "by_chain": {
+            "arbitrum": {
+              "count": 60,
+              "amount": "595263.44163074149212355",
+              "active_addresses": 22
+            },
+            "avalanche": {
+              "count": 6,
+              "amount": "1837228.98288381483704",
+              "active_addresses": 6
+            },
+            "bsc": {
+              "count": 338,
+              "amount": "49141.9305671368317611",
+              "active_addresses": 23
+            },
+            "eth": {
+              "count": 71,
+              "amount": "1078534.2307106862670",
+              "active_addresses": 18
+            },
+            "polygon": {
+              "count": 24,
+              "amount": "477289.509788852610808372",
+              "active_addresses": 11
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-06-15",
+          "end": "2026-06-21",
+          "count": 555,
+          "amount": "14796817.898320698975346634",
+          "active_addresses": 89,
+          "first_visible_addresses": 28,
+          "median_amount": "45.15318661886433",
+          "maximum": {
+            "amount": "5866860.944908285",
+            "chain": "eth",
+            "day": "2026-06-17",
+            "event_time": "2026-06-17T08:17:11+00:00",
+            "tx_hash": "0xd40106308e130d404f1375eba02f1cb3f7541145870f894ee3936c0f62dad602",
+            "from_address": "0xc3681709ee476308b45812eabe0eb22f3b816880",
+            "to_address": "0xc80afd311c9626528de66d86814770361fe92416"
+          },
+          "by_chain": {
+            "arbitrum": {
+              "count": 45,
+              "amount": "3091.883598363273733944",
+              "active_addresses": 12
+            },
+            "avalanche": {
+              "count": 9,
+              "amount": "1838999.8997698400001",
+              "active_addresses": 7
+            },
+            "base": {
+              "count": 2,
+              "amount": "1256.7659988404246337",
+              "active_addresses": 3
+            },
+            "bsc": {
+              "count": 374,
+              "amount": "24660.81074777313125593",
+              "active_addresses": 28
+            },
+            "eth": {
+              "count": 88,
+              "amount": "12928262.1414297331288",
+              "active_addresses": 31
+            },
+            "polygon": {
+              "count": 37,
+              "amount": "546.39677614901682306",
+              "active_addresses": 16
+            }
+          }
+        },
+        "event": {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "count": 260,
+          "amount": "293599.10229194366187916",
+          "active_addresses": 53,
+          "first_visible_addresses": 11,
+          "median_amount": "15.765256210771707",
+          "maximum": {
+            "amount": "67375.36181818182",
+            "chain": "eth",
+            "day": "2026-06-22",
+            "event_time": "2026-06-22T20:05:47+00:00",
+            "tx_hash": "0xc1382b66071c3e6e0f5f8058c516de5af0599626c045e4c6b91b2e32c558095a",
+            "from_address": "0x0000000000000000000000000000000000000000",
+            "to_address": "0x1b13f0ed0a43c3c2165d665d56d58f4a64d8a4cd"
+          },
+          "by_chain": {
+            "arbitrum": {
+              "count": 25,
+              "amount": "339.0608097739748518",
+              "active_addresses": 7
+            },
+            "avalanche": {
+              "count": 6,
+              "amount": "490.8180",
+              "active_addresses": 5
+            },
+            "bsc": {
+              "count": 190,
+              "amount": "6365.5050641481008340",
+              "active_addresses": 20
+            },
+            "eth": {
+              "count": 22,
+              "amount": "286359.28003872940977",
+              "active_addresses": 13
+            },
+            "polygon": {
+              "count": 17,
+              "amount": "44.43837929217642336",
+              "active_addresses": 11
+            }
+          }
+        },
+        "after": {
+          "start": "2026-06-23",
+          "end": "2026-06-29",
+          "count": 1196,
+          "amount": "9074319.33010841370463087",
+          "active_addresses": 162,
+          "first_visible_addresses": 65,
+          "median_amount": "13.3002744613686115",
+          "maximum": {
+            "amount": "3664836.81768399",
+            "chain": "eth",
+            "day": "2026-06-26",
+            "event_time": "2026-06-26T13:09:47+00:00",
+            "tx_hash": "0xa9331a1f979e2eff395c8b6347bcc64f4c07fd42855a57651e7b98adc2f38ac7",
+            "from_address": "0xc80afd311c9626528de66d86814770361fe92416",
+            "to_address": "0xc3681709ee476308b45812eabe0eb22f3b816880"
+          },
+          "by_chain": {
+            "arbitrum": {
+              "count": 357,
+              "amount": "7695.12992326097868536",
+              "active_addresses": 46
+            },
+            "avalanche": {
+              "count": 8,
+              "amount": "1487.161900956525164",
+              "active_addresses": 6
+            },
+            "base": {
+              "count": 5,
+              "amount": "1310.488577501276700",
+              "active_addresses": 2
+            },
+            "bsc": {
+              "count": 602,
+              "amount": "21506.05831633968898078",
+              "active_addresses": 49
+            },
+            "eth": {
+              "count": 126,
+              "amount": "9042095.6222931767669145",
+              "active_addresses": 46
+            },
+            "polygon": {
+              "count": 98,
+              "amount": "224.86909717846818623",
+              "active_addresses": 22
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "14.65953830160117180546540488",
+        "pre_count_vs_baseline_week": "4.448897795591182364729458918",
+        "event_daily_amount_vs_pre_daily": "0.1388943035027045226625872923",
+        "event_daily_count_vs_pre_daily": "3.279279279279279279279279279"
+      }
+    },
+    {
+      "symbol": "M",
+      "event_date": "2026-03-25",
+      "event_end_date": "2026-03-25",
+      "rating_in_document": "弱",
+      "note": null,
+      "available_history": {
+        "start": "2025-06-20",
+        "end": "2026-07-28",
+        "record_count": 12370
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-02-18",
+          "end": "2026-03-17",
+          "count": 106,
+          "amount": "2166286.03927688728447",
+          "active_addresses": 30,
+          "first_visible_addresses": 12,
+          "median_amount": "4266.1332",
+          "maximum": {
+            "amount": "285355.0",
+            "chain": "bsc",
+            "day": "2026-02-20",
+            "event_time": "2026-02-20T07:47:16+00:00",
+            "tx_hash": "0xbc7fe7391c4b9bc291ae12b1adbff3e7328a41a9a82ddbe79f5444f001f437a4",
+            "from_address": "0xccc34d28a2d4277876789dbb1ab47b718de0e3be",
+            "to_address": "0x067c40852576438c81b3649d8fec3d8d7ab27208"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 106,
+              "amount": "2166286.03927688728447",
+              "active_addresses": 30
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-03-18",
+          "end": "2026-03-24",
+          "count": 27,
+          "amount": "39910.490730384823824",
+          "active_addresses": 13,
+          "first_visible_addresses": 2,
+          "median_amount": "683.0",
+          "maximum": {
+            "amount": "9832.3989",
+            "chain": "bsc",
+            "day": "2026-03-19",
+            "event_time": "2026-03-19T12:02:43+00:00",
+            "tx_hash": "0xa920b0c9a5a2a1926aba5a71d90a6cde25251bed8fcb4405c869b290fd3f9234",
+            "from_address": "0xd2dd7b597fd2435b6db61ddf48544fd931e6869f",
+            "to_address": "0xccc34d28a2d4277876789dbb1ab47b718de0e3be"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 27,
+              "amount": "39910.490730384823824",
+              "active_addresses": 13
+            }
+          }
+        },
+        "event": {
+          "start": "2026-03-25",
+          "end": "2026-03-25",
+          "count": 25,
+          "amount": "20856.330672547539585",
+          "active_addresses": 14,
+          "first_visible_addresses": 3,
+          "median_amount": "190.55322965056533",
+          "maximum": {
+            "amount": "9880.3353",
+            "chain": "bsc",
+            "day": "2026-03-25",
+            "event_time": "2026-03-25T12:10:01+00:00",
+            "tx_hash": "0xd607bc6ca049e5fd33a77c9bd8d17042af31a5ab0606c281b21ec7eb746eddf1",
+            "from_address": "0xccc34d28a2d4277876789dbb1ab47b718de0e3be",
+            "to_address": "0x7dafba1d69f6c01ae7567ffd7b046ca03b706f83"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 25,
+              "amount": "20856.330672547539585",
+              "active_addresses": 14
+            }
+          }
+        },
+        "after": {
+          "start": "2026-03-26",
+          "end": "2026-04-01",
+          "count": 21,
+          "amount": "114867.383898268101936",
+          "active_addresses": 13,
+          "first_visible_addresses": 3,
+          "median_amount": "1039.0508",
+          "maximum": {
+            "amount": "30000.0",
+            "chain": "bsc",
+            "day": "2026-03-26",
+            "event_time": "2026-03-26T16:17:31+00:00",
+            "tx_hash": "0x9fd922372ef1d7e884b0b07568bd947cb6b0b0b270717e488d13015aaa2b56f8",
+            "from_address": "0x06758aae517a39ffd333d380a0fcac7f4e6ccd2f",
+            "to_address": "0xccc34d28a2d4277876789dbb1ab47b718de0e3be"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 21,
+              "amount": "114867.383898268101936",
+              "active_addresses": 13
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "0.07369385207081344474010090740",
+        "pre_count_vs_baseline_week": "1.018867924528301886792452830",
+        "event_daily_amount_vs_pre_daily": "3.658043587940244671933407589",
+        "event_daily_count_vs_pre_daily": "6.481481481481481481481481482"
+      }
+    },
+    {
+      "symbol": "BEAT",
+      "event_date": "2026-05-22",
+      "event_end_date": "2026-05-22",
+      "rating_in_document": "中",
+      "note": null,
+      "available_history": {
+        "start": "2025-09-27",
+        "end": "2026-07-29",
+        "record_count": 9313
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-04-17",
+          "end": "2026-05-14",
+          "count": 25,
+          "amount": "25892900.753569933167",
+          "active_addresses": 11,
+          "first_visible_addresses": 1,
+          "median_amount": "48194.27023303784",
+          "maximum": {
+            "amount": "10000000.0",
+            "chain": "bsc",
+            "day": "2026-05-01",
+            "event_time": "2026-05-01T00:17:09+00:00",
+            "tx_hash": "0xe0518e32ede721d5efb8f1db9fb97dba115f8965807b908ccb871e30a1565200",
+            "from_address": "0x8c84616281bb4686600090a1aad58543a0e11be1",
+            "to_address": "0xc6ff829cde48848b02c19b3af54b1de73c40a669"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 25,
+              "amount": "25892900.753569933167",
+              "active_addresses": 11
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-05-15",
+          "end": "2026-05-21",
+          "count": 5,
+          "amount": "6386431.6478340101",
+          "active_addresses": 7,
+          "first_visible_addresses": 6,
+          "median_amount": "1412585.86048754",
+          "maximum": {
+            "amount": "1559031.9795769101",
+            "chain": "bsc",
+            "day": "2026-05-20",
+            "event_time": "2026-05-20T11:25:10+00:00",
+            "tx_hash": "0xa6fae6873cfda36fba462a5b977fd8b0884e90cd73e33d26f0e05be036ec6d33",
+            "from_address": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+            "to_address": "0x52a1231840aa802cab35d6e861ed4559afcdad8f"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 5,
+              "amount": "6386431.6478340101",
+              "active_addresses": 7
+            }
+          }
+        },
+        "event": {
+          "start": "2026-05-22",
+          "end": "2026-05-22",
+          "count": 17,
+          "amount": "16930.4630876414443",
+          "active_addresses": 2,
+          "first_visible_addresses": 1,
+          "median_amount": "1000.0",
+          "maximum": {
+            "amount": "1000.0",
+            "chain": "bsc",
+            "day": "2026-05-22",
+            "event_time": "2026-05-22T13:46:39+00:00",
+            "tx_hash": "0xfab4b76b5f98339b24d1fa6b66ab6b0e6aeb96d7c39be1881e12de60d937777c",
+            "from_address": "0xa83607c4946047636060db6ba64576d6d1ade88e",
+            "to_address": "0x238a358808379702088667322f80ac48bad5e6c4"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 17,
+              "amount": "16930.4630876414443",
+              "active_addresses": 2
+            }
+          }
+        },
+        "after": {
+          "start": "2026-05-23",
+          "end": "2026-05-29",
+          "count": 2,
+          "amount": "35301.422259222092",
+          "active_addresses": 2,
+          "first_visible_addresses": 0,
+          "median_amount": "17650.711129611046",
+          "maximum": {
+            "amount": "25310.140826496092",
+            "chain": "bsc",
+            "day": "2026-05-23",
+            "event_time": "2026-05-23T02:00:39+00:00",
+            "tx_hash": "0x17b67f5b6b0e06494e64a69dbd8d3fdd33f4066c14c7fbeeb05d66b571ea1417",
+            "from_address": "0x53f78a071d04224b8e254e243fffc6d9f2f3fa23",
+            "to_address": "0x69be413d648ae00f0fbd9856f1355e22b36ee5e0"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 2,
+              "amount": "35301.422259222092",
+              "active_addresses": 2
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "0.9865919170069801157053703345",
+        "pre_count_vs_baseline_week": "0.8",
+        "event_daily_amount_vs_pre_daily": "0.01855703593941766565664500233",
+        "event_daily_count_vs_pre_daily": "23.80000000000000000000000000"
+      }
+    },
+    {
+      "symbol": "B",
+      "event_date": "2026-05-01",
+      "event_end_date": "2026-05-01",
+      "rating_in_document": "弱",
+      "note": null,
+      "available_history": {
+        "start": "2025-04-12",
+        "end": "2026-06-12",
+        "record_count": 128
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-03-27",
+          "end": "2026-04-23",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "pre": {
+          "start": "2026-04-24",
+          "end": "2026-04-30",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "event": {
+          "start": "2026-05-01",
+          "end": "2026-05-01",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "after": {
+          "start": "2026-05-02",
+          "end": "2026-05-08",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": null,
+        "pre_count_vs_baseline_week": null,
+        "event_daily_amount_vs_pre_daily": null,
+        "event_daily_count_vs_pre_daily": null
+      }
+    },
+    {
+      "symbol": "DEXE",
+      "event_date": "2026-06-22",
+      "event_end_date": "2026-06-22",
+      "rating_in_document": "弱",
+      "note": null,
+      "available_history": {
+        "start": "2020-10-15",
+        "end": "2026-07-29",
+        "record_count": 13927
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-18",
+          "end": "2026-06-14",
+          "count": 551,
+          "amount": "183828.29176414350475182",
+          "active_addresses": 100,
+          "first_visible_addresses": 39,
+          "median_amount": "26.11813080128586",
+          "maximum": {
+            "amount": "25712.48",
+            "chain": "bsc",
+            "day": "2026-06-14",
+            "event_time": "2026-06-14T02:00:18+00:00",
+            "tx_hash": "0xaa42ec6213d2c9cbbeedc41f253df51101a04710e218a7d6d5afa231816b6bdc",
+            "from_address": "0x53f78a071d04224b8e254e243fffc6d9f2f3fa23",
+            "to_address": "0x8dac80ce96f69f9762bc450faa4d7fbd5891ae18"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 342,
+              "amount": "87416.35910405752875682",
+              "active_addresses": 34
+            },
+            "eth": {
+              "count": 209,
+              "amount": "96411.932660085975995",
+              "active_addresses": 66
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-06-15",
+          "end": "2026-06-21",
+          "count": 40,
+          "amount": "15452.112047407573685",
+          "active_addresses": 30,
+          "first_visible_addresses": 6,
+          "median_amount": "209.1042262215772",
+          "maximum": {
+            "amount": "5392.268",
+            "chain": "eth",
+            "day": "2026-06-21",
+            "event_time": "2026-06-21T22:13:35+00:00",
+            "tx_hash": "0x67a63395630678c267b498a8a0a6ace77cac2ae227a613f11045ea7ac346c9d0",
+            "from_address": "0x8162ac23496a83874dfab8b0194410a3ba226830",
+            "to_address": "0x62cc9334b27d78c67afc36d71bc5e1d954d4f43e"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 11,
+              "amount": "2203.360960642131497",
+              "active_addresses": 13
+            },
+            "eth": {
+              "count": 29,
+              "amount": "13248.751086765442188",
+              "active_addresses": 17
+            }
+          }
+        },
+        "event": {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "count": 39,
+          "amount": "1558.4675078938145746",
+          "active_addresses": 11,
+          "first_visible_addresses": 0,
+          "median_amount": "4.129092263630698",
+          "maximum": {
+            "amount": "134.07",
+            "chain": "eth",
+            "day": "2026-06-22",
+            "event_time": "2026-06-22T11:04:59+00:00",
+            "tx_hash": "0xce30e8eba7f62245d3b439865d572a6abef40408ab33839bf8ada71405041a40",
+            "from_address": "0x1dc89ab25ab5d8714fcf9ee4bd9c9a58debeb4d8",
+            "to_address": "0xd13bb807dd113afe252068198a382b9bffd2a727"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 33,
+              "amount": "1234.8014488438145766",
+              "active_addresses": 7
+            },
+            "eth": {
+              "count": 6,
+              "amount": "323.666059049999998",
+              "active_addresses": 4
+            }
+          }
+        },
+        "after": {
+          "start": "2026-06-23",
+          "end": "2026-06-29",
+          "count": 223,
+          "amount": "4991.15916428115767629",
+          "active_addresses": 31,
+          "first_visible_addresses": 3,
+          "median_amount": "2.9717189704641576",
+          "maximum": {
+            "amount": "828.37266599",
+            "chain": "eth",
+            "day": "2026-06-24",
+            "event_time": "2026-06-24T18:07:23+00:00",
+            "tx_hash": "0xccaa5889fa460fb03bdae76b966a374b34cf731d225bd1f59aa313483d6829b0",
+            "from_address": "0xdd3d72c53ff982ff59853da71158bf1538b3ceee",
+            "to_address": "0xc8affcbf3c5c25cb7396839f723f296f08916ea8"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 197,
+              "amount": "1044.36866925571556329",
+              "active_addresses": 18
+            },
+            "eth": {
+              "count": 26,
+              "amount": "3946.790495025442113",
+              "active_addresses": 14
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "0.3362292473942593484486232819",
+        "pre_count_vs_baseline_week": "0.2903811252268602540834845735",
+        "event_daily_amount_vs_pre_daily": "0.7060052711102990393831015804",
+        "event_daily_count_vs_pre_daily": "6.825000000000000000000000000"
+      }
+    },
+    {
+      "symbol": "VELVET",
+      "event_date": "2026-06-04",
+      "event_end_date": "2026-06-04",
+      "rating_in_document": "高监测、低归因",
+      "note": null,
+      "available_history": {
+        "start": "2025-07-09",
+        "end": "2026-07-29",
+        "record_count": 9638
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-04-30",
+          "end": "2026-05-27",
+          "count": 892,
+          "amount": "15318208.222669084233292337",
+          "active_addresses": 752,
+          "first_visible_addresses": 552,
+          "median_amount": "167.9958",
+          "maximum": {
+            "amount": "4587344.391648259",
+            "chain": "base",
+            "day": "2026-05-10",
+            "event_time": "2026-05-10T13:57:07+00:00",
+            "tx_hash": "0xe72881159a2964eaf5ba8ceec45e4fa359fcd45137b00c3f039e43d4fe5acf5c",
+            "from_address": "0x785b721434cbf295763bfde96566452b306b0137",
+            "to_address": "0xdc9e387d65d036f0663e9b9ac4a6267f866075ea"
+          },
+          "by_chain": {
+            "base": {
+              "count": 28,
+              "amount": "8773893.38375347687576",
+              "active_addresses": 13
+            },
+            "bsc": {
+              "count": 864,
+              "amount": "6544314.838915607357532337",
+              "active_addresses": 740
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-05-28",
+          "end": "2026-06-03",
+          "count": 72,
+          "amount": "51253033.854433220062935598",
+          "active_addresses": 73,
+          "first_visible_addresses": 19,
+          "median_amount": "58.3150864414096475",
+          "maximum": {
+            "amount": "30000000.0",
+            "chain": "bsc",
+            "day": "2026-06-02",
+            "event_time": "2026-06-02T21:08:18+00:00",
+            "tx_hash": "0x54772c697243df96b55d0312641537a1fb2b56077eb3603d4480af1f11e96af6",
+            "from_address": "0x6e0bad2c077d699841f1929b45bfb93fafbed395",
+            "to_address": "0x75e7488ac067f07948739bfb550213b47db094bb"
+          },
+          "by_chain": {
+            "base": {
+              "count": 1,
+              "amount": "105.08738547957407",
+              "active_addresses": 2
+            },
+            "bsc": {
+              "count": 71,
+              "amount": "51252928.767047740488865598",
+              "active_addresses": 71
+            }
+          }
+        },
+        "event": {
+          "start": "2026-06-04",
+          "end": "2026-06-04",
+          "count": 22,
+          "amount": "190784.4110449210285032",
+          "active_addresses": 27,
+          "first_visible_addresses": 2,
+          "median_amount": "66.866587472765445",
+          "maximum": {
+            "amount": "187587.4945535668",
+            "chain": "bsc",
+            "day": "2026-06-04",
+            "event_time": "2026-06-04T02:01:00+00:00",
+            "tx_hash": "0xcdc79ca24b83cd294d8408895d09285626df7b955ce53f8cdeff8ff8ebd65ab0",
+            "from_address": "0x53f78a071d04224b8e254e243fffc6d9f2f3fa23",
+            "to_address": "0x69be413d648ae00f0fbd9856f1355e22b36ee5e0"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 22,
+              "amount": "190784.4110449210285032",
+              "active_addresses": 27
+            }
+          }
+        },
+        "after": {
+          "start": "2026-06-05",
+          "end": "2026-06-11",
+          "count": 487,
+          "amount": "14711210.299432685874956629",
+          "active_addresses": 208,
+          "first_visible_addresses": 55,
+          "median_amount": "482.91236501220675",
+          "maximum": {
+            "amount": "4999900.0",
+            "chain": "bsc",
+            "day": "2026-06-05",
+            "event_time": "2026-06-05T10:42:59+00:00",
+            "tx_hash": "0xa8dbe6e0a416a2186508edf5dc413306fcc3aa919337fdfe5b1595d8e53a676f",
+            "from_address": "0xae8633d18299d65fccd12c52426878fd6f00f8ce",
+            "to_address": "0x25fc72f013fe355139a429ac4b2f3c79f994711d"
+          },
+          "by_chain": {
+            "base": {
+              "count": 84,
+              "amount": "123488.046615138855021",
+              "active_addresses": 18
+            },
+            "bsc": {
+              "count": 403,
+              "amount": "14587722.252817547019935629",
+              "active_addresses": 191
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "13.38355847091436359595840288",
+        "pre_count_vs_baseline_week": "0.3228699551569506726457399103",
+        "event_daily_amount_vs_pre_daily": "0.02605681609224253950473308862",
+        "event_daily_count_vs_pre_daily": "2.138888888888888888888888888"
+      }
+    },
+    {
+      "symbol": "VELVET",
+      "event_date": "2026-06-26",
+      "event_end_date": "2026-06-26",
+      "rating_in_document": "中",
+      "note": null,
+      "available_history": {
+        "start": "2025-07-09",
+        "end": "2026-07-29",
+        "record_count": 9638
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-22",
+          "end": "2026-06-18",
+          "count": 1380,
+          "amount": "81105028.454839794772341890",
+          "active_addresses": 430,
+          "first_visible_addresses": 178,
+          "median_amount": "489.32004563454885",
+          "maximum": {
+            "amount": "30000000.0",
+            "chain": "bsc",
+            "day": "2026-06-02",
+            "event_time": "2026-06-02T21:08:18+00:00",
+            "tx_hash": "0x54772c697243df96b55d0312641537a1fb2b56077eb3603d4480af1f11e96af6",
+            "from_address": "0x6e0bad2c077d699841f1929b45bfb93fafbed395",
+            "to_address": "0x75e7488ac067f07948739bfb550213b47db094bb"
+          },
+          "by_chain": {
+            "base": {
+              "count": 206,
+              "amount": "9342100.9256115571719853",
+              "active_addresses": 32
+            },
+            "bsc": {
+              "count": 1174,
+              "amount": "71762927.529228237600356590",
+              "active_addresses": 400
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-06-19",
+          "end": "2026-06-25",
+          "count": 253,
+          "amount": "1061655.599095857111987619",
+          "active_addresses": 158,
+          "first_visible_addresses": 31,
+          "median_amount": "88.62085583027243",
+          "maximum": {
+            "amount": "182115.8025927963",
+            "chain": "bsc",
+            "day": "2026-06-19",
+            "event_time": "2026-06-19T02:00:33+00:00",
+            "tx_hash": "0x93b9cc42da01caf7b80388ac196a3fddd10871d32237f0f4a166991cea9a3d77",
+            "from_address": "0x53f78a071d04224b8e254e243fffc6d9f2f3fa23",
+            "to_address": "0x69be413d648ae00f0fbd9856f1355e22b36ee5e0"
+          },
+          "by_chain": {
+            "base": {
+              "count": 93,
+              "amount": "146928.660586959523944085",
+              "active_addresses": 22
+            },
+            "bsc": {
+              "count": 160,
+              "amount": "914726.938508897588043534",
+              "active_addresses": 136
+            }
+          }
+        },
+        "event": {
+          "start": "2026-06-26",
+          "end": "2026-06-26",
+          "count": 47,
+          "amount": "162388.135692444608529581",
+          "active_addresses": 36,
+          "first_visible_addresses": 6,
+          "median_amount": "20.565651809950552",
+          "maximum": {
+            "amount": "73804.21319942537",
+            "chain": "bsc",
+            "day": "2026-06-26",
+            "event_time": "2026-06-26T02:00:39+00:00",
+            "tx_hash": "0xb7951cc0f429fb4bf70834d4fb02a98dad6c073982723e8ce3a4636c31b20030",
+            "from_address": "0x53f78a071d04224b8e254e243fffc6d9f2f3fa23",
+            "to_address": "0x69be413d648ae00f0fbd9856f1355e22b36ee5e0"
+          },
+          "by_chain": {
+            "base": {
+              "count": 28,
+              "amount": "10448.8078640551533435",
+              "active_addresses": 15
+            },
+            "bsc": {
+              "count": 19,
+              "amount": "151939.327828389455186081",
+              "active_addresses": 21
+            }
+          }
+        },
+        "after": {
+          "start": "2026-06-27",
+          "end": "2026-07-03",
+          "count": 915,
+          "amount": "3363408.75217243391078888",
+          "active_addresses": 272,
+          "first_visible_addresses": 68,
+          "median_amount": "319.42265337486606",
+          "maximum": {
+            "amount": "613843.5431352813",
+            "chain": "bsc",
+            "day": "2026-06-29",
+            "event_time": "2026-06-29T02:00:33+00:00",
+            "tx_hash": "0x7f7d58d085f96e4acc98715f945343098f8cc6767cca7719a9fe29925234e52d",
+            "from_address": "0x53f78a071d04224b8e254e243fffc6d9f2f3fa23",
+            "to_address": "0x69be413d648ae00f0fbd9856f1355e22b36ee5e0"
+          },
+          "by_chain": {
+            "base": {
+              "count": 227,
+              "amount": "156175.77871918233379574",
+              "active_addresses": 42
+            },
+            "bsc": {
+              "count": 688,
+              "amount": "3207232.97345325157699314",
+              "active_addresses": 232
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "0.05235954511436977364408716661",
+        "pre_count_vs_baseline_week": "0.7333333333333333333333333333",
+        "event_daily_amount_vs_pre_daily": "1.070702166328873514699839968",
+        "event_daily_count_vs_pre_daily": "1.300395256916996047430830040"
+      }
+    },
+    {
+      "symbol": "H",
+      "event_date": "2026-05-28",
+      "event_end_date": "2026-05-28",
+      "rating_in_document": "无效映射",
+      "note": null,
+      "available_history": {
+        "start": "2026-06-16",
+        "end": "2026-07-29",
+        "record_count": 595
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-04-23",
+          "end": "2026-05-20",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "pre": {
+          "start": "2026-05-21",
+          "end": "2026-05-27",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "event": {
+          "start": "2026-05-28",
+          "end": "2026-05-28",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "after": {
+          "start": "2026-05-29",
+          "end": "2026-06-04",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": null,
+        "pre_count_vs_baseline_week": null,
+        "event_daily_amount_vs_pre_daily": null,
+        "event_daily_count_vs_pre_daily": null
+      }
+    },
+    {
+      "symbol": "H",
+      "event_date": "2026-06-11",
+      "event_end_date": "2026-06-11",
+      "rating_in_document": "无效映射",
+      "note": null,
+      "available_history": {
+        "start": "2026-06-16",
+        "end": "2026-07-29",
+        "record_count": 595
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-07",
+          "end": "2026-06-03",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "pre": {
+          "start": "2026-06-04",
+          "end": "2026-06-10",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "event": {
+          "start": "2026-06-11",
+          "end": "2026-06-11",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "after": {
+          "start": "2026-06-12",
+          "end": "2026-06-18",
+          "count": 246,
+          "amount": "19955074596.92934312652",
+          "active_addresses": 240,
+          "first_visible_addresses": 240,
+          "median_amount": "259784.228000000005",
+          "maximum": {
+            "amount": "9999999499.0",
+            "chain": "eth",
+            "day": "2026-06-16",
+            "event_time": "2026-06-16T06:43:11+00:00",
+            "tx_hash": "0x176a97eda0e8dfa70cc9ad5b9269c48ff573d9eb69eef30edd4b202223d6759f",
+            "from_address": "0x0000000000000000000000000000000000000000",
+            "to_address": "0xc2bc47b9293c3acc90c7c5da2f79c5136e16189e"
+          },
+          "by_chain": {
+            "eth": {
+              "count": 246,
+              "amount": "19955074596.92934312652",
+              "active_addresses": 240
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": null,
+        "pre_count_vs_baseline_week": null,
+        "event_daily_amount_vs_pre_daily": null,
+        "event_daily_count_vs_pre_daily": null
+      }
+    },
+    {
+      "symbol": "RIF",
+      "event_date": "2026-04-15",
+      "event_end_date": "2026-04-15",
+      "rating_in_document": "低",
+      "note": null,
+      "available_history": {
+        "start": "2025-05-13",
+        "end": "2026-07-28",
+        "record_count": 28
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-03-11",
+          "end": "2026-04-07",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "pre": {
+          "start": "2026-04-08",
+          "end": "2026-04-14",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "event": {
+          "start": "2026-04-15",
+          "end": "2026-04-15",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "after": {
+          "start": "2026-04-16",
+          "end": "2026-04-22",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": null,
+        "pre_count_vs_baseline_week": null,
+        "event_daily_amount_vs_pre_daily": null,
+        "event_daily_count_vs_pre_daily": null
+      }
+    },
+    {
+      "symbol": "RIF",
+      "event_date": "2026-05-12",
+      "event_end_date": "2026-05-12",
+      "rating_in_document": "低",
+      "note": null,
+      "available_history": {
+        "start": "2025-05-13",
+        "end": "2026-07-28",
+        "record_count": 28
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-04-07",
+          "end": "2026-05-04",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "pre": {
+          "start": "2026-05-05",
+          "end": "2026-05-11",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "event": {
+          "start": "2026-05-12",
+          "end": "2026-05-12",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "after": {
+          "start": "2026-05-13",
+          "end": "2026-05-19",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": null,
+        "pre_count_vs_baseline_week": null,
+        "event_daily_amount_vs_pre_daily": null,
+        "event_daily_count_vs_pre_daily": null
+      }
+    },
+    {
+      "symbol": "RIF",
+      "event_date": "2026-06-13",
+      "event_end_date": "2026-06-13",
+      "rating_in_document": "低",
+      "note": null,
+      "available_history": {
+        "start": "2025-05-13",
+        "end": "2026-07-28",
+        "record_count": 28
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-09",
+          "end": "2026-06-05",
+          "count": 1,
+          "amount": "464.9498554684798",
+          "active_addresses": 2,
+          "first_visible_addresses": 0,
+          "median_amount": "464.9498554684798",
+          "maximum": {
+            "amount": "464.9498554684798",
+            "chain": "eth",
+            "day": "2026-06-04",
+            "event_time": "2026-06-04T08:10:47+00:00",
+            "tx_hash": "0xbf29a6b12c4cd1305bc6c26ec805c13b8ca192c50070ae97b62c94b5316300e9",
+            "from_address": "0x000000000004444c5dc75cb358380d2e3de08a90",
+            "to_address": "0xf3d2d0559e9e9aa3c82c34801755809dbf9c86f9"
+          },
+          "by_chain": {
+            "eth": {
+              "count": 1,
+              "amount": "464.9498554684798",
+              "active_addresses": 2
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-06-06",
+          "end": "2026-06-12",
+          "count": 0,
+          "amount": "0",
+          "active_addresses": 0,
+          "first_visible_addresses": 0,
+          "median_amount": "0",
+          "maximum": null,
+          "by_chain": {}
+        },
+        "event": {
+          "start": "2026-06-13",
+          "end": "2026-06-13",
+          "count": 1,
+          "amount": "19.757360007084134",
+          "active_addresses": 2,
+          "first_visible_addresses": 1,
+          "median_amount": "19.757360007084134",
+          "maximum": {
+            "amount": "19.757360007084134",
+            "chain": "eth",
+            "day": "2026-06-13",
+            "event_time": "2026-06-13T02:39:59+00:00",
+            "tx_hash": "0x3ab9a470b9a83f92bfc7aba37e94304ba62485c14fc9f8490e8515da46448bfa",
+            "from_address": "0xf3d2d0559e9e9aa3c82c34801755809dbf9c86f9",
+            "to_address": "0x8f10b468b06c6fd214b65f87778827f7d113f996"
+          },
+          "by_chain": {
+            "eth": {
+              "count": 1,
+              "amount": "19.757360007084134",
+              "active_addresses": 2
+            }
+          }
+        },
+        "after": {
+          "start": "2026-06-14",
+          "end": "2026-06-20",
+          "count": 2,
+          "amount": "259.75364712369884",
+          "active_addresses": 3,
+          "first_visible_addresses": 1,
+          "median_amount": "129.87682356184942",
+          "maximum": {
+            "amount": "150.0",
+            "chain": "eth",
+            "day": "2026-06-15",
+            "event_time": "2026-06-15T05:09:35+00:00",
+            "tx_hash": "0x054db6a11c8e8d4393193557b36b9976888c55f81898f65326cf9e99bfb72157",
+            "from_address": "0xf3d2d0559e9e9aa3c82c34801755809dbf9c86f9",
+            "to_address": "0x8392876883cf0e9e7ee24d9b1f606ed88644f23b"
+          },
+          "by_chain": {
+            "eth": {
+              "count": 2,
+              "amount": "259.75364712369884",
+              "active_addresses": 3
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "0",
+        "pre_count_vs_baseline_week": "0",
+        "event_daily_amount_vs_pre_daily": null,
+        "event_daily_count_vs_pre_daily": null
+      }
+    },
+    {
+      "symbol": "ALLO",
+      "event_date": "2026-05-28",
+      "event_end_date": "2026-05-28",
+      "rating_in_document": "中",
+      "note": null,
+      "available_history": {
+        "start": "2025-10-28",
+        "end": "2026-07-29",
+        "record_count": 8587
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-04-23",
+          "end": "2026-05-20",
+          "count": 492,
+          "amount": "9453776.705970725685434",
+          "active_addresses": 61,
+          "first_visible_addresses": 18,
+          "median_amount": "10296.3935",
+          "maximum": {
+            "amount": "416666.00000000006",
+            "chain": "eth",
+            "day": "2026-05-15",
+            "event_time": "2026-05-15T22:21:35+00:00",
+            "tx_hash": "0x756bad3135b18a68e1696d892c5a8675d3f7ca59d92306dc46f6d6a8ecbd92ba",
+            "from_address": "0x56aa5f90b8ca54a3b64a22cca12d1c6529d221df",
+            "to_address": "0xf023d8fb84d75ddd5fe46d8a22c23f5b04f4aa68"
+          },
+          "by_chain": {
+            "base": {
+              "count": 1,
+              "amount": "293.7559404",
+              "active_addresses": 2
+            },
+            "bsc": {
+              "count": 3,
+              "amount": "665.30619962",
+              "active_addresses": 6
+            },
+            "eth": {
+              "count": 488,
+              "amount": "9452817.643830705685434",
+              "active_addresses": 53
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-05-21",
+          "end": "2026-05-27",
+          "count": 145,
+          "amount": "2618466.163023807203384",
+          "active_addresses": 36,
+          "first_visible_addresses": 1,
+          "median_amount": "8215.41363893",
+          "maximum": {
+            "amount": "492609.7225499894",
+            "chain": "eth",
+            "day": "2026-05-22",
+            "event_time": "2026-05-22T17:03:47+00:00",
+            "tx_hash": "0x027199e1144b8114f6ea5a76b8a66384dc95a69a6bd604be49db5d6f6227fda7",
+            "from_address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
+            "to_address": "0x75fbe81ad1e88999ac650a06e49831316461bc15"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 4,
+              "amount": "1840.806856530811084",
+              "active_addresses": 6
+            },
+            "eth": {
+              "count": 141,
+              "amount": "2616625.3561672763923",
+              "active_addresses": 30
+            }
+          }
+        },
+        "event": {
+          "start": "2026-05-28",
+          "end": "2026-05-28",
+          "count": 127,
+          "amount": "3655131.8841158752149",
+          "active_addresses": 27,
+          "first_visible_addresses": 3,
+          "median_amount": "13988.02967683",
+          "maximum": {
+            "amount": "367945.4063908808",
+            "chain": "eth",
+            "day": "2026-05-28",
+            "event_time": "2026-05-28T21:58:47+00:00",
+            "tx_hash": "0x6ae0cd1a2aaafe44f080a4a32400801dea9e09e33cc5bfa6380d1673fdcca795",
+            "from_address": "0xa9d1e08c7793af67e9d92fe308d5697fb81d3e43",
+            "to_address": "0x75fbe81ad1e88999ac650a06e49831316461bc15"
+          },
+          "by_chain": {
+            "eth": {
+              "count": 127,
+              "amount": "3655131.8841158752149",
+              "active_addresses": 27
+            }
+          }
+        },
+        "after": {
+          "start": "2026-05-29",
+          "end": "2026-06-04",
+          "count": 752,
+          "amount": "24907624.886051174308448",
+          "active_addresses": 97,
+          "first_visible_addresses": 36,
+          "median_amount": "11764.930723125001",
+          "maximum": {
+            "amount": "1800000.0",
+            "chain": "eth",
+            "day": "2026-06-02",
+            "event_time": "2026-06-02T20:16:11+00:00",
+            "tx_hash": "0x5332f096cc3c8553db20a7907eb5729b13f825906d1cfb07244662414308ac0d",
+            "from_address": "0x06daa0df7a1aac1880f2fa07b55e0deebe5c8756",
+            "to_address": "0xab782bc7d4a2b306825de5a7730034f8f63ee1bc"
+          },
+          "by_chain": {
+            "base": {
+              "count": 1,
+              "amount": "10000.0",
+              "active_addresses": 2
+            },
+            "bsc": {
+              "count": 24,
+              "amount": "1313426.540153542544728",
+              "active_addresses": 24
+            },
+            "eth": {
+              "count": 727,
+              "amount": "23584198.34589763176372",
+              "active_addresses": 71
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "1.107902690940462530681133371",
+        "pre_count_vs_baseline_week": "1.178861788617886178861788618",
+        "event_daily_amount_vs_pre_daily": "9.771340011995602108263792637",
+        "event_daily_count_vs_pre_daily": "6.131034482758620689655172415"
+      }
+    },
+    {
+      "symbol": "TAIKO",
+      "event_date": "2026-06-30",
+      "event_end_date": "2026-06-30",
+      "rating_in_document": "中",
+      "note": null,
+      "available_history": {
+        "start": "2024-04-25",
+        "end": "2026-07-29",
+        "record_count": 14243
+      },
+      "windows": {
+        "baseline": {
+          "start": "2026-05-26",
+          "end": "2026-06-22",
+          "count": 704,
+          "amount": "84718891.8234504561125802",
+          "active_addresses": 141,
+          "first_visible_addresses": 55,
+          "median_amount": "34719.1679949",
+          "maximum": {
+            "amount": "10385398.0",
+            "chain": "eth",
+            "day": "2026-06-05",
+            "event_time": "2026-06-05T06:21:11+00:00",
+            "tx_hash": "0x36b4d816e2d2825f2030d7ede2869ff458e1e933139c56b833354610e284ce62",
+            "from_address": "0xa0adc6c96fda99757321aeb0007c4183617306a8",
+            "to_address": "0x4757d97449aca795510b9f3152c6a9019a3545c3"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 120,
+              "amount": "12649.9557112624413702",
+              "active_addresses": 33
+            },
+            "eth": {
+              "count": 584,
+              "amount": "84706241.86773919367121",
+              "active_addresses": 108
+            }
+          }
+        },
+        "pre": {
+          "start": "2026-06-23",
+          "end": "2026-06-29",
+          "count": 33,
+          "amount": "975077.0984474158812333",
+          "active_addresses": 21,
+          "first_visible_addresses": 5,
+          "median_amount": "41.38874328698985",
+          "maximum": {
+            "amount": "971128.0",
+            "chain": "eth",
+            "day": "2026-06-25",
+            "event_time": "2026-06-25T02:32:47+00:00",
+            "tx_hash": "0xab2b1a4071ad7e37c79af48b1d30a9ddcb4d0044c3e7d89ecd3aa5e484036289",
+            "from_address": "0xb73b0fc4c0cfc73cf6e034af6f6b42ebe6c8b49d",
+            "to_address": "0x6e3094a718b3472c0b143bab4d503d2a14b1b4ff"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 31,
+              "amount": "3602.0984474158812333",
+              "active_addresses": 17
+            },
+            "eth": {
+              "count": 2,
+              "amount": "971475.0",
+              "active_addresses": 4
+            }
+          }
+        },
+        "event": {
+          "start": "2026-06-30",
+          "end": "2026-06-30",
+          "count": 10,
+          "amount": "1345.6687845768592828",
+          "active_addresses": 10,
+          "first_visible_addresses": 3,
+          "median_amount": "47.22935846546352",
+          "maximum": {
+            "amount": "600.338088556754",
+            "chain": "bsc",
+            "day": "2026-06-30",
+            "event_time": "2026-06-30T13:53:13+00:00",
+            "tx_hash": "0x00e54cadf828de3af029ae30c956d48780bbe1e4597114eb6fb0981132515ceb",
+            "from_address": "0xddef748ea91e0ecf8200d822788f5564ef2fe099",
+            "to_address": "0xc2eff1f1ce35d395408a34ad881dbcd978f40b89"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 10,
+              "amount": "1345.6687845768592828",
+              "active_addresses": 10
+            }
+          }
+        },
+        "after": {
+          "start": "2026-07-01",
+          "end": "2026-07-07",
+          "count": 1432,
+          "amount": "47211751.54115030257393220",
+          "active_addresses": 239,
+          "first_visible_addresses": 167,
+          "median_amount": "102.73456668741109",
+          "maximum": {
+            "amount": "6600000.0",
+            "chain": "eth",
+            "day": "2026-07-02",
+            "event_time": "2026-07-02T14:31:35+00:00",
+            "tx_hash": "0x00b4aebe489278ff6db5ec7839e6000c5360ae3e1b32a080fafea059f7fe7225",
+            "from_address": "0x3c12e4a38ecbf38c25d5c0040eae21c63d3d6771",
+            "to_address": "0x754a86e1fe58569b0ea7bdecf281f654658c8f70"
+          },
+          "by_chain": {
+            "bsc": {
+              "count": 979,
+              "amount": "114962.58455569981354320",
+              "active_addresses": 108
+            },
+            "eth": {
+              "count": 453,
+              "amount": "47096788.956594602760389",
+              "active_addresses": 131
+            }
+          }
+        }
+      },
+      "ratios": {
+        "pre_amount_vs_baseline_week": "0.04603823668890397213575777462",
+        "pre_count_vs_baseline_week": "0.1875",
+        "event_daily_amount_vs_pre_daily": "0.009660447883594715683347023235",
+        "event_daily_count_vs_pre_daily": "2.121212121212121212121212121"
+      }
+    }
+  ]
+}

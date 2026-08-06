@@ -1,0 +1,35 @@
+{
+  "generated_at_utc": "2026-08-05T10:25:05.560592+00:00",
+  "universe_symbols": 169,
+  "symbols_with_signals": 124,
+  "signal_candidates": 492,
+  "v2_right_censored_candidates": 10,
+  "shared_portfolio": {
+    "executed_trades": 105,
+    "executed_symbols": 55,
+    "capacity_skipped": 374,
+    "same_symbol_skipped": 13,
+    "final_equity": 0.16152007721317083,
+    "total_return": -0.8384799227868291,
+    "max_drawdown_5m": -0.879342108022585,
+    "min_equity": 0.14792668302291245,
+    "max_gross_leverage": 2.0798517310005717,
+    "average_invested_gross_leverage": 1.5705262464741558,
+    "winning_trades": 30,
+    "losing_trades": 75,
+    "win_rate": 0.2857142857142857,
+    "positive_symbols": 14,
+    "negative_symbols": 41,
+    "average_holding_days": 5.301620370370371,
+    "median_holding_days": 3.6354166666666665,
+    "entries_per_30_days": 14.651162790697674,
+    "right_censored_executed": 3
+  },
+  "independent_sleeves": {
+    "positive_symbols": 38,
+    "negative_symbols": 86,
+    "no_trade_symbols": 45,
+    "executed_trades": 444,
+    "equal_169_sleeve_return": -0.016367898335282516
+  }
+}

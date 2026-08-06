@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "total_return": 3.0722802901833894,
+    "max_drawdown_5m": -0.2915575435205766,
+    "executed_trades": 60,
+    "capacity_skipped_entries": 8
+  },
+  "without_velvet_2026_06_06": {
+    "total_return": 0.7573179967523977,
+    "max_drawdown_5m": -0.3991427494947143,
+    "executed_trades": 59,
+    "capacity_skipped_entries": 8
+  },
+  "without_gwei_2026_06_23": {
+    "total_return": 2.1614462652888964,
+    "max_drawdown_5m": -0.2915575435205766,
+    "executed_trades": 59,
+    "capacity_skipped_entries": 8
+  },
+  "without_both": {
+    "total_return": 0.3642642504619058,
+    "max_drawdown_5m": -0.4017814370064763,
+    "executed_trades": 58,
+    "capacity_skipped_entries": 8
+  }
+}

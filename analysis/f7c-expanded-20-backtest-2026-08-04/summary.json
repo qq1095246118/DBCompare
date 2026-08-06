@@ -1,0 +1,18 @@
+{
+  "signal_episodes": 56,
+  "closed_trades": 49,
+  "win_rate": 0.5714285714285714,
+  "mean_trade_return": 0.022590187548275017,
+  "median_trade_return": 0.025148575322139502,
+  "trimmed_trade_return": 0.023036344272788934,
+  "portfolio_return": 0.30863184889579554,
+  "max_drawdown": -0.1977597403259067,
+  "average_exposure": 0.3438937008510968,
+  "token_count": 20,
+  "start": "2026-01-01",
+  "end": "2026-07-29",
+  "entered_trades": 52,
+  "open_trades": 3,
+  "skipped_no_slot": 3,
+  "skipped_already_held": 1
+}

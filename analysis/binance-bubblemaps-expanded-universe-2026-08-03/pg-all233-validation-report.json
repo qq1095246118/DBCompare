@@ -1,0 +1,1876 @@
+{
+  "generated_at": "2026-08-05T04:17:36.600263Z",
+  "registry": "/Users/rayer/Documents/DBCompare/screening/binance-futures-small-meme-volume-spikes-2026-08-05/all-233-expansion-registry.json",
+  "export_report": "/private/tmp/dbcompare-pg-all233-validation-v2/report.json",
+  "snapshot_root": "/private/tmp/dbcompare-pg-all233-validation-v2",
+  "status": "pass",
+  "summary": {
+    "registry_targets": 233,
+    "validated_pg_exports": 169,
+    "validation_errors": 0,
+    "quality_warnings": 3,
+    "registry_pg_states": {
+      "pg_chain_not_present": 19,
+      "pg_latest_failed": 2,
+      "pg_missing": 43,
+      "pg_ready": 169
+    },
+    "export_states": {
+      "exported_from_pg": 169,
+      "latest_pg_snapshot_failed": 2,
+      "missing_in_pg": 62
+    }
+  },
+  "pg_states_by_chain": {
+    "arbitrum": {
+      "pg_ready": 6
+    },
+    "avalanche": {
+      "pg_ready": 2
+    },
+    "base": {
+      "pg_latest_failed": 1,
+      "pg_missing": 4,
+      "pg_ready": 12
+    },
+    "bsc": {
+      "pg_latest_failed": 1,
+      "pg_missing": 14,
+      "pg_ready": 41
+    },
+    "celo": {
+      "pg_chain_not_present": 1
+    },
+    "eth": {
+      "pg_missing": 10,
+      "pg_ready": 79
+    },
+    "linea": {
+      "pg_chain_not_present": 1
+    },
+    "manta": {
+      "pg_chain_not_present": 1
+    },
+    "mantle": {
+      "pg_chain_not_present": 1
+    },
+    "optimism": {
+      "pg_chain_not_present": 2
+    },
+    "plasma": {
+      "pg_chain_not_present": 1
+    },
+    "polygon": {
+      "pg_ready": 1
+    },
+    "robinhood": {
+      "pg_chain_not_present": 1
+    },
+    "ronin": {
+      "pg_chain_not_present": 1
+    },
+    "solana": {
+      "pg_missing": 12,
+      "pg_ready": 28
+    },
+    "starknet": {
+      "pg_chain_not_present": 1
+    },
+    "sui": {
+      "pg_chain_not_present": 8
+    },
+    "ton": {
+      "pg_missing": 3
+    },
+    "zksync": {
+      "pg_chain_not_present": 1
+    }
+  },
+  "quality_warnings": [
+    {
+      "symbol": "UB",
+      "chain": "bsc",
+      "warning": "relationship_count_below_quality_threshold",
+      "relationship_count": 46,
+      "threshold": 50
+    },
+    {
+      "symbol": "SKYAI",
+      "chain": "bsc",
+      "warning": "relationship_count_below_quality_threshold",
+      "relationship_count": 21,
+      "threshold": 50
+    },
+    {
+      "symbol": "HOLO",
+      "chain": "solana",
+      "warning": "relationship_count_below_quality_threshold",
+      "relationship_count": 43,
+      "threshold": 50
+    }
+  ],
+  "not_exported": [
+    {
+      "symbol": "TST",
+      "chain": "bsc",
+      "token_address": "0x86bb94ddd16efc8bc58e6b056e8df71d9e666429",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "TAC",
+      "chain": "ton",
+      "token_address": "UQBE_gBrU3mPI9hHjlJoR_kYyrhQgyCFD6EUWfa42W8T7B2K",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "BANK",
+      "chain": "bsc",
+      "token_address": "0x3aee7602b612de36088f3ffed8c8f10e86ebf2bf",
+      "registry_pg_state": "pg_latest_failed",
+      "export_status": "latest_pg_snapshot_failed",
+      "latest_membership_status": "unavailable",
+      "latest_error_type": "missing_cluster_snapshot"
+    },
+    {
+      "symbol": "ACT",
+      "chain": "solana",
+      "token_address": "GJAFwWjJ3vnTsrQVabjBVK2TYB1YtRCQXRDfDgUnpump",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "PUMPBTC",
+      "chain": "bsc",
+      "token_address": "0xb7c0007ab75350c582d5eab1862b872b5cf53f0c",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "PIXEL",
+      "chain": "ronin",
+      "token_address": "0x7eae20d11ef8c779433eb24503def900b9d28ad7",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "DOGS",
+      "chain": "ton",
+      "token_address": "UQCvxJy4eG8hyHBFsZ7eePxrRsUQSFE_jpptRAYBmcG_DLxX",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "AIN",
+      "chain": "bsc",
+      "token_address": "0x9558a9254890b2a8b057a789f413631b9084f4a3",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "TUT",
+      "chain": "solana",
+      "token_address": "54uUKttrQT2GBzLQdh4qB4rVyzLzYbopXG9Cbek2saeY",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "WAL",
+      "chain": "sui",
+      "token_address": "0x356a26eb9e012a68958082340d4c4116e7f55615cf27affcff209cf0ae544f59::wal::wal",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "TAKE",
+      "chain": "sui",
+      "token_address": "0x76a49ebaf991fa2d4cb6a352af14425d453fe2ba6802b5ed2361b227150b6689::take::take",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "XPL",
+      "chain": "plasma",
+      "token_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "CLANKER",
+      "chain": "base",
+      "token_address": "0x1bc0c42215582d5a085795f4badbac3ff36d1bcb",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "ZEN",
+      "chain": "base",
+      "token_address": "0xf43eb8de897fbc7f2502483b2bef7bb9ea179229",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "HMSTR",
+      "chain": "ton",
+      "token_address": "UQAJ8uWd7EBqsmpSWaRdf_I-8R8-XHwh3gsNKhy-UrdrPZjt",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "ARC",
+      "chain": "solana",
+      "token_address": "61V8vBaqAGMpgDQi4JcAwo1dmBGHsyhzodcPqnEVpump",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "CETUS",
+      "chain": "sui",
+      "token_address": "0x06864a6f921804860930db6ddbe2e16acdf8504495ea7481637a1c8b9a8fe54b::cetus::cetus",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "HANA",
+      "chain": "bsc",
+      "token_address": "0x6261963ebe9ff014aad10ecc3b0238d4d04e8353",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "XVG",
+      "chain": "solana",
+      "token_address": "H1pR8fiLYuzvZ44q8URZz1binj2XNKTh4jUgjYJ9NzyR",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "ARIA",
+      "chain": "bsc",
+      "token_address": "0x5d3a12c42e5372b2cc3264ab3cdcf660a1555238",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "DIA",
+      "chain": "eth",
+      "token_address": "0x84ca8bc7997272c7cfb4d0cd3d55cd942b3c9419",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "SONIC",
+      "chain": "solana",
+      "token_address": "SonicxvLud67EceaEzCLRnMTBqzYUUYNr93DBkBdDES",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "ZK",
+      "chain": "zksync",
+      "token_address": "0x5a7d6b2f92c77fad6ccabd7ee0624e64907eaf3e",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "ASR",
+      "chain": "solana",
+      "token_address": "H4YrzxkjQZFUVxKi9NDp9sJnHUrzWWH71TtjkiC3xdSY",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "TRUTH",
+      "chain": "sui",
+      "token_address": "0x0a48f85a3905cfa49a652bdb074d9e9fabad27892d54afaa5c9e0adeb7ac3cdf::swarm_network_token::swarm_network_token",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "ZKP",
+      "chain": "bsc",
+      "token_address": "0xd89b7dd376e671c124352267516bef1c2cc231a3",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "MANTA",
+      "chain": "manta",
+      "token_address": "0x95cef13441be50d20ca4558cc0a27b601ac544e5",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "MMT",
+      "chain": "sui",
+      "token_address": "0x35169bc93e1fddfcf3a82a9eae726d349689ed59e4b065369af8789fe59f8608::mmt::mmt",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "BANANA",
+      "chain": "eth",
+      "token_address": "0x38e68a37e401f7271568cecaac63c6b1e19130b4",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "1000CHEEMS",
+      "chain": "bsc",
+      "token_address": "0x0df0587216a4a1bb7d5082fdc491d93d2dd4b413",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "FLUX",
+      "chain": "base",
+      "token_address": "0xb008bdcf9cdff9da684a190941dc3dca8c2cdd44",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "MEME",
+      "chain": "eth",
+      "token_address": "0xb131f4a55907b10d1f0a50d8ab8fa09ec342cd74",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "PLAY",
+      "chain": "base",
+      "token_address": "0x853a7c99227499dba9db8c3a02aa691afdebf841",
+      "registry_pg_state": "pg_latest_failed",
+      "export_status": "latest_pg_snapshot_failed",
+      "latest_membership_status": "unavailable",
+      "latest_error_type": "missing_cluster_snapshot"
+    },
+    {
+      "symbol": "VTHO",
+      "chain": "eth",
+      "token_address": "0x97ef4ffb093750c41c4573ba2dca178d9382224c",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "MAGMA",
+      "chain": "sui",
+      "token_address": "0x9f854b3ad20f8161ec0886f15f4a1752bf75d22261556f14cc8d3a1c5d50e529::magma::magma",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "UAI",
+      "chain": "bsc",
+      "token_address": "0x3e5d4f8aee0d9b3082d5f6da5d6e225d17ba9ea0",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "SNX",
+      "chain": "optimism",
+      "token_address": "0x8700daec35af8ff88c16bdf0418774cb3d7599b4",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "VELODROME",
+      "chain": "eth",
+      "token_address": "0xfb966cdb7e17c9acb7f53afcafacbe8973cd778c",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "SKR",
+      "chain": "solana",
+      "token_address": "SKRbvo6Gf7GondiT3BbTfuRDPqLWei4j2Qy2NPGZhW3",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "PNUT",
+      "chain": "solana",
+      "token_address": "2qEHjDLDLbuBgRYvsxhc5D6uDWAivNFZGan56P1tpump",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "STRK",
+      "chain": "starknet",
+      "token_address": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "STABLE",
+      "chain": "bsc",
+      "token_address": "0x011ebe7d75e2c9d1e0bd0be0bef5c36f0a90075f",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "LYN",
+      "chain": "bsc",
+      "token_address": "0x302dfaf2cdbe51a18d97186a7384e87cf599877d",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "TRUST",
+      "chain": "base",
+      "token_address": "0x6cd905df2ed214b22e0d48ff17cd4200c1c6d8a3",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "MTL",
+      "chain": "eth",
+      "token_address": "0xf433089366899d83a9f26a773d59ec7ecf30355e",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "CVX",
+      "chain": "eth",
+      "token_address": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "DEEP",
+      "chain": "sui",
+      "token_address": "0xdeeb7a4662eec9f2f3def03fb937a663dddaa2e215b8078a284d026b7946c270::deep::deep",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "WLD",
+      "chain": "optimism",
+      "token_address": "0xdc6ff44d5d932cbd77b52e5612ba0529dc6226f1",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "CELO",
+      "chain": "celo",
+      "token_address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "CATI",
+      "chain": "mantle",
+      "token_address": "0x1bdd8878252daddd3af2ba30628813271294edc0",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "GOAT",
+      "chain": "solana",
+      "token_address": "CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "BSV",
+      "chain": "solana",
+      "token_address": "5aQGEj88iPFteSeC2rj5N5uy9cSEST5w2SZkgt84Ex9o",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "NIGHT",
+      "chain": "bsc",
+      "token_address": "0xfe930c2d63aed9b82fc4dbc801920dd2c1a3224f",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "HAEDAL",
+      "chain": "sui",
+      "token_address": "0x3a304c7feba2d819ea57c3542d68439ca2c386ba02159c740f7b406e592c62ea::haedal::haedal",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "OPEN",
+      "chain": "bsc",
+      "token_address": "0xa227cc36938f0c9e09ce0e64dfab226cad739447",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "1000SHIB",
+      "chain": "eth",
+      "token_address": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "BEAMX",
+      "chain": "eth",
+      "token_address": "0xadb3e4cdd081890fd403f7bb39ce07d223f92e11",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "1INCH",
+      "chain": "robinhood",
+      "token_address": "0x1755c2910c126ee1b0cf1e08a307dc9e787285a0",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "1MBABYDOGE",
+      "chain": "eth",
+      "token_address": "0x8799c444c6ecb49a957853e3f958b3f4e74bebde",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "1000CAT",
+      "chain": "bsc",
+      "token_address": "0x6894cde390a3f51155ea41ed24a33a4827d3063d",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "LINEA",
+      "chain": "linea",
+      "token_address": "0x1789e0043623282d5dcc7f213d703c6d8bafbb04",
+      "registry_pg_state": "pg_chain_not_present",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "IOTA",
+      "chain": "bsc",
+      "token_address": "0xd944f1d1e9d5f9bb90b62f9d45e447d989580782",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "HYPE",
+      "chain": "solana",
+      "token_address": "98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    },
+    {
+      "symbol": "PUMP",
+      "chain": "solana",
+      "token_address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+      "registry_pg_state": "pg_missing",
+      "export_status": "missing_in_pg",
+      "latest_membership_status": null,
+      "latest_error_type": null
+    }
+  ],
+  "errors": [],
+  "validated": [
+    {
+      "symbol": "ZEREBRO",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 260,
+      "ordinary_member_count": 157
+    },
+    {
+      "symbol": "FHE",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 310,
+      "ordinary_member_count": 186
+    },
+    {
+      "symbol": "SAPIEN",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 259,
+      "ordinary_member_count": 147
+    },
+    {
+      "symbol": "TNSR",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 137,
+      "ordinary_member_count": 76
+    },
+    {
+      "symbol": "NIL",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 261,
+      "ordinary_member_count": 217
+    },
+    {
+      "symbol": "BAS",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 175,
+      "ordinary_member_count": 120
+    },
+    {
+      "symbol": "PIPPIN",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 353,
+      "ordinary_member_count": 150
+    },
+    {
+      "symbol": "ALLO",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 73,
+      "ordinary_member_count": 64
+    },
+    {
+      "symbol": "TRADOOR",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 244,
+      "ordinary_member_count": 161
+    },
+    {
+      "symbol": "CROSS",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 148,
+      "ordinary_member_count": 85
+    },
+    {
+      "symbol": "BICO",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 279,
+      "ordinary_member_count": 143
+    },
+    {
+      "symbol": "TAIKO",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 75,
+      "ordinary_member_count": 76
+    },
+    {
+      "symbol": "AGT",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 181,
+      "ordinary_member_count": 193
+    },
+    {
+      "symbol": "DOLO",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 179,
+      "ordinary_member_count": 119
+    },
+    {
+      "symbol": "STO",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 237,
+      "ordinary_member_count": 167
+    },
+    {
+      "symbol": "BAN",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 177,
+      "ordinary_member_count": 171
+    },
+    {
+      "symbol": "BR",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 235,
+      "ordinary_member_count": 131
+    },
+    {
+      "symbol": "SOLV",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 215,
+      "ordinary_member_count": 140
+    },
+    {
+      "symbol": "PORTAL",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 320,
+      "ordinary_member_count": 172
+    },
+    {
+      "symbol": "UB",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 46,
+      "ordinary_member_count": 34
+    },
+    {
+      "symbol": "MELANIA",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 364,
+      "ordinary_member_count": 164
+    },
+    {
+      "symbol": "API3",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 305,
+      "ordinary_member_count": 138
+    },
+    {
+      "symbol": "POWER",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 236,
+      "ordinary_member_count": 140
+    },
+    {
+      "symbol": "VANRY",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 228,
+      "ordinary_member_count": 136
+    },
+    {
+      "symbol": "IN",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 209,
+      "ordinary_member_count": 123
+    },
+    {
+      "symbol": "AXS",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 336,
+      "ordinary_member_count": 195
+    },
+    {
+      "symbol": "LSK",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 261,
+      "ordinary_member_count": 177
+    },
+    {
+      "symbol": "HYPER",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 187,
+      "ordinary_member_count": 160
+    },
+    {
+      "symbol": "MYX",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 263,
+      "ordinary_member_count": 147
+    },
+    {
+      "symbol": "TA",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 158,
+      "ordinary_member_count": 111
+    },
+    {
+      "symbol": "RESOLV",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 293,
+      "ordinary_member_count": 148
+    },
+    {
+      "symbol": "ALCH",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 293,
+      "ordinary_member_count": 157
+    },
+    {
+      "symbol": "SIGN",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 213,
+      "ordinary_member_count": 138
+    },
+    {
+      "symbol": "PHA",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 297,
+      "ordinary_member_count": 151
+    },
+    {
+      "symbol": "SAHARA",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 226,
+      "ordinary_member_count": 168
+    },
+    {
+      "symbol": "AIOT",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 485,
+      "ordinary_member_count": 234
+    },
+    {
+      "symbol": "PIEVERSE",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 220,
+      "ordinary_member_count": 139
+    },
+    {
+      "symbol": "PROMPT",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 232,
+      "ordinary_member_count": 167
+    },
+    {
+      "symbol": "SKYAI",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 21,
+      "ordinary_member_count": 10
+    },
+    {
+      "symbol": "NAORIS",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 243,
+      "ordinary_member_count": 189
+    },
+    {
+      "symbol": "DUSK",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 384,
+      "ordinary_member_count": 170
+    },
+    {
+      "symbol": "AUCTION",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 230,
+      "ordinary_member_count": 122
+    },
+    {
+      "symbol": "C98",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 311,
+      "ordinary_member_count": 178
+    },
+    {
+      "symbol": "ANIME",
+      "chain": "arbitrum",
+      "holder_count": 300,
+      "relationship_count": 244,
+      "ordinary_member_count": 196
+    },
+    {
+      "symbol": "SWARMS",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 432,
+      "ordinary_member_count": 180
+    },
+    {
+      "symbol": "BANANAS31",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 182,
+      "ordinary_member_count": 162
+    },
+    {
+      "symbol": "BARD",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 310,
+      "ordinary_member_count": 148
+    },
+    {
+      "symbol": "KERNEL",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 248,
+      "ordinary_member_count": 147
+    },
+    {
+      "symbol": "BOME",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 218,
+      "ordinary_member_count": 137
+    },
+    {
+      "symbol": "ZKC",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 256,
+      "ordinary_member_count": 147
+    },
+    {
+      "symbol": "NMR",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 417,
+      "ordinary_member_count": 154
+    },
+    {
+      "symbol": "XNY",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 88,
+      "ordinary_member_count": 50
+    },
+    {
+      "symbol": "PARTI",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 97,
+      "ordinary_member_count": 38
+    },
+    {
+      "symbol": "FIDA",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 271,
+      "ordinary_member_count": 144
+    },
+    {
+      "symbol": "ZORA",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 321,
+      "ordinary_member_count": 182
+    },
+    {
+      "symbol": "PROM",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 80,
+      "ordinary_member_count": 70
+    },
+    {
+      "symbol": "JELLYJELLY",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 365,
+      "ordinary_member_count": 148
+    },
+    {
+      "symbol": "SKL",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 202,
+      "ordinary_member_count": 105
+    },
+    {
+      "symbol": "BLUR",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 213,
+      "ordinary_member_count": 123
+    },
+    {
+      "symbol": "ENJ",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 111,
+      "ordinary_member_count": 72
+    },
+    {
+      "symbol": "CARV",
+      "chain": "arbitrum",
+      "holder_count": 300,
+      "relationship_count": 208,
+      "ordinary_member_count": 196
+    },
+    {
+      "symbol": "HOME",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 181,
+      "ordinary_member_count": 142
+    },
+    {
+      "symbol": "BAND",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 232,
+      "ordinary_member_count": 135
+    },
+    {
+      "symbol": "DRIFT",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 322,
+      "ordinary_member_count": 135
+    },
+    {
+      "symbol": "SLP",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 256,
+      "ordinary_member_count": 150
+    },
+    {
+      "symbol": "ORCA",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 406,
+      "ordinary_member_count": 126
+    },
+    {
+      "symbol": "FLOCK",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 608,
+      "ordinary_member_count": 171
+    },
+    {
+      "symbol": "XPIN",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 226,
+      "ordinary_member_count": 169
+    },
+    {
+      "symbol": "BIO",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 278,
+      "ordinary_member_count": 130
+    },
+    {
+      "symbol": "GIGGLE",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 365,
+      "ordinary_member_count": 163
+    },
+    {
+      "symbol": "EUL",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 231,
+      "ordinary_member_count": 124
+    },
+    {
+      "symbol": "AGLD",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 170,
+      "ordinary_member_count": 103
+    },
+    {
+      "symbol": "EPIC",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 207,
+      "ordinary_member_count": 133
+    },
+    {
+      "symbol": "LUMIA",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 129,
+      "ordinary_member_count": 115
+    },
+    {
+      "symbol": "RPL",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 425,
+      "ordinary_member_count": 177
+    },
+    {
+      "symbol": "APE",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 176,
+      "ordinary_member_count": 92
+    },
+    {
+      "symbol": "RED",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 271,
+      "ordinary_member_count": 159
+    },
+    {
+      "symbol": "STORJ",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 178,
+      "ordinary_member_count": 97
+    },
+    {
+      "symbol": "REZ",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 242,
+      "ordinary_member_count": 150
+    },
+    {
+      "symbol": "ID",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 254,
+      "ordinary_member_count": 159
+    },
+    {
+      "symbol": "OGN",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 350,
+      "ordinary_member_count": 139
+    },
+    {
+      "symbol": "FLUID",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 191,
+      "ordinary_member_count": 104
+    },
+    {
+      "symbol": "EDU",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 264,
+      "ordinary_member_count": 171
+    },
+    {
+      "symbol": "HOLO",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 43,
+      "ordinary_member_count": 23
+    },
+    {
+      "symbol": "SXT",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 129,
+      "ordinary_member_count": 123
+    },
+    {
+      "symbol": "MOODENG",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 321,
+      "ordinary_member_count": 133
+    },
+    {
+      "symbol": "AEVO",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 350,
+      "ordinary_member_count": 168
+    },
+    {
+      "symbol": "RECALL",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 437,
+      "ordinary_member_count": 152
+    },
+    {
+      "symbol": "ICNT",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 238,
+      "ordinary_member_count": 150
+    },
+    {
+      "symbol": "FORM",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 210,
+      "ordinary_member_count": 124
+    },
+    {
+      "symbol": "ZEC",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 333,
+      "ordinary_member_count": 157
+    },
+    {
+      "symbol": "METIS",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 240,
+      "ordinary_member_count": 155
+    },
+    {
+      "symbol": "SPK",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 298,
+      "ordinary_member_count": 145
+    },
+    {
+      "symbol": "CVC",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 128,
+      "ordinary_member_count": 68
+    },
+    {
+      "symbol": "PUNDIX",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 169,
+      "ordinary_member_count": 87
+    },
+    {
+      "symbol": "ATH",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 286,
+      "ordinary_member_count": 157
+    },
+    {
+      "symbol": "HFT",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 280,
+      "ordinary_member_count": 162
+    },
+    {
+      "symbol": "WET",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 240,
+      "ordinary_member_count": 101
+    },
+    {
+      "symbol": "JOE",
+      "chain": "avalanche",
+      "holder_count": 300,
+      "relationship_count": 968,
+      "ordinary_member_count": 112
+    },
+    {
+      "symbol": "SOPH",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 164,
+      "ordinary_member_count": 144
+    },
+    {
+      "symbol": "MITO",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 181,
+      "ordinary_member_count": 123
+    },
+    {
+      "symbol": "BAT",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 176,
+      "ordinary_member_count": 81
+    },
+    {
+      "symbol": "RLC",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 176,
+      "ordinary_member_count": 92
+    },
+    {
+      "symbol": "LPT",
+      "chain": "arbitrum",
+      "holder_count": 300,
+      "relationship_count": 322,
+      "ordinary_member_count": 172
+    },
+    {
+      "symbol": "TURBO",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 211,
+      "ordinary_member_count": 133
+    },
+    {
+      "symbol": "APR",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 162,
+      "ordinary_member_count": 143
+    },
+    {
+      "symbol": "FIGHT",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 126,
+      "ordinary_member_count": 81
+    },
+    {
+      "symbol": "ZETA",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 182,
+      "ordinary_member_count": 119
+    },
+    {
+      "symbol": "GMT",
+      "chain": "polygon",
+      "holder_count": 300,
+      "relationship_count": 1495,
+      "ordinary_member_count": 205
+    },
+    {
+      "symbol": "TOWNS",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 340,
+      "ordinary_member_count": 137
+    },
+    {
+      "symbol": "CHILLGUY",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 350,
+      "ordinary_member_count": 147
+    },
+    {
+      "symbol": "SHELL",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 249,
+      "ordinary_member_count": 178
+    },
+    {
+      "symbol": "ANKR",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 351,
+      "ordinary_member_count": 228
+    },
+    {
+      "symbol": "ACX",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 374,
+      "ordinary_member_count": 157
+    },
+    {
+      "symbol": "LISTA",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 854,
+      "ordinary_member_count": 173
+    },
+    {
+      "symbol": "WAXP",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 239,
+      "ordinary_member_count": 157
+    },
+    {
+      "symbol": "HOT",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 154,
+      "ordinary_member_count": 83
+    },
+    {
+      "symbol": "TOSHI",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 243,
+      "ordinary_member_count": 98
+    },
+    {
+      "symbol": "ZRX",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 189,
+      "ordinary_member_count": 97
+    },
+    {
+      "symbol": "AWE",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 473,
+      "ordinary_member_count": 171
+    },
+    {
+      "symbol": "POWR",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 264,
+      "ordinary_member_count": 111
+    },
+    {
+      "symbol": "NEIRO",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 199,
+      "ordinary_member_count": 106
+    },
+    {
+      "symbol": "YFI",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 254,
+      "ordinary_member_count": 119
+    },
+    {
+      "symbol": "GRIFFAIN",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 349,
+      "ordinary_member_count": 157
+    },
+    {
+      "symbol": "JASMY",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 228,
+      "ordinary_member_count": 140
+    },
+    {
+      "symbol": "PLUME",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 258,
+      "ordinary_member_count": 159
+    },
+    {
+      "symbol": "UMA",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 250,
+      "ordinary_member_count": 114
+    },
+    {
+      "symbol": "MAGIC",
+      "chain": "arbitrum",
+      "holder_count": 300,
+      "relationship_count": 444,
+      "ordinary_member_count": 124
+    },
+    {
+      "symbol": "MASK",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 199,
+      "ordinary_member_count": 107
+    },
+    {
+      "symbol": "SFP",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 583,
+      "ordinary_member_count": 174
+    },
+    {
+      "symbol": "IOST",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 327,
+      "ordinary_member_count": 238
+    },
+    {
+      "symbol": "MUBARAK",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 243,
+      "ordinary_member_count": 159
+    },
+    {
+      "symbol": "USELESS",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 688,
+      "ordinary_member_count": 159
+    },
+    {
+      "symbol": "AVNT",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 335,
+      "ordinary_member_count": 80
+    },
+    {
+      "symbol": "ACH",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 261,
+      "ordinary_member_count": 148
+    },
+    {
+      "symbol": "RIVER",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 144,
+      "ordinary_member_count": 97
+    },
+    {
+      "symbol": "AIXBT",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 189,
+      "ordinary_member_count": 96
+    },
+    {
+      "symbol": "NEWT",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 246,
+      "ordinary_member_count": 203
+    },
+    {
+      "symbol": "GMX",
+      "chain": "arbitrum",
+      "holder_count": 300,
+      "relationship_count": 382,
+      "ordinary_member_count": 127
+    },
+    {
+      "symbol": "ZRO",
+      "chain": "arbitrum",
+      "holder_count": 300,
+      "relationship_count": 301,
+      "ordinary_member_count": 163
+    },
+    {
+      "symbol": "VIRTUAL",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 415,
+      "ordinary_member_count": 172
+    },
+    {
+      "symbol": "XVS",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 471,
+      "ordinary_member_count": 164
+    },
+    {
+      "symbol": "SANTOS",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 249,
+      "ordinary_member_count": 193
+    },
+    {
+      "symbol": "USUAL",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 248,
+      "ordinary_member_count": 128
+    },
+    {
+      "symbol": "COOKIE",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 338,
+      "ordinary_member_count": 137
+    },
+    {
+      "symbol": "BMT",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 473,
+      "ordinary_member_count": 233
+    },
+    {
+      "symbol": "GLM",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 142,
+      "ordinary_member_count": 82
+    },
+    {
+      "symbol": "NXPC",
+      "chain": "avalanche",
+      "holder_count": 300,
+      "relationship_count": 727,
+      "ordinary_member_count": 127
+    },
+    {
+      "symbol": "POPCAT",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 311,
+      "ordinary_member_count": 113
+    },
+    {
+      "symbol": "BIGTIME",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 332,
+      "ordinary_member_count": 180
+    },
+    {
+      "symbol": "1000BONK",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 335,
+      "ordinary_member_count": 102
+    },
+    {
+      "symbol": "TRB",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 201,
+      "ordinary_member_count": 117
+    },
+    {
+      "symbol": "KMNO",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 247,
+      "ordinary_member_count": 134
+    },
+    {
+      "symbol": "ARKM",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 262,
+      "ordinary_member_count": 147
+    },
+    {
+      "symbol": "BNT",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 404,
+      "ordinary_member_count": 99
+    },
+    {
+      "symbol": "ELSA",
+      "chain": "base",
+      "holder_count": 300,
+      "relationship_count": 137,
+      "ordinary_member_count": 40
+    },
+    {
+      "symbol": "PEOPLE",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 221,
+      "ordinary_member_count": 129
+    },
+    {
+      "symbol": "1000FLOKI",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 362,
+      "ordinary_member_count": 150
+    },
+    {
+      "symbol": "WLFI",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 296,
+      "ordinary_member_count": 141
+    },
+    {
+      "symbol": "WOO",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 265,
+      "ordinary_member_count": 143
+    },
+    {
+      "symbol": "IMX",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 172,
+      "ordinary_member_count": 85
+    },
+    {
+      "symbol": "FARTCOIN",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 377,
+      "ordinary_member_count": 125
+    },
+    {
+      "symbol": "ACU",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 190,
+      "ordinary_member_count": 172
+    },
+    {
+      "symbol": "LQTY",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 305,
+      "ordinary_member_count": 133
+    },
+    {
+      "symbol": "MEW",
+      "chain": "solana",
+      "holder_count": 300,
+      "relationship_count": 149,
+      "ordinary_member_count": 96
+    },
+    {
+      "symbol": "SSV",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 272,
+      "ordinary_member_count": 166
+    },
+    {
+      "symbol": "STBL",
+      "chain": "bsc",
+      "holder_count": 300,
+      "relationship_count": 379,
+      "ordinary_member_count": 129
+    },
+    {
+      "symbol": "SEI",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 93,
+      "ordinary_member_count": 68
+    },
+    {
+      "symbol": "ARB",
+      "chain": "eth",
+      "holder_count": 300,
+      "relationship_count": 129,
+      "ordinary_member_count": 111
+    }
+  ]
+}

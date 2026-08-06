@@ -1,0 +1,161 @@
+{
+  "documents": "docs/lark-chain-data-2026-07-29",
+  "symbols": {
+    "SIREN": {
+      "targets": {
+        "bsc": ["0x997a58129890bbda032231a52ed1ddc845fc18e1"]
+      },
+      "events": [],
+      "note": "导出的正文没有给出精确事件日期，不能复算事件窗口。"
+    },
+    "RAVE": {
+      "targets": {
+        "base": ["0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3"],
+        "bsc": ["0x97693439ea2f0ecdeb9135881e49f354656a911c"],
+        "eth": ["0x17205fab260a7a6383a81452ce6315a39370db97"]
+      },
+      "events": [],
+      "note": "导出的正文没有给出精确事件日期，不能复算事件窗口。"
+    },
+    "TAC": {
+      "targets": {
+        "bsc": ["0x1219c409fabe2c27bd0d1a565daeed9bd9f271de"],
+        "ton": ["EQBE_gBrU3mPI9hHjlJoR_kYyrhQgyCFD6EUWfa42W8T7EBP"]
+      },
+      "events": [
+        {"date": "2026-06-17", "rating": "低"},
+        {"date": "2026-06-29", "rating": "高"},
+        {"date": "2026-07-09", "rating": "高"}
+      ]
+    },
+    "BANK": {
+      "targets": {
+        "bsc": ["0x3aee7602b612de36088f3ffed8c8f10e86ebf2bf"]
+      },
+      "events": [
+        {"date": "2026-07-18", "rating": "高"}
+      ]
+    },
+    "BIRB": {
+      "targets": {
+        "solana": ["G7vQWurMkMMm2dU3iZpXYFTHT9Biio4F4gZCrwFpKNwG"]
+      },
+      "events": [
+        {
+          "date": "2026-07-02",
+          "rating": "高",
+          "note": "正文称 2026-06-29 为事件前三天，据此推定事件日。"
+        }
+      ]
+    },
+    "PLAY": {
+      "targets": {
+        "base": ["0x853a7c99227499dba9db8c3a02aa691afdebf841"],
+        "bsc": ["0xf86089b30f30285d492b0527c37b9c2225bfcf8c"]
+      },
+      "events": [
+        {"date": "2026-04-15", "rating": "中"},
+        {"date": "2026-05-25", "rating": "中"},
+        {"date": "2026-05-31", "rating": "中"}
+      ]
+    },
+    "SYN": {
+      "targets": {
+        "arbitrum": ["0x080f6aed32fc474dd5717105dba5ea57268f46eb"],
+        "avalanche": ["0x1f1e7c893855525b303f99bdf5c3c05be09ca251"],
+        "base": ["0x432036208d2717394d2614d6697c46df3ed69540"],
+        "bsc": ["0xa4080f1778e69467e905b8d6f72f6e441f9e9484"],
+        "eth": ["0x0f2d719407fdbeff09d87557abb7232601fd9f29"],
+        "polygon": ["0xf8f9efc0db77d8881500bb06ff5d6abc3070e695"]
+      },
+      "events": [
+        {"date": "2026-06-17", "end_date": "2026-06-18", "rating": "中高"},
+        {"date": "2026-06-22", "rating": "中高"}
+      ]
+    },
+    "M": {
+      "targets": {
+        "bsc": ["0x22b1458e780f8fa71e2f84502cee8b5a3cc731fa"]
+      },
+      "events": [
+        {"date": "2026-03-25", "rating": "弱"}
+      ]
+    },
+    "BEAT": {
+      "targets": {
+        "bsc": ["0xcf3232b85b43bca90e51d38cc06cc8bb8c8a3e36"]
+      },
+      "events": [
+        {"date": "2026-05-22", "rating": "中"}
+      ]
+    },
+    "B": {
+      "targets": {
+        "bsc": ["0x6bdcce4a559076e37755a78ce0c06214e59e4444"]
+      },
+      "events": [
+        {"date": "2026-05-01", "rating": "弱"}
+      ]
+    },
+    "DEXE": {
+      "targets": {
+        "bsc": ["0x6e88056e8376ae7709496ba64d37fa2f8015ce3e"],
+        "eth": ["0xde4ee8057785a7e8e800db58f9784845a5c2cbd6"]
+      },
+      "events": [
+        {"date": "2026-06-22", "rating": "弱"}
+      ]
+    },
+    "VELVET": {
+      "targets": {
+        "base": ["0xbf927b841994731c573bdf09ceb0c6b0aa887cdd"],
+        "bsc": ["0x8b194370825e37b33373e74a41009161808c1488"]
+      },
+      "events": [
+        {"date": "2026-06-04", "rating": "高监测、低归因"},
+        {"date": "2026-06-26", "rating": "中"}
+      ]
+    },
+    "H": {
+      "targets": {
+        "eth": ["0xe76c5b78f93909d34404e9eb4c1f19e7582a5de1"]
+      },
+      "events": [
+        {"date": "2026-05-28", "rating": "无效映射"},
+        {"date": "2026-06-11", "rating": "无效映射"}
+      ]
+    },
+    "RIF": {
+      "targets": {
+        "arbitrum": ["0xe5e851b01dd3eda24fde709a407db44555b6d1e0"],
+        "base": ["0xe5e851b01dd3eda24fde709a407db44555b6d1e0"],
+        "eth": ["0x01b603be3d545f096015741e6503440282bf45fb"],
+        "solana": ["AAeENcfHbTExuTvs4q7r9Bjax98Dg6BGX3aMph4bTLdK"]
+      },
+      "events": [
+        {"date": "2026-04-15", "rating": "低"},
+        {"date": "2026-05-12", "rating": "低"},
+        {"date": "2026-06-13", "rating": "低"}
+      ]
+    },
+    "ALLO": {
+      "targets": {
+        "base": ["0x032d86656db142138ac97d2c5c4e3766e8c0482d"],
+        "bsc": ["0xcce5f304fd043d6a4e8ccb5376a4a4fb583b98d5"],
+        "eth": ["0x8408d45b61f5823298f19a09b53b7339c0280489"]
+      },
+      "events": [
+        {"date": "2026-05-28", "rating": "中"}
+      ]
+    },
+    "TAIKO": {
+      "targets": {
+        "bsc": ["0x30c60b20c25b2810ca524810467a0c342294fc61"],
+        "eth": ["0x10dea67478c5f8c5e2d90e5e9b26dbe60c54d800"]
+      },
+      "events": [
+        {"date": "2026-06-30", "rating": "中"}
+      ]
+    }
+  }
+}

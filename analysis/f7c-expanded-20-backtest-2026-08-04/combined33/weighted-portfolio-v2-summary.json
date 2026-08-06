@@ -1,0 +1,29 @@
+{
+  "old_daily": {
+    "final_equity": 0.8647527096614838,
+    "total_return": -0.13524729033851624,
+    "max_drawdown_5m": -0.8976467514081318,
+    "min_equity": 0.7502380352256638,
+    "max_gross_leverage": 2.904350074839129,
+    "average_invested_gross_leverage": 1.0245127463106019,
+    "capacity_skipped_entries": 0
+  },
+  "v1_multitimeframe": {
+    "final_equity": 2.811603248043837,
+    "total_return": 1.8116032480438369,
+    "max_drawdown_5m": -0.2941026392383934,
+    "min_equity": 0.9136601263466301,
+    "max_gross_leverage": 2.0188316865351856,
+    "average_invested_gross_leverage": 0.9515766093628532,
+    "capacity_skipped_entries": 4
+  },
+  "v2_multitimeframe": {
+    "final_equity": 4.072280290183389,
+    "total_return": 3.0722802901833894,
+    "max_drawdown_5m": -0.2915575435205766,
+    "min_equity": 0.9136601263466301,
+    "max_gross_leverage": 2.021955948863454,
+    "average_invested_gross_leverage": 0.8771930331464551,
+    "capacity_skipped_entries": 8
+  }
+}

@@ -4,8 +4,31 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 *.py[cod]
+.DS_Store
+**/.DS_Store
+*.log
+*.zip
 bubblemaps/getDB/db/*/
 bubblemaps/getMarket/db/*/
 
 # 项目排除路径
 /venv/
+
+# 可重建的研究原始数据与运行时状态
+analysis/**/bubblemaps-snapshot/
+analysis/**/raw/
+analysis/**/intraday-data/
+analysis/**/intraday-all-data/
+analysis/**/intraday-all-signals-data/
+analysis/**/klines-1d/
+analysis/**/klines-1d-*/
+analysis/**/arkham-review/
+analysis/**/cex-flow/
+analysis/**/pipeline-background-status.json
+analysis/**/server-binance-vision-*.csv
+
+# 可由脚本和紧凑汇总结果重建的大型回测产物
+analysis/**/*.html
+analysis/**/*-equity.csv
+analysis/**/*dataset.json
+screening/**/screen-results.json
