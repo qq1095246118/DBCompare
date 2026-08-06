@@ -30,11 +30,18 @@ def response(status, payload, headers=None):
     return ApiTransportResponse(status, body, headers or {})
 
 
+def api_market(market_id="1", *, tags=None):
+    return {
+        "id": market_id,
+        "tags": [{"id": "tag-1", "slug": "election"}] if tags is None else tags,
+    }
+
+
 @pytest.mark.asyncio
 async def test_collect_tag_follows_next_cursor_until_terminal_page():
     transport = FakeTransport([
-        response(200, {"markets": [{"id": "1"}], "next_cursor": "abc"}),
-        response(200, {"markets": [{"id": "2"}], "next_cursor": None}),
+        response(200, {"markets": [api_market("1")], "next_cursor": "abc"}),
+        response(200, {"markets": [api_market("2")], "next_cursor": None}),
     ])
     client = PolymarketApiClient(transport=transport, retry_delay=0)
 
@@ -46,9 +53,10 @@ async def test_collect_tag_follows_next_cursor_until_terminal_page():
     second = parse_qs(urlsplit(transport.requests[1].url).query)
     assert first == {
         "tag_id": ["2"], "active": ["true"], "closed": ["false"],
-        "limit": ["20"],
+        "include_tag": ["true"], "limit": ["20"],
     }
     assert second["after_cursor"] == ["abc"]
+    assert second["include_tag"] == ["true"]
 
 
 @pytest.mark.asyncio
@@ -122,6 +130,49 @@ async def test_collect_tag_rejects_repeated_cursor():
 
 
 @pytest.mark.asyncio
+async def test_collect_tag_accepts_empty_tags():
+    transport = FakeTransport([
+        response(200, {"markets": [api_market(tags=[])], "next_cursor": None}),
+    ])
+    client = PolymarketApiClient(transport=transport, retry_delay=0)
+
+    pages = await client.collect_tag("21", page_limit=20)
+
+    assert pages[0].payload["markets"][0]["tags"] == []
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "market",
+    [
+        {"id": "1"},
+        {"id": "1", "tags": None},
+        api_market(tags={}),
+        api_market(tags=[None]),
+        api_market(tags=[{}]),
+        api_market(tags=[{"slug": ""}]),
+        api_market(tags=[{"slug": "   "}]),
+        api_market(tags=[{"slug": 1}]),
+    ],
+)
+async def test_collect_tag_rejects_malformed_market_tags(market):
+    transport = FakeTransport([
+        response(200, {"markets": [market], "next_cursor": None}),
+    ])
+    client = PolymarketApiClient(transport=transport, retry_delay=0)
+
+    with pytest.raises(PolymarketApiError, match="official response was invalid") as failure:
+        await client.collect_tag("21", page_limit=20)
+
+    error = failure.value
+    assert type(error).__name__ == "PolymarketTagsError"
+    assert error.status == 200
+    assert error.attempts == 1
+    assert error.tag_id == "21"
+    assert error.cursor is None
+
+
+@pytest.mark.asyncio
 @pytest.mark.parametrize("tag_id", ["", "abc", "-1", 2])
 async def test_collect_tag_rejects_invalid_tag_id(tag_id):
     client = PolymarketApiClient(transport=FakeTransport([]), retry_delay=0)
@@ -142,7 +193,7 @@ async def test_collect_tag_rejects_invalid_page_limit(limit):
 @pytest.mark.asyncio
 async def test_collect_tag_can_bound_pages_for_live_contract_checks():
     transport = FakeTransport([
-        response(200, {"markets": [{"id": "1"}], "next_cursor": "abc"}),
+        response(200, {"markets": [api_market("1")], "next_cursor": "abc"}),
     ])
     client = PolymarketApiClient(transport=transport, retry_delay=0)
 
@@ -154,8 +205,8 @@ async def test_collect_tag_can_bound_pages_for_live_contract_checks():
 @pytest.mark.asyncio
 async def test_iter_tag_yields_pages_without_collecting_the_complete_tag():
     transport = FakeTransport([
-        response(200, {"markets": [{"id": "1"}], "next_cursor": "abc"}),
-        response(200, {"markets": [{"id": "2"}], "next_cursor": None}),
+        response(200, {"markets": [{"id": "1", "tags": None}], "next_cursor": "abc"}),
+        response(200, {"markets": [api_market("2")], "next_cursor": None}),
     ])
     client = PolymarketApiClient(transport=transport, retry_delay=0)
 

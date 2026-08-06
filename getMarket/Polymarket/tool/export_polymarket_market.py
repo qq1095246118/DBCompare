@@ -17,16 +17,19 @@ if __package__ in (None, ""):
     sys.path.insert(0, str(_PROJECT_ROOT))
 
 from common.artifacts import write_json_atomic
+from getMarket.Polymarket.tool.final_contract import build_db_aligned_final
 from getMarket.Polymarket.tool.market_filter import (
     TAG_CATEGORIES,
+    MarketAccumulator,
     TaggedMarket,
     compact_market,
-    merge_markets,
 )
 from getMarket.Polymarket.tool.market_ranking import select_ranked_markets
 from getMarket.Polymarket.tool.polymarket_api import (
     PolymarketApiClient,
     PolymarketApiError,
+    PolymarketTagsError,
+    validate_market_tags,
 )
 
 
@@ -99,6 +102,17 @@ def _run_name(business_date: date) -> str:
 
 
 def _safe_error(error: BaseException, *, captured_at: str) -> dict[str, object]:
+    if isinstance(error, PolymarketTagsError):
+        return {
+            "stage": "processing",
+            "tag_id": error.tag_id,
+            "cursor": error.cursor,
+            "attempt_count": error.attempts,
+            "http_status": error.status,
+            "type": type(error).__name__,
+            "message": "processing failed",
+            "captured_at": captured_at,
+        }
     if isinstance(error, PolymarketApiError):
         return {
             "stage": "request",
@@ -149,7 +163,7 @@ async def run_async(
         retry_delay=args.retry_delay,
     )
     try:
-        tagged: list[TaggedMarket] = []
+        accumulator = MarketAccumulator()
         for tag_id in TAG_CATEGORIES:
             page_index = 0
             async for page in api.iter_tag(tag_id, page_limit=args.page_limit):
@@ -158,14 +172,20 @@ async def run_async(
                     run_directory / "raw" / f"tag-{tag_id}" / f"page-{page_index:04d}.json",
                     _raw_page(page),
                 )
-                tagged.extend(
+                validate_market_tags(page)
+                accumulator.add(
                     TaggedMarket(tag_id, compact_market(row))
                     for row in page.payload["markets"]
                 )
-        merged = merge_markets(tagged)
+        merged = accumulator.result()
         ranked = select_ranked_markets(merged.markets)
+        final_payload = build_db_aligned_final(
+            ranked.selected,
+            business_date=business_date,
+            captured_at=datetime.fromisoformat(captured_at.replace("Z", "+00:00")),
+        )
         write_json_atomic(run_directory / "clean.json", ranked.candidates)
-        write_json_atomic(run_directory / "final.json", ranked.selected)
+        write_json_atomic(run_directory / "final.json", final_payload)
         return 0
     except Exception as error:
         write_json_atomic(

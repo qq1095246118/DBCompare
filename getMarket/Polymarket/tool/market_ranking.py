@@ -1,4 +1,4 @@
-"""Strict metric normalization and ordered global market ranking."""
+"""Strict metric normalization and ordered per-category market ranking."""
 
 from __future__ import annotations
 
@@ -8,8 +8,20 @@ from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 import json
 
+from getMarket.Polymarket.tool.market_filter import CATEGORY_ORDER
+
 
 METRIC_PRIORITIES = ("liquidity", "dominant_probability", "volume24hr")
+RANKING_LIMIT = 10
+_SELECTED_CANDIDATE_FIELDS = (
+    "market_id",
+    "categories",
+    "matched_tag_ids",
+    "crypto_topics",
+    "matched_crypto_tag_slugs",
+    "source",
+    "normalized_metrics",
+)
 
 
 @dataclass(frozen=True)
@@ -92,49 +104,75 @@ def _rank(
 
 
 def select_ranked_markets(
-    markets: Iterable[Mapping[str, object]], *, per_priority: int = 10
+    markets: Iterable[Mapping[str, object]],
 ) -> RankingResult:
-    if type(per_priority) is not int or per_priority < 1:
-        raise ValueError("per-priority limit must be positive")
     candidates: list[dict[str, object]] = []
-    seen: set[str] = set()
+    seen: set[tuple[str, str]] = set()
     for market in markets:
         if not isinstance(market, Mapping):
             raise TypeError("ranked markets must be mappings")
         market_id = market.get("market_id")
         source = market.get("source")
-        if not isinstance(market_id, str) or not market_id:
-            raise ValueError("ranked market ID must be a non-empty string")
-        if market_id in seen:
-            raise ValueError("ranked market IDs must be unique")
+        if not isinstance(market_id, str) or not market_id.strip():
+            raise ValueError("ranked market ID must be a non-whitespace string")
         if not isinstance(source, Mapping):
             raise ValueError("ranked market source must be a mapping")
-        seen.add(market_id)
-        normalized = deepcopy(dict(market))
+        categories = market.get("categories")
+        if (
+            type(categories) is not list
+            or len(categories) != 1
+            or type(categories[0]) is not str
+            or categories[0] not in CATEGORY_ORDER
+        ):
+            raise ValueError("ranked market must have exactly one configured category")
+        identity = (categories[0], market_id)
+        if identity in seen:
+            raise ValueError("category and market ID pairs must be unique")
+        seen.add(identity)
+        candidate = dict(market)
+        candidate["source"] = dict(source)
+        normalized = deepcopy(candidate)
         normalized["normalized_metrics"] = normalize_metrics(source)
         candidates.append(normalized)
-    candidates.sort(key=lambda row: row["market_id"])
+    category_positions = {
+        category: position for position, category in enumerate(CATEGORY_ORDER)
+    }
+    candidates.sort(key=lambda row: (
+        category_positions[row["categories"][0]], row["market_id"]
+    ))
 
     selected: list[dict[str, object]] = []
-    selected_ids: set[str] = set()
     rankings: dict[str, object] = {}
-    for priority, metric in enumerate(METRIC_PRIORITIES, start=1):
-        eligible, excluded = _rank(candidates, metric, selected_ids)
-        winners = eligible[:per_priority]
-        winner_ids = [row["market_id"] for row in winners]
-        rankings[metric] = {
-            "priority": priority,
-            "selected_market_ids": winner_ids,
-            "selected_metrics": [row["normalized_metrics"][metric] for row in winners],
-            "excluded_by_priorities": excluded,
-        }
-        for rank, row in enumerate(winners, start=1):
-            final = deepcopy(row)
-            final.update({
-                "selected_by": metric,
+    for category in CATEGORY_ORDER:
+        category_candidates = [
+            row for row in candidates if row["categories"][0] == category
+        ]
+        selected_ids: set[str] = set()
+        rankings[category] = {}
+        for priority, metric in enumerate(METRIC_PRIORITIES, start=1):
+            eligible, excluded = _rank(category_candidates, metric, selected_ids)
+            winners = eligible[:RANKING_LIMIT]
+            winner_ids = [row["market_id"] for row in winners]
+            rankings[category][metric] = {
                 "priority": priority,
-                "rank_in_priority": rank,
-            })
-            selected.append(final)
-            selected_ids.add(row["market_id"])
+                "selected_market_ids": winner_ids,
+                "selected_metrics": [
+                    row["normalized_metrics"][metric] for row in winners
+                ],
+                "excluded_by_priorities": excluded,
+            }
+            for rank, row in enumerate(winners, start=1):
+                final = {
+                    key: deepcopy(row[key])
+                    for key in _SELECTED_CANDIDATE_FIELDS
+                    if key in row
+                }
+                final.update({
+                    "selected_category": category,
+                    "ranking_metric": metric,
+                    "ranking_priority": priority,
+                    "rank": rank,
+                })
+                selected.append(final)
+                selected_ids.add(row["market_id"])
     return RankingResult(candidates, selected, rankings)
